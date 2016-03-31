@@ -1,0 +1,116 @@
+Writing an Interpreter in Go
+
+Capitol One Conference Center
+Dallas, Texas, USA
+April 5, 2016
+
+* Who Am I
+
+* Paul Graham - YCombinator
+ Your mind is like a compiled program you've lost the source of.
+ It works, but you don't know why.
+
+* What is a Compiler
+- Program to transform a source language into a target language
+- Immutable - Same Input Yields Same Output 
+- Typically compiled program run "faster"
+
+* Examples of Compiled Languages
+- /usr/local/go/bin/go build is a Compiler.  
+- C is a Compiler
+- JavaC is a Compiler for Java VM
+- YACC is a Compiler into Go (and many other languages)
+- Ken Thompson Wrote Regular Expression Compiler
+- Research into Compiling SQL into Native Code (Oracle, PostgreSQL)
+
+* What is an Interpreter?
+- A program that directly executes the Source program
+
+.image godfw-hoq-20160405/ch4-Z-G-1.gif
+
+- Shell, Awk, Javascript, Ruby, SQL
+- Lisp was the first interpreter
+- Java is an interpreter of JavaC output (strictly speaking)
+
+
+* Interpreter Translates Source into Internal Format
+- Abstract Syntax Tree (perl5, awk)
+- Line by Line (many unix shells)
+- Virtual Machine Instruction (python, java, perl6)
+- Just in Time Compilation (java)
+
+* What is HOQ?
+- Toy program to demonstrate YACC in Go
+- Language is mostly declarative, like SQL
+- Executes entire unix programs, like shell
+- Consumes lines of input text and splits into fields on tab boundaries
+- Inspired by "HOC" Calculator in Book "Unix Programming Environment"
+
+* HOQ is Mostly Declarative
+- Execution order determined by boolean qualifications
+- Qualify on patterns in input text
+- Qualify on process exit status
+- Execution Order is a Directed Acyclic Graph, Similar to
+ make --jobs 4
+
+* Hello, World in HOQ
+
+* Confluence
+- AST is a flow graph!
+- Input Text and Exit Codes Flow Bottom Up
+
+* Overview of CSP
+- Book USING CSP
+- Squinking at Power Series
+
+*Dick Sites (WTF?)
+ “I would rather write programs to help me write programs than write programs.” 
+
+* Overview of Go Yacc
+- Write Programs to Write Programs
+- YACC is Really Fun - VERY Geeky
+- Compiles a Flavor of Backus-Naur Form
+- Orginal Golang Grammar
+- Domain Specific Language
+- Go code derived from Plan9 YACC in C
+
+* YACC Needs a Lexer 
+- Think of a Lexer as Big switch{}
+- Busts Text into Integer Tokens
+- Token Constants Defined by YACC (see %token in grammar)
+- Lexer Easy to Write by Hand
+- CoRoutines Invented to Write Lexers
+
+* Complex Example of HOQ
+- Regression Test
+
+* Breakdown of Hoq Grammer
+
+* Breakdown of Go Code
+- hoq.go
+- ast.go
+- command.go (rename to exec.go)?
+- compile.go
+- opcode.go
+- parser.y
+- rummy.go
+- tsort.go
+
+* Breakdown of Opcodes and Machine Model
+
+* Ideas for Future Hoq
+
+* Ideas for Future Go Talks
+
+* YACC Resources
+.link https://docs.google.com/document/d/1P3BLR31VA8cvLJLfMibSuTdwTuF7WWLux71CYD0eeD8/edit Early GoLang in YACC
+.link http://www.amazon.com/Unix-Programming-Environment-Prentice-Hall-Software/dp/013937681X Book 'Unix Programming Environment" by Kernighan and Pike
+.link http://heim.ifi.uio.no/inf2270/programmer/historien-om-C.pdf C Written in Yacc
+.link https://github.com/golang-samples/yacc Simple Go Calculator
+.link https://golang.org/pkg/go/ast/ Go AST Library
+
+* Lex Resources
+.link https://www.youtube.com/watch?v=HxaD_trXwRE Lexer Talk by Rob Pike
+.link http://www.colm.net/open-source/ragel/ Ragle is a Lexical Compiler
+.link http://www-cs-students.stanford.edu/~blynn/nex/ Nex (New Lex)
+.link https://godoc.org/golang.org/x/exp/ebnf EBNF in GoLang

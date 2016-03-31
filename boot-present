@@ -1,0 +1,9 @@
+#
+#  Usage:
+#	./boot-present >present.log 2>&1 &
+#
+export GOPATH=/usr/local
+HTTP=$(hostname):8080
+
+PATH=/usr/local/go/bin:.:/usr/local/bin:$PATH
+exec present -http=$HTTP -play=true
