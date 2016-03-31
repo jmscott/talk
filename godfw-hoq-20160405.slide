@@ -87,6 +87,7 @@ April 5, 2016
 * Go Idioms
 - close is cheap broadcast
 - serial functions easy to make concurrent
+- null method pointer allows elegant recursive termination
 
 * Breakdown of Hoq Grammer
 
