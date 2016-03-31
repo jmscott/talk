@@ -1,4 +1,5 @@
-# Talks, All in GoLang Presnt Slide Show Format
+# Talks
+ In GoLang present file format
 
 ## boot-present
  Start Present HTTPD Slide Presenter @ godoc.org/golang.org/x/tools/present
