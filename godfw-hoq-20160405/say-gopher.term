@@ -1,0 +1,7 @@
+$ echo | hoq say-gopher.hoq
+hello, gophers
+hello, world
+
+$ echo | hoq say-gopher.hoq
+hello, world
+hello, gophers

@@ -1,0 +1,4 @@
+$ echo | hoq say-gopher-trinity.hoq
+hello, world
+to be or not to be
+good bye, cruel world

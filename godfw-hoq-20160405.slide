@@ -11,49 +11,79 @@ April 5, 2016
  It works, but you don't know why.
 
 * What is a Compiler
-- Program to transform a source language into a target language
-- Immutable - Same Input Yields Same Output 
-- Typically compiled program run "faster"
+- program to transform a source language into a target language
+- immutable - Same Input Yields Same Output 
+- typically compiled program run "faster"
 
 * Examples of Compiled Languages
 - /usr/local/go/bin/go build is a Compiler.  
-- C is a Compiler
-- JavaC is a Compiler for Java VM
-- YACC is a Compiler into Go (and many other languages)
-- Ken Thompson Wrote Regular Expression Compiler
-- Research into Compiling SQL into Native Code (Oracle, PostgreSQL)
+- c is a Compiler
+- javac is a compiler for java virtual machine
+- YACC is a compiler into Go (and many other languages)
+- Ken Thompson Wrote regular expression compiler
+- research into compiling SQL into native code (Oracle, PostgreSQL)
 
 * What is an Interpreter?
-- A program that directly executes the Source program
+- program that directly executes the source program, typical text file
 
-.image godfw-hoq-20160405/ch4-Z-G-1.gif
+.image godfw-hoq-20160405/tao.gif
 
-- Shell, Awk, Javascript, Ruby, SQL
-- Lisp was the first interpreter
-- Java is an interpreter of JavaC output (strictly speaking)
-
+- bourne shell, awk, javascript, ruby, SQL
+- lisp was the first interpreter
+- java is an interpreter of javac output (strictly speaking)
 
 * Interpreter Translates Source into Internal Format
-- Abstract Syntax Tree (perl5, awk)
-- Line by Line (many unix shells)
-- Virtual Machine Instruction (python, java, perl6)
-- Just in Time Compilation (java)
+- abstract syntax tree (perl5, awk)
+- line by line (many unix shells)
+- virtual machine instruction (python, java, perl6)
+- just in time compilation (java)
 
 * What is HOQ?
-- Toy program to demonstrate YACC in Go
-- Language is mostly declarative, like SQL
-- Executes entire unix programs, like shell
-- Consumes lines of input text and splits into fields on tab boundaries
-- Inspired by "HOC" Calculator in Book "Unix Programming Environment"
+- toy interpreter to demonstrate famous YACC compiler in Go
+- demonstrates "Communicating Sequential Processes", hopefully
+
+Did I bite off more than I can chew?
+
+* HOQ Language is Very Simple
+- language is mostly declarative, like SQL
+ exec b() when a.exit_status == 0;
+- executes entire unix programs, like shell
+- consuming input text drives the program
+- input lines split on tab separated boundaries ($1, $2, ...)
+- inspired by "HOC" Calculator in Book "Unix Programming Environment"
 
 * HOQ is Mostly Declarative
-- Execution order determined by boolean qualifications
-- Qualify on patterns in input text
-- Qualify on process exit status
-- Execution Order is a Directed Acyclic Graph, Similar to
+- execution order determined by boolean qualifications
+- qualify on patterns in input text
+- qualify on process exit status
+- concurrent execution, partially ordered as directed acyclic graph
  make --jobs 4
 
 * Hello, World in HOQ
+
+.code godfw-hoq-20160405/say.hoq 
+.caption say.hoq
+
+* Hello, World in HOQ - Run
+.code godfw-hoq-20160405/say.hoq 
+.caption say.hoq
+
+.code godfw-hoq-20160405/say.term 
+.caption Terminal
+
+* Hello, Gophers
+.code godfw-hoq-20160405/say-gopher.hoq 
+.caption say-gopher.hoq
+
+.code godfw-hoq-20160405/say-gopher.term 
+.caption Terminal
+
+* Hello, Trinity
+.code godfw-hoq-20160405/say-gopher-trinity.hoq 
+.caption say-gopher-trinity.hoq
+
+.code godfw-hoq-20160405/say-gopher-trinity.term 
+.caption Terminal
 
 * Confluence
 - AST is a flow graph!
@@ -62,11 +92,8 @@ April 5, 2016
 * Overview of CSP
 - Book "Communicating Sequential Process"
   third-most cited computer science reference of all time according to Citeseer 
-- Squinking at Power Series
--
-
-*Dick Sites (WTF?)
- “I would rather write programs to help me write programs than write programs.” 
+- Squinting at Power Series by Doug McIlroy
+ rewrites calculus Taylor series in CSP!
 
 * Overview of Go Yacc
 - Write Programs to Write Programs

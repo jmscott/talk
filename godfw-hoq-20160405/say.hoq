@@ -1,0 +1,6 @@
+command say
+{
+    path = "echo";
+}
+
+exec say("hello, world");

@@ -1,0 +1,11 @@
+command say1 {
+    path = "echo";
+}
+
+command say2 {
+    path = "echo";
+}
+
+#  say1 and say2 are independent are independent of each other
+exec say1("hello, world");		#  say1 might execute first
+exec say2("hello, gophers");		#  or say2 might execute first
