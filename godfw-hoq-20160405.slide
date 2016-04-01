@@ -39,7 +39,6 @@ April 5, 2016
 - java is an interpreter of javac output (strictly speaking)
 
 * Interpreter Translates Source into Internal Format
-- abstract syntax tree (perl5, awk)
 .image godfw-hoq-20160405/ast.png
 .caption Abstract Syntax Tree (perl5, awk)
 - line by line (many unix shells)
@@ -101,11 +100,14 @@ Did I bite off more than I can chew?
 - AST is a flow graph!
 - Input Text and Exit Codes Flow Bottom Up
 
-* Overview of CSP
+* What is "Communicationg Sequential Process"?
 - Book "Communicating Sequential Process"
   third-most cited computer science reference of all time according to Citeseer 
-- Squinting at Power Series by Doug McIlroy
- rewrites calculus Taylor series in CSP!
+
+* Squinting at Power Series by Doug McIlroy
+.image godfw-hoq-20160405/expx.png
+.image godfw-hoq-20160405/expx1.png
+Rewrites calculus Taylor series in CSP!
 
 * What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
@@ -181,3 +183,6 @@ how geeky (and elegant) is that grammar!
 .link https://www.youtube.com/watch?v=HxaD_trXwRE Lexer Talk by Rob Pike
 .link http://www.colm.net/open-source/ragel/ Ragle is a Lexical Compiler
 .link http://www-cs-students.stanford.edu/~blynn/nex/ Nex (New Lex)
+
+* CSP Resources
+.link http://research.swtch.com/power
