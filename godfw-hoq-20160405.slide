@@ -166,10 +166,6 @@ how geeky (and elegant) is that grammar!
 - exec
 - fanout_uint8, fanin_uint8
 
-* Ideas for Future Hoq
-
-* Ideas for Future Go Talks
-
 * YACC Resources
 .link https://docs.google.com/document/d/1P3BLR31VA8cvLJLfMibSuTdwTuF7WWLux71CYD0eeD8/edit Early GoLang in YACC
 .link http://www.amazon.com/Unix-Programming-Environment-Prentice-Hall-Software/dp/013937681X Book 'Unix Programming Environment" by Kernighan and Pike
