@@ -1,10 +1,15 @@
 Writing an Interpreter in Go
 
+*John*Scott*
+github.com/jmscott
+
+Consultant, American Messaging, 2006-now
+Founder, SetSpace, Inc, 1998-now
+Founder, august.{com,net}, Inc, 1998-2006
+
 Capitol One Conference Center
 Plano, Texas, USA
 April 5, 2016
-
-* Who Am I
 
 * Paul Graham - YCombinator
  Your mind is like a compiled program you've lost the source of.
@@ -48,7 +53,7 @@ Did I bite off more than I can chew?
 - language is mostly declarative, like SQL
  exec b() when a.exit_status == 0;
 - executes entire unix programs, like shell
-- consuming input text drives the program
+- consuming input text drives the hoq execution
 - input lines split on tab separated boundaries ($1, $2, ...)
 - inspired by "HOC" Calculator in Book "Unix Programming Environment"
 
@@ -95,13 +100,21 @@ Did I bite off more than I can chew?
 - Squinting at Power Series by Doug McIlroy
  rewrites calculus Taylor series in CSP!
 
-* Overview of Go Yacc
-- Write Programs to Write Programs
-- YACC is Really Fun - VERY Geeky
+* What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form
-- Orginal Golang Grammar
-- Domain Specific Language
-- Go version of YACC derived from Plan9 YACC in C
+- Orginal Golang Grammar written in YACC
+- Domain Specific Languages (chemical reactions, SAT solvers)
+
+* Backus-Naur Grammar of Backus-Naur
+ Production  = name "=" [ Expression ] "." .
+ Expression  = Alternative { "|" Alternative } .
+ Alternative = Term { Term } .
+ Term        = name | token [ "…" token ] | Group | Option | Repetition .
+ Group       = "(" Expression ")" .
+ Option      = "[" Expression "]" .
+ Repetition  = "{" Expression "}" .
+
+how geeky (and elegant) is that grammar!
 
 * YACC Needs a Lexer 
 - Think of a Lexer as Big switch{}
@@ -142,9 +155,9 @@ Did I bite off more than I can chew?
 .link http://heim.ifi.uio.no/inf2270/programmer/historien-om-C.pdf C Written in Yacc
 .link https://github.com/golang-samples/yacc Simple Go Calculator
 .link https://golang.org/pkg/go/ast/ Go AST Library
+.link https://godoc.org/golang.org/x/exp/ebnf EBNF in GoLang
 
 * Lex Resources
 .link https://www.youtube.com/watch?v=HxaD_trXwRE Lexer Talk by Rob Pike
 .link http://www.colm.net/open-source/ragel/ Ragle is a Lexical Compiler
 .link http://www-cs-students.stanford.edu/~blynn/nex/ Nex (New Lex)
-.link https://godoc.org/golang.org/x/exp/ebnf EBNF in GoLang
