@@ -57,8 +57,12 @@ Did I bite off more than I can chew?
  exec b() when a.exit_status == 0;
 - executes entire unix programs, like shell
 - consuming input text drives the hoq execution
+ hoq ipfilter.hoq <netscan.log
 - input lines split on tab separated boundaries ($1, $2, ...)
-- inspired by "HOC" Calculator in Book "Unix Programming Environment"
+
+* Unix Programming Environment - Must Read
+.image godfw-hoq-20160405/upe.jpg
+.caption Inspired by "HOC" Calculator in Book "Unix Programming Environment"
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
