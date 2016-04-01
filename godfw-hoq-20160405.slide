@@ -60,8 +60,10 @@ April 5, 2016
 - Input Text and Exit Codes Flow Bottom Up
 
 * Overview of CSP
-- Book USING CSP
+- Book "Communicating Sequential Process"
+  third-most cited computer science reference of all time according to Citeseer 
 - Squinking at Power Series
+-
 
 *Dick Sites (WTF?)
  “I would rather write programs to help me write programs than write programs.” 
@@ -72,7 +74,7 @@ April 5, 2016
 - Compiles a Flavor of Backus-Naur Form
 - Orginal Golang Grammar
 - Domain Specific Language
-- Go code derived from Plan9 YACC in C
+- Go version of YACC derived from Plan9 YACC in C
 
 * YACC Needs a Lexer 
 - Think of a Lexer as Big switch{}
