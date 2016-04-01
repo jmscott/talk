@@ -100,6 +100,13 @@ Did I bite off more than I can chew?
 - AST is a flow graph!
 - Input Text and Exit Codes Flow Bottom Up
 
+* Go Idioms in HOQ
+- close is cheap broadcast
+- serial functions easy to make concurrent
+- null method pointer allows elegant recursive termination
+- simulataneous read from many inputs
+- fanin/fanout
+
 * What is "Communicationg Sequential Process"?
 - Book "Communicating Sequential Process"
   third-most cited computer science reference of all time according to Citeseer 
@@ -139,12 +146,6 @@ how geeky (and elegant) is that grammar!
 * Complex Example of HOQ
 Tuesday
 
-* Go Idioms in HOQ
-- close is cheap broadcast
-- serial functions easy to make concurrent
-- null method pointer allows elegant recursive termination
-- simulataneous read from many inputs
-- fanin/fanout
 
 * HOQ Grammar and Go Code
 
