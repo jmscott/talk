@@ -158,14 +158,13 @@ how geeky (and elegant) is that grammar!
 - tsort.go
 
 * Opcodes and Machine Model
-- string_rel2, uint8_rel2, bool_rel2
 - const_string, const_bool, const_uint8
 - to_string_uint8, to_string_bool
 - dollar, dollar0
+- string_rel2, uint8_rel2, bool_rel2
 - argv0, argv1, argv
 - exec
 - fanout_uint8, fanin_uint8
-
 
 * Ideas for Future Hoq
 
