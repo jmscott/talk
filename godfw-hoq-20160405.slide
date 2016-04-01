@@ -133,10 +133,11 @@ how geeky (and elegant) is that grammar!
 - close is cheap broadcast
 - serial functions easy to make concurrent
 - null method pointer allows elegant recursive termination
+- fanin/fanout
 
-* Breakdown of Hoq Grammer
+* HOQ Grammar and Go Code
 
-* Breakdown of Go Code
+* Go Files
 - hoq.go
 - ast.go
 - command.go (rename to exec.go)?
@@ -146,7 +147,15 @@ how geeky (and elegant) is that grammar!
 - rummy.go
 - tsort.go
 
-* Breakdown of Opcodes and Machine Model
+* Opcodes and Machine Model
+- string_rel2, uint8_rel2, bool_rel2
+- const_string, const_bool, const_uint8
+- to_string_uint8, to_string_bool
+- dollar, dollar0
+- argv0, argv1, argv
+- exec
+- fanout_uint8, fanin_uint8
+
 
 * Ideas for Future Hoq
 
