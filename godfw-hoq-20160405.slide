@@ -129,9 +129,10 @@ Rewrites calculus Taylor series in CSP!
 how geeky (and elegant) is that grammar!
 
 * YACC Needs a Lexer 
+- busts text into stream of integer tokens
+- token has a value related to scan
 - lexer can be a big switch{}
 - lexer easy to write by hand
-- busts text into integer tokens
 - token constants defined by YACC (see %token in grammar)
 - co-routines invented to write lexers
 
