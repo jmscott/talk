@@ -26,7 +26,7 @@ April 5, 2016
 - c is a Compiler
 - javac is a compiler for java virtual machine
 - YACC is a compiler into Go (and many other languages)
-- Ken Thompson Wrote regular expression compiler
+- Ken Thompson wrote regular expression compiler
 - research into compiling SQL into native code (Oracle, PostgreSQL)
 
 * What is an Interpreter?
@@ -40,8 +40,10 @@ April 5, 2016
 
 * Interpreter Translates Source into Internal Format
 - abstract syntax tree (perl5, awk)
+.image godfw-hoq-20160405/ast.png
+.caption Abstract Syntax Tree (perl5, awk)
 - line by line (many unix shells)
-- virtual machine instruction (python, java, perl6)
+- virtual machine instruction (python, vbasic, java, perl6)
 - just in time compilation (java)
 
 * What is HOQ?
