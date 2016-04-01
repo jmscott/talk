@@ -20,10 +20,11 @@ April 5, 2016
 - program to transform a source language into a target language
 - immutable - Same Input Yields Same Output 
 - typically compiled program runs "fastest"
+- semantics of language NOT determined by compiler
 
-* Examples of Compiled Languages
+* Examples of Typically Compiled Languages
 - /usr/local/go/bin/go build is a Compiler.  
-- c is a Compiler
+- c
 - javac is a compiler for java virtual machine
 - YACC is a compiler into Go (and many other languages)
 - Ken Thompson wrote regular expression compiler
@@ -59,7 +60,7 @@ Did I bite off more than I can chew?
  hoq ipfilter.hoq <netscan.log
 - input lines split on tab separated boundaries ($1, $2, ...)
 
-* Unix Programming Environment - Must Read
+* Unix Programming Environment - Mighty Fine Book
 .image godfw-hoq-20160405/upe.jpg
 .caption *HOQ* Inspired by *HOC* Calculator in Book Unix Programming Environment
 
