@@ -1,0 +1,24 @@
+exp:
+	  TRUE    |    FALSE    |    STRING    |    UINT8    |    '$' UINT8  |  /* scalars */
+	  XCOMMAND '.' EXIT_STATUS                                           |  /* process exit */
+	  exp RE_MATCH exp     |     exp RE_NMATCH exp                       |  /* regexp */ 
+	  exp AND exp |  exp OR exp  |  exp EQ exp  |  exp NEQ exp           |  /* logic/compare */
+	  NOT exp     |     '(' exp ')'                                         /* negation/group */
+exp_list:
+	  exp    |    exp_list ',' exp                                          /* exec args */
+argv:
+	  /*empty*/    |    exp_list                                           
+qualification:                                                              /* boolean match */
+	  /*empty*/    |    WHEN exp
+string_list:
+	  STRING    |    string_list ',' STRING                                 /* command args */
+command_argv:
+	  /*empty*/    |    '(' ')'    |    '(' string_list ')'
+statement:
+	  COMMAND NAME command_argv '{' PATH '=' STRING ';' '}'
+	|
+	  EXEC  XCOMMAND '('  argv  ')'  qualification  ';'
+statement_list:
+	  statement
+	|
+	  statement_list statement

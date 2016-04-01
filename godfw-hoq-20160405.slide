@@ -101,7 +101,7 @@ Did I bite off more than I can chew?
  rewrites calculus Taylor series in CSP!
 
 * What is Go YACC?
-- Compiles a Flavor of Backus-Naur Form
+- Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
 - Orginal Golang Grammar written in YACC
 - Domain Specific Languages (chemical reactions, SAT solvers)
 
@@ -113,6 +113,9 @@ Did I bite off more than I can chew?
  Group       = "(" Expression ")" .
  Option      = "[" Expression "]" .
  Repetition  = "{" Expression "}" .
+
+* HOQ Backus-Naur, Go Code Stripped
+.code godfw-hoq-20160405/hoq.bnf
 
 how geeky (and elegant) is that grammar!
 
