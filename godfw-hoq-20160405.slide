@@ -19,7 +19,7 @@ April 5, 2016
 * What is a Compiler?
 - program to transform a source language into a target language
 - immutable - Same Input Yields Same Output 
-- typically compiled program run "faster"
+- typically compiled program runs "fastest"
 
 * Examples of Compiled Languages
 - /usr/local/go/bin/go build is a Compiler.  
@@ -30,7 +30,7 @@ April 5, 2016
 - research into compiling SQL into native code (Oracle, PostgreSQL)
 
 * What is an Interpreter?
-- program that directly executes the source program, typical text file
+- program that directly executes the source program (often text)
 
 .image godfw-hoq-20160405/tao.gif
 
@@ -42,7 +42,7 @@ April 5, 2016
 .image godfw-hoq-20160405/ast.png
 .caption Abstract Syntax Tree (perl5, awk)
 - line by line (many unix shells)
-- virtual machine instruction (python, vbasic, java, perl6)
+- virtual machine instruction (python, ruby, vbasic, java, perl6)
 - just in time compilation (java)
 
 * What is HOQ?
@@ -51,9 +51,9 @@ April 5, 2016
 
 Did I bite off more than I can chew?
 
-* HOQ Language is Very Simple
-- language is mostly declarative, like SQL
- exec b() when a.exit_status == 0;
+* HOQ Language is Simple Toy
+- mostly declarative, like SQL
+ exec b() when a.exit_status == 0 or $1 == "OK";
 - executes entire unix programs, like shell
 - consuming input text drives the hoq execution
  hoq ipfilter.hoq <netscan.log
@@ -61,7 +61,7 @@ Did I bite off more than I can chew?
 
 * Unix Programming Environment - Must Read
 .image godfw-hoq-20160405/upe.jpg
-.caption Inspired by "HOC" Calculator in Book "Unix Programming Environment"
+.caption *HOQ* Inspired by *HOC* Calculator in Book Unix Programming Environment
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
