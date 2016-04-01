@@ -130,10 +130,11 @@ how geeky (and elegant) is that grammar!
 * Complex Example of HOQ
 - Regression Test
 
-* Go Idioms
+* Go Idioms in HOQ
 - close is cheap broadcast
 - serial functions easy to make concurrent
 - null method pointer allows elegant recursive termination
+- simulataneous read from many inputs
 - fanin/fanout
 
 * HOQ Grammar and Go Code
