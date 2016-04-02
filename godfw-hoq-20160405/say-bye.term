@@ -1,7 +1,7 @@
-$ echo | hoq say-gopher.hoq
+$ echo | hoq say-bye.hoq
 hello, world
 good bye, cruel world
 
-$ echo | hoq say-gopher.hoq
+$ echo | hoq say-bye.hoq
 good bye, cruel world
 hello, world
