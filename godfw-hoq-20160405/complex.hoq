@@ -1,0 +1,17 @@
+#  $3 is a blob request verb
+#  $5 is a network chat history
+
+exec brr_on_network()
+  when
+  (
+	(
+		$3 == "put" or $3 == "get" or
+		$3 == "eat" or $3 == "wrap" or
+		$3 == "roll"
+	)
+	and
+	$5 == "ok"
+  ) or (
+	$3 == "give" and $5 == "ok,ok"
+  )
+;
