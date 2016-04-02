@@ -125,9 +125,8 @@ Did I bite off more than I can chew?
 - an act or process of merging.
 
 * What is Confluence?
-- Query Tree 9ast) is a flow graph!
-- Input text and exit codes flow bottom up
-- SQL query planners flow tuples bottom up
+- Flow of Tuples is Least First
+- Query Tree (ast) is a flow graph!
 
 * Go Idioms in HOQ
 - close is cheap broadcast
@@ -139,7 +138,7 @@ Did I bite off more than I can chew?
 * Philip Wadler
 Theory is your warm fuzzy friend.
 
-* Before A or B can be True a Choice Must Be Made.
+* Is A or B True Before a Choice?
 
 * What is "Communicationg Sequential Process"?
 - Book "Communicating Sequential Process"
