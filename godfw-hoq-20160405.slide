@@ -48,7 +48,8 @@ April 5, 2016
 
 * Abstract Syntax Tree
 .image godfw-hoq-20160405/ast.png
-*Query:* $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
+.caption Query Fragment
+  $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
 
 * What is HOQ?
 - toy interpreter to demonstrate famous YACC compiler in Go
