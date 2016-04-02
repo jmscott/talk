@@ -92,7 +92,7 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/say.term 
 .caption Terminal
 
-* Say Bye
+* Good Bye, Cruel World
 .code godfw-hoq-20160405/say-bye.hoq 
 .caption say-bye.hoq
 
@@ -110,7 +110,9 @@ Did I bite off more than I can chew?
 
 * Confluence
 - AST is a flow graph!
-- Input Text and Exit Codes Flow Bottom Up
+- Input text and exit codes flow bottom up
+- SQL query planners flow tuples bottom up
+- Logic Programming Languages (Prolog, Datalog)
 
 * Go Idioms in HOQ
 - close is cheap broadcast
