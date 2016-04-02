@@ -73,7 +73,7 @@ Did I bite off more than I can chew?
 - consuming text from standard input drives the execution of the whole hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
-- hoq ends after both reading the final line *and* waiting for exits of invoked commands
+- hoq terminates after reading the the final line and waiting for all processes to exit.
 
 * HOQ Splits Input Into Fields
 - input lines `strings.Split()` on tab separated boundaries
@@ -138,6 +138,8 @@ Did I bite off more than I can chew?
 
 * Philip Wadler
 Theory is your warm fuzzy friend.
+
+* Before A or B can be True a Choice Must Be Made.
 
 * What is "Communicationg Sequential Process"?
 - Book "Communicating Sequential Process"
