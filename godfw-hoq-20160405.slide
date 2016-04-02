@@ -53,7 +53,7 @@ April 5, 2016
 
 * What is HOQ?
 - toy interpreter to demonstrate famous YACC compiler in Go
-- demonstrates "Communicating Sequential Processes" (hopefully)
+- also, hopefully, demonstrates "Communicating Sequential Processes"
 
 Did I bite off more than I can chew?
 
@@ -61,9 +61,10 @@ Did I bite off more than I can chew?
 .image godfw-hoq-20160405/upe.jpg
 .caption Mighty Fine Book
 
-* HOQ Language is Simple Toy
-- command line program
-- executes unix programs, like a unix shell, and captures exit status
+* HOQ Invocation
+- command line program, invoked like
+ hoq file.hoq <data.in
+- hoq script can unix programs and capture exit status
 
 * HOQ is Driven by Input
 - consuming input text drives the execution of the hoq script
