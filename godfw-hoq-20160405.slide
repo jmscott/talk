@@ -16,6 +16,8 @@ April 5, 2016
  Your mind is like a compiled program you've lost the source of.
  It works, but you don't know why.
 
+* The Talk?
+
 * What is a Compiler?
 - program to transform a source language into a target language
 - immutable - same input yields same output 
@@ -61,17 +63,17 @@ Did I bite off more than I can chew?
 .image godfw-hoq-20160405/upe.jpg
 .caption Mighty Fine Book
 
-* HOQ Invocation
+* How Do We Invoke HOQ?
 - command line program, invoked like
  hoq file.hoq <data.in
 - hoq script _may_ invoke other unix programs and wait for their exit status
-- the `standard`out` and `standard`error` of invoked process are *NOT* redirected
+- the `stdout` and `stderr` of invoked process are *NOT* redirected
 
 * HOQ Execution is Driven by Standard Input
 - consuming text from standard input drives the execution of the whole hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
-- hoq ends after reading final line *and* all invoked processes have exited
+- hoq ends after both reading the final line *and* waiting for exits of child processes
 
 * HOQ Splits Input Into Fields
 - input lines `strings.Split()` on tab separated boundaries
