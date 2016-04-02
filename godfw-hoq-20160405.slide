@@ -107,6 +107,9 @@ Did I bite off more than I can chew?
 - simulataneous read from many inputs
 - fanin/fanout
 
+* Philip Wadler
+Theory is your warm fuzzy friend.
+
 * What is "Communicationg Sequential Process"?
 - Book "Communicating Sequential Process"
   third-most cited computer science reference of all time according to Citeseer 
@@ -120,6 +123,7 @@ Rewrites calculus Taylor series in CSP!
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
 - Orginal Golang Grammar written in YACC
 - Domain Specific Languages (chemical reactions, SAT solvers)
+- Mutation Coverage
 
 * Backus-Naur Grammar of Backus-Naur
  Production  = name "=" [ Expression ] "." .
