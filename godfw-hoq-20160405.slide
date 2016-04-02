@@ -69,7 +69,7 @@ Did I bite off more than I can chew?
 * HOQ is Driven by Input
 - consuming input text drives the execution of the hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
-.caption Shell Example
+.caption Terminal
 - input lines split on tab separated boundaries into fields *$1*, *$2* ...
 - *$0* is entire input line
 - program ends after reading all lines on standard input
