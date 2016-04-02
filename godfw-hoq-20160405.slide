@@ -64,7 +64,7 @@ Did I bite off more than I can chew?
 * HOQ Invocation
 - command line program, invoked like
  hoq file.hoq <data.in
-- hoq script may invoke other unix programs and wait for their exit status
+- hoq script _may_ invoke other unix programs and wait for their exit status
 - the `standard`out` and `standard`error` of invoked process are *NOT* redirected
 
 * HOQ is Driven by Standard Input
