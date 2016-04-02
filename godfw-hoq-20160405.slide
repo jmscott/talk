@@ -113,13 +113,19 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/say-trinity.term 
 .caption Terminal
 
-* Complex Queries in HOQ
+* A Complex and HOQish Query
+.code godfw-hoq-20160405/complex.hoq
+
+* Is Wu Wei Nothing?
 
 * Confluence
-- AST is a flow graph!
+- the junction of two rivers, especially rivers of approximately equal width.
+- an act or process of merging.
+
+* What is Confluence?
+- Query Tree 9ast) is a flow graph!
 - Input text and exit codes flow bottom up
 - SQL query planners flow tuples bottom up
-- Logic Programming Languages (Prolog, Datalog)
 
 * Go Idioms in HOQ
 - close is cheap broadcast
