@@ -72,7 +72,7 @@ Did I bite off more than I can chew?
 .caption Terminal
 - input lines `strings.Split()` on tab separated boundaries into fields *$1*, *$2* ...
  fields:   strings.SplitN(line, "\t", 255),
-- *$0* is entire input line
+- *$0* is current input line
 - program ends after reading all lines on standard input
 
 * HOQ is Mostly Declarative
