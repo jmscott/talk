@@ -23,10 +23,10 @@ April 5, 2016
 - semantics of language NOT determined by compiler
 
 * Examples of Typically Compiled Languages
-- /usr/local/go/bin/go build is a Compiler.  
+- go
 - c
-- javac is a compiler for java virtual machine
-- YACC is a compiler into Go (and many other languages)
+- java
+- YACC compiles Backus-Naur into Go (and many other languages)
 - Ken Thompson wrote regular expression compiler
 - research into compiling SQL into native code (Oracle, PostgreSQL)
 
@@ -37,7 +37,7 @@ April 5, 2016
 
 - bourne shell, awk, javascript, ruby, SQL
 - lisp was the first interpreter
-- java is an interpreter of javac output (strictly speaking)
+- the java command is an interpreter of compiled java class files
 
 * Interpreter Translates Source into Internal Format
 .image godfw-hoq-20160405/ast.png
@@ -45,6 +45,10 @@ April 5, 2016
 - line by line (many unix shells)
 - virtual machine instruction (python, ruby, vbasic, java, perl6)
 - just in time compilation (java)
+
+* Abstract Syntax Tree
+.image godfw-hoq-20160405/ast.png
+*Query:* $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
 
 * What is HOQ?
 - toy interpreter to demonstrate famous YACC compiler in Go
