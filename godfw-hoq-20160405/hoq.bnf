@@ -15,8 +15,7 @@ string_list:
 command_argv:
 	  /*empty*/    |    '(' ')'    |    '(' string_list ')' ;
 statement:
-	  COMMAND NAME command_argv '{' PATH '=' STRING ';' '}'
-	|
+	  COMMAND NAME command_argv '{' PATH '=' STRING ';' '}'              |
 	  EXEC  XCOMMAND '('  argv  ')'  qualification  ';' ;
 statement_list:
 	  statement    |    statement_list statement ;
