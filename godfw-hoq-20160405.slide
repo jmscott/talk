@@ -67,11 +67,11 @@ Did I bite off more than I can chew?
 - hoq script _may_ invoke other unix programs and wait for their exit status
 - the `standard`out` and `standard`error` of invoked process are *NOT* redirected
 
-* HOQ is Driven by Standard Input
-- consuming input text drives the execution of the hoq script
+* HOQ Execution is Driven by Standard Input
+- consuming text from standard input drives the execution of the whole hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
-- program ends after reading lines on standard input
+- hoq ends after reading final line *and* all invoked processes have exited
 
 * HOQ Splits Input Into Fields
 - input lines `strings.Split()` on tab separated boundaries
@@ -83,9 +83,9 @@ Did I bite off more than I can chew?
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
-- qualify on patterns in input text
+- qualify on patterns in `$1` fields
 - qualify on process exit status
-- easy concurrent execution of a directed acyclic graph
+- concurrent execution of processes determined by flow of data up a query tree
 
 * Hello, World
 
