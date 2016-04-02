@@ -64,22 +64,28 @@ Did I bite off more than I can chew?
 * HOQ Invocation
 - command line program, invoked like
  hoq file.hoq <data.in
-- hoq script can invoke unix programs and capture exit status
+- hoq script may invoke unix programs and wait for their exit status
+- the `standard`out` and `standard`error` of invoked process are *NOT* redirected
 
-* HOQ is Driven by Input
+* HOQ is Driven by Standard Input
 - consuming input text drives the execution of the hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
-- input lines `strings.Split()` on tab separated boundaries into fields *$1*, *$2* ...
- fields:   strings.SplitN(line, "\t", 255),
-- *$0* is current input line
 - program ends after reading all lines on standard input
+
+* HOQ Splits Input Into Fields
+- input lines `strings.Split()` on tab separated boundaries
+ line = strings.TrimRight(line, "\n")
+ ...
+ fields:   strings.SplitN(line, "\t", 255),
+- `$1` is first tab separated field, `$2` is second, ...
+- `$0` is current input line
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
 - qualify on patterns in input text
 - qualify on process exit status
-- concurrent execution, partially ordered as directed acyclic graph
+- easy concurrent execution of a directed acyclic graph
 
 * Hello, World
 
