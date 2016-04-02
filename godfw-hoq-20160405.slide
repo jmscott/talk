@@ -53,21 +53,25 @@ April 5, 2016
 
 * What is HOQ?
 - toy interpreter to demonstrate famous YACC compiler in Go
-- demonstrates "Communicating Sequential Processes", hopefully
+- demonstrates "Communicating Sequential Processes" (hopefully)
 
 Did I bite off more than I can chew?
 
-* HOQ Language is Simple Toy
-- mostly declarative, like SQL
- exec b() when a.exit_status == 0 or $1 == "OK";
-- executes entire unix programs, like shell
-- consuming input text drives the hoq execution
- hoq ipfilter.hoq <netscan.log
-- input lines split on tab separated boundaries ($1, $2, ...)
-
-* Unix Programming Environment - Mighty Fine Book
+* Inspired by HOC Calculator in "Unix Programming Environment"
 .image godfw-hoq-20160405/upe.jpg
-.caption *HOQ* Inspired by *HOC* Calculator in Book Unix Programming Environment
+.caption Mighty Fine Book
+
+* HOQ Language is Simple Toy
+- command line program
+- executes unix programs, like a unix shell, and captures exit status
+
+* HOQ is Driven by Input
+- consuming input text drives the execution of the hoq script
+ tr ',' '\t' quarterly.csv | hoq quarterly.hoq
+.caption Shell Example
+- input lines split on tab separated boundaries into fields *$1*, *$2* ...
+- *$0* is entire input line
+- program ends after reading all lines on standard input
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
@@ -75,12 +79,12 @@ Did I bite off more than I can chew?
 - qualify on process exit status
 - concurrent execution, partially ordered as directed acyclic graph
 
-* Hello, World in HOQ
+* Say Hello
 
 .code godfw-hoq-20160405/say.hoq 
 .caption say.hoq
 
-* Hello, World in HOQ - Run
+* Hello, World - Command Line
 .code godfw-hoq-20160405/say.hoq 
 .caption say.hoq
 
