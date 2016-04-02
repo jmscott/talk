@@ -92,18 +92,18 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/say.term 
 .caption Terminal
 
-* Hello, Gophers
-.code godfw-hoq-20160405/say-gopher.hoq 
-.caption say-gopher.hoq
+* Hello, Good Bye
+.code godfw-hoq-20160405/say-bye.hoq 
+.caption say-bye.hoq
 
-.code godfw-hoq-20160405/say-gopher.term 
+.code godfw-hoq-20160405/say-bye.term 
 .caption Terminal
 
 * Hello, Trinity
-.code godfw-hoq-20160405/say-gopher-trinity.hoq 
-.caption say-gopher-trinity.hoq
+.code godfw-hoq-20160405/say-trinity.hoq 
+.caption say-trinity.hoq
 
-.code godfw-hoq-20160405/say-gopher-trinity.term 
+.code godfw-hoq-20160405/say-trinity.term 
 .caption Terminal
 
 * Confluence
