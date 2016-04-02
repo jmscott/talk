@@ -64,7 +64,7 @@ Did I bite off more than I can chew?
 * HOQ Invocation
 - command line program, invoked like
  hoq file.hoq <data.in
-- hoq script can unix programs and capture exit status
+- hoq script can invoke unix programs and capture exit status
 
 * HOQ is Driven by Input
 - consuming input text drives the execution of the hoq script
