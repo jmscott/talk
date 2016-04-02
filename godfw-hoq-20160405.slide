@@ -134,8 +134,6 @@ Rewrites calculus Taylor series in CSP!
 * HOQ Backus-Naur, Go Code Stripped
 .code godfw-hoq-20160405/hoq.bnf
 
-how geeky (and elegant) is that grammar!
-
 * YACC Needs a Lexer 
 - busts text into stream of integer tokens
 - token has a value related to scan
