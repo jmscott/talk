@@ -19,7 +19,7 @@ April 5, 2016
 * What is a Compiler?
 - program to transform a source language into a target language
 - immutable - same input yields same output 
-- typically compiled program runs "fastest"
+- typically compiled version language runs "fastest"
 - semantics of language NOT determined by compiler
 
 * Examples of Typically Compiled Languages
