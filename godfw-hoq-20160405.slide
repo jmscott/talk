@@ -73,7 +73,7 @@ Did I bite off more than I can chew?
 - consuming text from standard input drives the execution of the whole hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
-- hoq ends after both reading the final line *and* waiting for exits of child processes
+- hoq ends after both reading the final line *and* waiting for exits of all child processes
 
 * HOQ Splits Input Into Fields
 - input lines `strings.Split()` on tab separated boundaries
