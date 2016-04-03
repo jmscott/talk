@@ -70,7 +70,7 @@ Did I bite off more than I can chew?
 - the `stdout` and `stderr` of invoked process are *NOT* redirected
 
 * HOQ Execution is Driven by Standard Input
-- consuming text from standard input drives the execution of the whole hoq script
+- consuming text drives the execution of the whole hoq script
  tr ',' '\t' quarterly.csv | hoq quarterly.hoq
 .caption Terminal
 - hoq terminates after reading the the final line and waiting for all processes to exit.
@@ -81,12 +81,12 @@ Did I bite off more than I can chew?
  ...
  fields:   strings.SplitN(line, "\t", 255),
 - `$1` is first tab separated field, `$2` is second, ...
-- `$0` is current input line
+- `$0` is whole, current line
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
-- qualify on patterns in `$1` fields
-- qualify on process exit status
+- qualify on patterns in `$` fields
+- qualify on process exit status codes (`uint8`)
 - concurrent execution of processes determined by flow of data up a query tree
 
 * Hello, World
