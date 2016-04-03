@@ -84,11 +84,11 @@ Did I bite off more than I can chew?
 - `$0` is whole, current line
 
 * HOQ is Mostly Declarative
+- freeform syntax with _#_ comments and flowing whitespace
 - execution order determined by boolean qualifications
 - qualify on patterns in `$` fields
 - qualify on process exit status codes (`uint8`)
 - concurrent execution of processes determined by flow of data up a query tree
-- freeform syntax with _#_ comments
 
 * Hello, World
 
@@ -131,11 +131,11 @@ Did I bite off more than I can chew?
 - Query Tree (ast) is a flow graph!
 
 * Go Idioms in HOQ
-- close is cheap broadcast
-- serial functions easy to make concurrent
-- null method pointer allows elegant recursive termination
-- simulataneous read from many inputs
-- fanin/fanout
+- `close(channel)` is cheap broadcast
+- easy to transform serial functions into concurrent functions
+- null method pointer allows easy termination of recusion
+- streaming 1-many/many-1 mappings via fanin/fanout operators (map reduce?)
+- `select{}` on simultaneous channels is not your parent's `synchronized{}`
 
 * Philip Wadler
 Theory is your warm fuzzy friend.
