@@ -55,7 +55,7 @@ April 5, 2016
 
 * What is HOQ?
 - toy interpreter to demonstrate famous YACC compiler for Go language
-- also, hopefully, demonstrates "Communicating Sequential Processes" by Tony Hoare
+- also, hopefully, demonstrates "Communicating Sequential Processes"
 
 Did I bite off more than I can chew?
 
