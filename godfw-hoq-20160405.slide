@@ -29,7 +29,7 @@ April 5, 2016
 - c
 - java
 - perl5 is *NOT* compiled
-- *perl6* is, eventually
+- *perl6* is compiled, eventually
 - YACC compiles Backus-Naur into Go (and many other languages)
 - Ken Thompson wrote regular expression compiler
 - compiling SQL into native code (Oracle, PostgreSQL)
