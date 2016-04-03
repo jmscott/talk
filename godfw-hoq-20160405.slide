@@ -19,8 +19,8 @@ April 5, 2016
 * What is a Compiler?
 - program to transform a source language into a target language
 - immutable - same input always yields same output 
-- compiled version of target program is "fastest"
-- does compilier define semantics of either source or target language?
+- compiled target executes "fastest"
+Does compilier define semantics of either source or target language?
 
 * Examples of Typically Compiled Languages
 - go
@@ -67,7 +67,7 @@ Did I bite off more than I can chew?
 - command line program invoked like
  hoq file.hoq <data.in
 - hoq script itself _may_ invoke other unix programs and wait for their exit status
-- the `stdout` and `stderr` of invoked process are *NOT* redirected
+- output of `stdout` and `stderr` are not captured
 
 * HOQ Execution is Driven by Standard Input
 - consuming text drives the execution of the whole hoq script
@@ -81,7 +81,7 @@ Did I bite off more than I can chew?
  ...
  fields:   strings.SplitN(line, "\t", 255),
 - `$1` is first tab separated field, `$2` is second, ...
-- `$0` is whole, current line
+- `$0` is whole, current line, including tabs, minus terminating new line
 
 * HOQ is Mostly Declarative
 - freeform syntax with _#_ comments and flowing whitespace
