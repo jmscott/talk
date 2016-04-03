@@ -19,8 +19,8 @@ April 5, 2016
 * What is a Compiler?
 - program that transforms a formal language into another formal language
 - immutable - same input language always yields same output language
-- target, output language executes "fastest"
-Does compilier define semantics of either source or target language?
+- output language - called the _target_ - executes "fastest"
+Does a compilier define semantics of either source or target language?
 
 * Examples of Typically Compiled Languages
 - go
@@ -29,7 +29,7 @@ Does compilier define semantics of either source or target language?
 - perl5 is *NOT* compiled
 - *perl6* will eventually be compiled
 - YACC compiles Backus-Naur into Go (and many other languages)
-- Ken Thompson wrote regular expression compiler
+- Ken Thompson (gofather) compilied regular expressions into `pdp11` assembler
 - compiling SQL into native code (Oracle, PostgreSQL)
 
 * What is an Interpreter?
