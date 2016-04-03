@@ -136,7 +136,7 @@ Did I bite off more than I can chew?
 - easy to transform serial functions into concurrent functions
 - null method pointer allows easy termination of recusion
 - streaming 1-many/many-1 mappings via fanin/fanout operators (map reduce?)
-- `select{}` on simultaneous channels is not your parent's `synchronized{}`
+- `select{}` on channels is not your parent's synchronized(this) {}
 
 * Philip Wadler
 Theory is your warm fuzzy friend.
