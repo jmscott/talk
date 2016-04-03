@@ -16,8 +16,6 @@ April 5, 2016
  Your mind is like a compiled program you've lost the source of.
  It works, but you don't know why.
 
-* Why?
-
 * What is a Compiler?
 - program to transform a source language into a target language
 - immutable - same input yields same output 
