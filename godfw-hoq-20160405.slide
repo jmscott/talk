@@ -17,9 +17,9 @@ April 5, 2016
  It works, but you don't know why.
 
 * What is a Compiler?
-- program to transform a source language into a target language
-- immutable - same input always yields same output 
-- compiled target executes "fastest"
+- program that transforms a formal language into another formal language
+- immutable - same input language always yields same output language
+- target, output language executes "fastest"
 Does compilier define semantics of either source or target language?
 
 * Examples of Typically Compiled Languages
