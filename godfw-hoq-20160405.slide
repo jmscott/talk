@@ -64,7 +64,7 @@ Did I bite off more than I can chew?
 .caption Mighty Fine Book
 
 * How Do We Invoke HOQ?
-- command line program, invoked like
+- command line program invoked like
  hoq file.hoq <data.in
 - hoq script itself _may_ invoke other unix programs and wait for their exit status
 - the `stdout` and `stderr` of invoked process are *NOT* redirected
@@ -85,8 +85,8 @@ Did I bite off more than I can chew?
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
-- qualify on patterns in `$` fields
-- qualify on process exit status codes (`uint8`)
+- qualify/match on patterns in `$` fields
+- qualify/match on process exit status codes (`uint8`)
 - concurrent execution of processes determined by flow of data up a query tree
 
 * Hello, World
