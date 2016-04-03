@@ -48,7 +48,7 @@ April 5, 2016
 - virtual machine instruction (python, ruby, vbasic, java, perl6)
 - just in time compilation (java)
 
-* Abstract Syntax Tree in HOQ
+* Abstract Syntax Tree of HOQ
 .image godfw-hoq-20160405/ast.png
 .caption Query Fragment
   $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
