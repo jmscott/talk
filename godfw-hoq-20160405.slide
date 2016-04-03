@@ -122,14 +122,13 @@ Did I bite off more than I can chew?
 
 * Is Wu Wei Nothing?
 
-* Confluence
-- the junction of two rivers, especially rivers of approximately equal width.
-- an act or process of merging.
-- `http://www.confluent.io/` (Kafka)
+* Abstract Syntax Tree is a Flow Graph
+.image godfw-hoq-20160405/ast.png
+.caption $1 == "INBOUND" and ($2 ~~ '^10[.]' or $2 ~~ '^192[.]168[.]')
 
-* What is Confluence?
-- Flow of Tuples is Least First
-- Query Tree (ast) is a flow graph!
+* Each OpCode Node is a Go Routine
+.image godfw-hoq-20160405/ast-flow.png
+.caption $1 == "INBOUND" and ($2 ~~ '^10[.]' or $2 ~~ '^192[.]168[.]')
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
@@ -137,21 +136,6 @@ Did I bite off more than I can chew?
 - null method pointer allows easy termination of recusion
 - streaming 1-many/many-1 mappings via fanin/fanout operators (map reduce?)
 - `select{}` on channels is not your parent's synchronized(this) {}
-
-* Philip Wadler
-Theory is your warm fuzzy friend.
-
-* Is A or B True Whenever?
-
-* What is "Communicationg Sequential Process"?
-- Book "Communicating Sequential Process"
-  third-most cited computer science reference of all time according to Citeseer 
-- Save the World Attempt to Formalize Computing
-
-* Squinting at Power Series by Doug McIlroy
-.image godfw-hoq-20160405/expx.png
-.image godfw-hoq-20160405/expx1.png
-Rewrites calculus Taylor series in CSP!
 
 * What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
@@ -178,10 +162,6 @@ Rewrites calculus Taylor series in CSP!
 - lexer easy to write by hand
 - token constants defined by YACC (see %token in grammar)
 - co-routines invented to write lexers
-
-* Complex Example of HOQ
-Tuesday
-
 
 * HOQ Grammar and Go Code
 

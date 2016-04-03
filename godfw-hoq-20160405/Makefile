@@ -4,10 +4,12 @@
 #  See:
 #	http://www.graphviz.org
 #
-all: ast.png
+all: ast.png ast-flow.png
 
 clean:
-	rm ast.png
+	rm ast.png ast-flow.png
 
 ast.png: ast.dot
 	dot -Tpng >ast.png <ast.dot
+ast-flow.png: ast-flow.dot
+	dot -Tpng >ast-flow.png <ast-flow.dot

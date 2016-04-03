@@ -1,21 +1,19 @@
-#  $3 is a blob request verb
-#  $5 is a network chat history
+command blob_on_network {path = "true";}
+command merge_blob      {path = "merge-blob";}
 
-#  "brr" means "blob request record"
-
-exec brr_on_network()
-  when
-  (
-	(
-		$3 == "put" or $3 == "get" or
-		$3 == "eat" or $3 == "wrap" or
-		$3 == "roll"
+exec blob_on_network()
+  when ((                                     #  $3 is a blob request action
+           $3 == "put" or $3 == "get" or
+           $3 == "eat" or $3 == "wrap" or
+           $3 == "roll"
 	)
-	and
-	$5 == "ok"
+        and $5 == "ok"                        #  $5 is request status
   ) or (
-	$3 == "give"
-	and
-	$5 == "ok,ok"
-  )
-;
+        $3 == "give" and $5 == "ok,ok"
+  );
+
+#  merge the blob into the database
+
+exec merge_blob($1, $2)
+  when
+  	blob_on_network.exit_status == 0;

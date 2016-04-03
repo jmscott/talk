@@ -1,0 +1,41 @@
+#  hoq query fragment:
+#	$1 == "INBOUND" and ($2 ~~ '^10[.]' or $2 ~~ '^192[.]168[.]')
+#
+#  hoq --dump:
+#    AND
+#      EQ_STRING
+#        $1
+#        "INBOUND"
+#      OR
+#        RE_MATCH
+#          $2
+#          "^10[.]'"
+#        RE_MATCH
+#          $2
+#          "^192[.]168"
+
+digraph G {
+
+	graph [
+		size="8.5,8.5"
+	];
+	"==" -> "and"
+	"or" -> "and"
+
+	"$1" -> "=="
+	"\"INBOUND\"" -> "=="
+
+	RE_MATCH_1 [label="~~"];
+	RE_MATCH_2 [label="~~"];
+
+	RE_MATCH_1 -> "or"
+	RE_MATCH_2 -> "or"
+
+	DOLLAR2_1 [label="$2"]
+	DOLLAR2_1 -> RE_MATCH_1
+	"\"^10[.]\"" -> RE_MATCH_1
+
+	DOLLAR2_2 [label="$2"]
+	DOLLAR2_2 -> RE_MATCH_2
+	"\"^192[.]168\"" -> RE_MATCH_2
+}
