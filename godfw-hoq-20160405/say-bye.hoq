@@ -7,5 +7,5 @@ command say2 {
 
 #  say1 and say2 execute independently of each other
 
-exec say1("hello, world");
 exec say2("good bye, cruel world");
+exec say1("hello, world");
