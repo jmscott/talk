@@ -12,6 +12,8 @@ exec brr_on_network()
 	and
 	$5 == "ok"
   ) or (
-	$3 == "give" and $5 == "ok,ok"
+	$3 == "give"
+	and
+	$5 == "ok,ok"
   )
 ;
