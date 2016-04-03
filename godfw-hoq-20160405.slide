@@ -85,8 +85,8 @@ Did I bite off more than I can chew?
 
 * HOQ is Mostly Declarative
 - execution order determined by boolean qualifications
-- qualify/match on patterns in `$` fields
-- qualify/match on process exit status codes (`uint8`)
+- qualify on patterns in `$` fields
+- qualify on process exit status codes (`uint8`)
 - concurrent execution of processes determined by flow of data up a query tree
 
 * Hello, World
