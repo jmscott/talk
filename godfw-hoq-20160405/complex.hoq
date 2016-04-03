@@ -1,6 +1,8 @@
 #  $3 is a blob request verb
 #  $5 is a network chat history
 
+#  "brr" means "blob request record"
+
 exec brr_on_network()
   when
   (
