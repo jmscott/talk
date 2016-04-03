@@ -115,9 +115,9 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/say-trinity.term 
 .caption Terminal
 
-* A Complex and HOQish Query
+* A Complex and HOQish Query Fragment
 .code godfw-hoq-20160405/complex.hoq
-.caption Example from setspace.com
+.caption Edited from https://github.com/jmscott/setspace/blob/master/schema/setspace/setspace.flow.example
 
 * Is Wu Wei Nothing?
 
