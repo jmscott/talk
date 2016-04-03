@@ -32,7 +32,7 @@ April 5, 2016
 - *perl6* is, eventually
 - YACC compiles Backus-Naur into Go (and many other languages)
 - Ken Thompson wrote regular expression compiler
-- research into compiling SQL into native code (Oracle, PostgreSQL)
+- compiling SQL into native code (Oracle, PostgreSQL)
 
 * What is an Interpreter?
 - program that directly executes the source program (often text)
