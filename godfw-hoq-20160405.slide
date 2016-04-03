@@ -54,8 +54,8 @@ April 5, 2016
   $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
 
 * What is HOQ?
-- toy interpreter to demonstrate famous YACC compiler in Go
-- also, hopefully, demonstrates "Communicating Sequential Processes"
+- toy interpreter to demonstrate famous YACC compiler for Go language
+- also, hopefully, demonstrates "Communicating Sequential Processes" by Tony Hoare
 
 Did I bite off more than I can chew?
 
