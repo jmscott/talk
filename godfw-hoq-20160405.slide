@@ -159,24 +159,38 @@ Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Pa
 - When the pattern is seen then block of Go is invoked
 - Patterns are recusive
 
-* Backus-Naur Grammar of Backus-Naur
-BNF today is one of the oldest computer related languages still in use
+* Backus-Naur Grammar of Backus-Naur Form
+ alpha:          'a' | 'b' |  ... 'Z'
+             ;
+ alphanum:       alpha | '0' | '1'  ... '9'
+             ;
+ name:           alpha
+               |
+                 name  alphanum
+             ;
+ term:           <TOKEN>
+               |
+                 name
+               |
+                 term  term
+             ;
+ expression:     term
+               |
+                 expression  '|'  term
+             ;
+ production:     name  ':'  expression  ';'
+             ;
+ grammar:        production
+               |
+                 grammar  production
+             ;
 
- alpha       : 'a'    |    'b'    |  ...                             ;
- alphanum    : alpha    |    '0'    |    '1'  ...                    ;
- name        : alpha    |    name    alphanum                        ;
- term        : <TOKEN>    |    name    |    term    term             ;
- expression  : term    |    term    ';'                              ;
- production  : name    ':'    expression    ';'                      ;
-
-<TOKEN> is integer returned by lexical scanner.
-
-'a', 'b' ... are <TOKEN>s with ascii value.
-
-Whitespace and comments not in grammar
+.caption Whitespace/Comment not specified. <TOKEN> is scanned integers, 'a'=97
 
 * HOQ Backus-Naur, Go Code Stripped
 .code godfw-hoq-20160405/hoq.bnf
+
+* Single Production with Go Code
 
 * YACC Needs a Lexer 
 - busts text into stream of integer tokens
