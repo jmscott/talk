@@ -122,9 +122,16 @@ Did I bite off more than I can chew?
 
 * Is Wu Wei Nothing?
 
-* Go Idiom #1 - Sequential Function to Concurrent Channel
-.code godfw-hoq-20160405/idiom-1.go
-Transform function `strings.ToLower(string)` into Concurrent "OpCode"
+* Go Idiom #1 - Turn Any Function into a Channel
+.play godfw-hoq-20160405/fib-seq.go
+.caption Fibonacci is a Sequential Function
+
+* Go Idiom #1 - Fibonacci Becomes a Channel
+.code godfw-hoq-20160405/fib-chan.go /^func fib_chan/,/^}/
+.caption No Change to Fibonacci Function
+
+* Go Idiom #1 - Run the Fibonacci Series
+.play godfw-hoq-20160405/fib-chan.go /^func main/,/^}/
 
 * Abstract Syntax Tree is a Flow Graph
 .image godfw-hoq-20160405/ast.png
