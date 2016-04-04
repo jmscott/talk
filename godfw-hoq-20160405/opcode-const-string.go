@@ -1,5 +1,13 @@
 //  send a string constant upstream
 
+type string_value struct {
+	string
+	is_null bool
+}
+type string_chan chan *string_value
+
+...
+
 func (flo *flow) const_string(s string) (out string_chan) {
 
 	out = make(string_chan)
