@@ -1,0 +1,24 @@
+alpha:           'a' | 'b' |  ... 'Z'
+             ;
+alphanum:        alpha | '0' | '1'  ... '9'
+             ;
+name:            alpha
+               |
+                 name  alphanum
+             ;
+term:            <TOKEN>
+               |
+                 name
+               |
+                 term  term
+             ;
+expression:      term
+               |
+                 expression  '|'  term
+             ;
+production:     name  ':'  expression  ';'
+             ;
+grammar:         production
+               |
+                 grammar  production
+             ;

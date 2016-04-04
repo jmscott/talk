@@ -160,30 +160,7 @@ Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Pa
 - Patterns are recusive
 
 * Backus-Naur Grammar of Backus-Naur Form
- alpha:          'a' | 'b' |  ... 'Z'
-             ;
- alphanum:       alpha | '0' | '1'  ... '9'
-             ;
- name:           alpha
-               |
-                 name  alphanum
-             ;
- term:           <TOKEN>
-               |
-                 name
-               |
-                 term  term
-             ;
- expression:     term
-               |
-                 expression  '|'  term
-             ;
- production:     name  ':'  expression  ';'
-             ;
- grammar:        production
-               |
-                 grammar  production
-             ;
+.code godfw-hoq-20160405/bnf.bnf
 
 .caption Whitespace/Comment not specified. <TOKEN> is scanned integers, 'a'=97
 
