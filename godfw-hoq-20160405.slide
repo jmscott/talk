@@ -124,18 +124,23 @@ Did I bite off more than I can chew?
 
 * Abstract Syntax Tree is a Flow Graph
 .image godfw-hoq-20160405/ast.png
-.caption $1 == "INBOUND" and ($2 ~~ '^10[.]' or $2 ~~ '^192[.]168[.]')
+ $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
 
-* Each OpCode Node is a Go Routine
+* Data Flows From Leaves (OpCodes) to Root
 .image godfw-hoq-20160405/ast-flow.png
-.caption $1 == "INBOUND" and ($2 ~~ '^10[.]' or $2 ~~ '^192[.]168[.]')
+.caption _$1_ == "INBOUND" and ( _$2_ ~~ "^10[.]" or _$2_ ~~ "^192[.]168[.]" )
+Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Parent
+
+* Opcode Code: const_string()
+.code godfw-hoq-20160405/opcode-const-string.go
+.caption 
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
-- easy to transform serial functions into concurrent functions
+- easy to transform sequential functions into concurrent functions
 - null method pointer allows easy termination of recusion
 - streaming 1-many/many-1 mappings via fanin/fanout operators (map reduce?)
-- `select{}` on channels is not your parent's synchronized(this) {}
+- `select{}` on channels is not your parent's `synchronized{}`
 
 * What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
