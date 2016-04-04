@@ -130,7 +130,7 @@ Transform function `strings.ToLower(string)` into Concurrent "OpCode"
 .image godfw-hoq-20160405/ast.png
  $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
 
-* Data Flows From Leaves (OpCodes) to Root
+* Data Flows From Opcode Leaves to Root
 .image godfw-hoq-20160405/ast-flow.png
 .caption _$1_ == "INBOUND" and ( _$2_ ~~ "^10[.]" or _$2_ ~~ "^192[.]168[.]" )
 Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Parent
