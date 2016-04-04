@@ -133,7 +133,11 @@ Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Pa
 
 * Opcode Code: const_string()
 .code godfw-hoq-20160405/opcode-const-string.go
-.caption 
+.caption 'Push' a String Constant
+
+* Go Idiom #1
+#.code godfw-hoq-20160405/idiom-1.go
+.code t.go
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
