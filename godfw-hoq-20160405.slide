@@ -148,18 +148,32 @@ Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Pa
 
 * What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
-- Orginal Golang Grammar written in YACC
+- Original Golang Grammar written in YACC
 - Domain Specific Languages (chemical reactions, SAT solvers)
 - Mutation Coverage
 
+* Mechanics of YACC
+- Compiled Go code reads a stream of integers called TOKENs
+- Patterns are recognized in stream of tokens
+- Each pattern has an associated block of Go code
+- When the pattern is seen then block of Go is invoked
+- Patterns are recusive
+
 * Backus-Naur Grammar of Backus-Naur
- Production  = name "=" [ Expression ] "." .
- Expression  = Alternative { "|" Alternative } .
- Alternative = Term { Term } .
- Term        = name | token [ "…" token ] | Group | Option | Repetition .
- Group       = "(" Expression ")" .
- Option      = "[" Expression "]" .
- Repetition  = "{" Expression "}" .
+BNF today is one of the oldest computer related languages still in use
+
+ alpha       : 'a'    |    'b'    |  ...                             ;
+ alphanum    : alpha    |    '0'    |    '1'  ...                    ;
+ name        : alpha    |    name    alphanum                        ;
+ term        : <TOKEN>    |    name    |    term    term             ;
+ expression  : term    |    term    ';'                              ;
+ production  : name    ':'    expression    ';'                      ;
+
+<TOKEN> is integer returned by lexical scanner.
+
+'a', 'b' ... are <TOKEN>s with ascii value.
+
+Whitespace and comments not in grammar
 
 * HOQ Backus-Naur, Go Code Stripped
 .code godfw-hoq-20160405/hoq.bnf
