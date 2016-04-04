@@ -153,10 +153,10 @@ Node is GoRoutine that Waits for Inbound Data, Crunchs, Then Writes Answer to Pa
 - Mutation Coverage
 
 * Mechanics of YACC
-- Compiled Go code reads a stream of integers called TOKENs
-- Patterns are recognized in stream of tokens
-- Each pattern has an associated block of Go code
-- When the pattern is seen then block of Go is invoked
+- YACC generated Go code reads a stream of integers called <TOKEN>s
+- Patterns are recognized in stream of <TOKEN>s
+- Each pattern has an associated block of manually written Go code
+- When the pattern is recognized in the stream then associated block of Go is invoked
 - Patterns are recusive
 
 * Backus-Naur Grammar of Backus-Naur Form
