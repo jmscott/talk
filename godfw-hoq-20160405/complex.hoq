@@ -1,21 +1,21 @@
 command blob_on_network {
-        path = "true";                                     #  path to /bin/true
+        path = "true";                                     #  path to /bin/true // HL
 }
 command merge_blob      {
-        path = "merge-blob";                               #  path to executable program
+        path = "merge-blob";                               #  path to executable program // HL
 }
 
 exec blob_on_network()
-  when ((                                                  #  $3 is a blob request action
+  when ((                                                  #  $3 is a blob request action // HL
            $3 == "put" or $3 == "get" or
            $3 == "eat" or $3 == "wrap" or
            $3 == "roll"
 	)
-        and $5 == "ok"                                     #  $5 is request status
+        and $5 == "ok"                                     #  $5 is request status  // HL
   ) or (
         $3 == "give" and $5 == "ok,ok"
   );
 
-exec merge_blob($1, $2)                                    #  merge blob request into database
+exec merge_blob($1, $2)                                    #  merge blob request into database  //  HL
   when
         blob_on_network.exit_status == 0;
