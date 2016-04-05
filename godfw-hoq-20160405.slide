@@ -86,7 +86,6 @@ Did I bite off more than I can chew?
 - `$0` is whole, current line, including tabs, minus terminating new line
 
 * HOQ is Mostly Declarative
-- freeform syntax with _#_ comments and flowing whitespace
 - qualify on patterns in tab separated field ($1, $2)
 - qualify on process exit status codes (`uint8`)
 - boolean combinations (logical and, or, not) on any qualifications
