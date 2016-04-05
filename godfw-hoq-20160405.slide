@@ -69,7 +69,6 @@ Did I bite off more than I can chew?
 - command line program invoked with script as first argument
 .html godfw-hoq-20160405/hoq.term
 - hoq script _may_ invoke other unix programs and wait for their exit status
-- output of `stdout` and `stderr` are not captured
 
 * HOQ Execution is Driven by Standard Input
 - consuming text drives the execution of the whole hoq script
