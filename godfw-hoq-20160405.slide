@@ -157,6 +157,7 @@ Similar to Push in Sequential Machine
 
 * Idiom #2 - select{} on Two Channels Allows Concurrent Operands
 .image godfw-hoq-20160405/opcode-idiom2.png
+ $1 ~~ "^10[.]"
 
 * The regex.Match() is a Binary Relation on Two Strings
 .code godfw-hoq-20160405/opcode-rel2-string.go /^import /,/^}$/
@@ -211,22 +212,18 @@ All other binary operators are null if either operand is null
 .code godfw-hoq-20160405/flow.go
 .caption Idiom #3 - Channels Over Channels
 
+* Each Opcode Syncs with main() on Each "Tick"
+.image godfw-hoq-20160405/flow-sync.png 
+.caption $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
+
 * Idiom #4 - Close(channel) is a Cheap Broadcast
 .code godfw-hoq-20160405/cheap-broad.go
 .html godfw-hoq-20160405/splice-loop.html
  }
 
-
 * Flow A and Flow B Run Concurrently
 .code godfw-hoq-20160405/main.go
 .caption Idiom #4 - Close(channel) is a Cheap Broadcast
-
-* Go Idioms in HOQ
-- `close(channel)` is cheap broadcast
-- easy to transform sequential functions into concurrent functions
-- null method pointer allows easy termination of recusion
-- streaming 1-many/many-1 mappings via fanin/fanout operators (map reduce?)
-- `select{}` on channels is not your parent's `synchronized{}`
 
 * What is Go YACC?
 - Compiles a Flavor of Backus-Naur Form (BNF) into Go Code
@@ -263,9 +260,7 @@ $$ is value of new, reduced term
 - token const defined by YACC (see %token in grammar)
 - co-routines invented to write lexers (Rob Pike)
 
-* Lexical Example
-
-* Go Files
+* Go Files on github.com/jmscott
 - hoq.go
 - ast.go
 - command.go
@@ -274,6 +269,7 @@ $$ is value of new, reduced term
 - parser.y
 - rummy.go
 - tsort.go
+.link https://github.com/jmscott/play/tree/master/hoq/src
 
 * YACC Resources
 .link https://docs.google.com/document/d/1P3BLR31VA8cvLJLfMibSuTdwTuF7WWLux71CYD0eeD8/edit Early GoLang in YACC

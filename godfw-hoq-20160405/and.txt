@@ -1,0 +1,5 @@
+ false and *  =>   false
+ * and false  =>   false
+ null and *   =>   null
+ * and null   =>   null
+ *            =>   true

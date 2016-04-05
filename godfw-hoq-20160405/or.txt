@@ -1,0 +1,5 @@
+ true or *    =>   true
+ * or true    =>   true
+ null or *    =>   null
+ * or null    =>   null
+ *            =>   false
