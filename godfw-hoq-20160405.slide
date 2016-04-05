@@ -226,8 +226,10 @@ Similar to Push in Sequential Machine
 .code godfw-hoq-20160405/hoq.bnf
 .caption Stripped from https://github.com/jmscott/play/blob/master/hoq/src/parser.y
 
-* Go Code Snippet of Qualification Expression in HOQ Grammar 
+* YACC/Go Code Snippet of Qualification Expression in HOQ Grammar 
 .code godfw-hoq-20160405/exp.y
+In YACC $1 is value of first term; $2 is value of second term ...
+$$ is value of new, reduced term
 
 * YACC Needs a Lexer 
 - lexer easy to write by hand !!!
