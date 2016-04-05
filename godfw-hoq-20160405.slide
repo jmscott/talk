@@ -199,6 +199,8 @@ Logical OR
 
 .code godfw-hoq-20160405/or.txt
 
+All other binary operators are null if eithger operand is null
+
 * Idiom #3 - Close(channel) is a Cheap Broadcast
 .code godfw-hoq-20160405/flow-get.go
 Idiom #4 - Channels Over Channels
