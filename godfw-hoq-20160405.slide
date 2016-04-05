@@ -45,8 +45,8 @@ Does a compilier define semantics of either source or target language?
 .image godfw-hoq-20160405/ast.png
 .caption Abstract Syntax Tree (perl5, awk)
 - line by line (many unix shells)
-- virtual machine instruction (python, ruby, vbasic, java, perl6)
-- just in time compilation (java)
+- virtual machine instruction (python, ruby, vbasic, , perl6)
+- java translates jvm opcodes into native hardware instructions
 
 * Abstract Syntax Tree of a Query Fragment in HOQ
 .image godfw-hoq-20160405/ast.png
@@ -54,6 +54,7 @@ Does a compilier define semantics of either source or target language?
   $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168" )
 
 * What is HOQ?
+- Higher Order Query
 - toy interpreter that demonstrates the famous YACC compiler for Go language
 - also, hopefully, demonstrates "Communicating Sequential Processes"
 
@@ -61,6 +62,7 @@ Did I bite off more than I can chew?
 
 * Inspired by HOC Calculator in "Unix Programming Environment"
 .image godfw-hoq-20160405/upe.jpg
+.caption Higher Order Query - Chapter 8
 .caption Mighty Fine Book
 
 * How Do We Invoke HOQ?
