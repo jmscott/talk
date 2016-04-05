@@ -235,9 +235,11 @@ $$ is value of new, reduced term
 - lexer easy to write by hand !!!
 - just a big switch{}
 - busts text into stream of integer tokens
-- scanned token has a simple value related to scan (string, float, uint8)
+- scanned token has a simple value related to scan yylval.(string, float, uint8)
 - token const defined by YACC (see %token in grammar)
 - co-routines invented to write lexers (Rob Pike)
+
+* Lexical Example
 
 * Go Files
 - hoq.go
