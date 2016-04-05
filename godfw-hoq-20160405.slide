@@ -39,7 +39,7 @@ Does a compilier define semantics of either source or target language?
 
 - bourne shell, awk, javascript, ruby, SQL
 - lisp was the first interpreter
-- the java command is an interpreter of compiled java class files
+- the java command is an interpreter (strictly) of compiled java class files
 
 * Interpreter Translates Source into Internal Format
 .image godfw-hoq-20160405/ast.png
@@ -60,14 +60,14 @@ Does a compilier define semantics of either source or target language?
 
 Did I bite off more than I can chew?
 
-* Inspired by HOC Calculator in "Unix Programming Environment"
+* Inspired by "HOC" Calculator in Unix Programming Environment
 .image godfw-hoq-20160405/upe.jpg
-.caption Higher Order Query - Chapter 8
+.caption Higher Order Calculator - Chapter 8
 .caption Mighty Fine Book
 
 * How Do We Invoke HOQ?
 - command line program invoked like
- hoq file.hoq <data.in
+ hoq file.hoq < data.in
 - hoq script _may_ invoke other unix programs and wait for their exit status
 - output of `stdout` and `stderr` are not captured
 
