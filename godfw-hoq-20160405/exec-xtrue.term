@@ -1,0 +1,16 @@
+<div
+  class="code"
+  style="
+  	background-color:	black;
+	color:			lightgreen;
+	font-family:		monospace;
+	font-size:		120%;
+  "
+>
+$ echo | hoq exec-xtrue.hoq
+<br/>
+<span style="
+	color:	white;
+	font-style: italic;
+">hello from say1: xtrue exited 0</span>
+</div>

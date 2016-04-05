@@ -1,0 +1,15 @@
+<div
+  class="code"
+  style="
+  	background-color:	black;
+	color:			lightgreen;
+	font-family:		monospace;
+	font-size:		120%;
+  "
+>
+$ echo | hoq exec-xtrue.hoq
+<span style="
+	color:	white;
+	font-style: italic;
+"></span>
+</div>

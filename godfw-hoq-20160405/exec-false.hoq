@@ -1,0 +1,20 @@
+command xtrue {
+	path = "true";
+}
+command say1 ("hello from say1:") {
+	path = "echo";
+}
+command say2 ("hello from say2:") {
+	path = "echo";
+}
+
+exec xtrue() when false;      #  never called, send null bool upstream			// HL
+
+exec say1("xtrue exited 0")
+  when
+  	xtrue.exit_status == 0
+;
+exec say2("xtrue exited 1")
+  when
+  	xtrue.exit_status == 1
+;
