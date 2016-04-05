@@ -80,7 +80,7 @@ Did I bite off more than I can chew?
  line = strings.TrimRight(line, "\n")
  ...
  fields:   strings.SplitN(line, "\t", 255),
-- `$1` is first tab separated field, `$2` is second, ...
+- `$1` is first tab separated field, `$2` is second field, ...
 - `$0` is whole, current line, including tabs, minus terminating new line
 
 * HOQ is Mostly Declarative
@@ -140,15 +140,31 @@ Did I bite off more than I can chew?
 * Data Flows From Leaves to Root
 .image godfw-hoq-20160405/ast-flow.png
 .caption Each Node is an "OpCode" in a Flow Machine
- _$1_ == "INBOUND" and ( _$2_ ~~ "^10[.]" or _$2_ ~~ "^192[.]168[.]" )
+ $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
 
-* Opcode Code: const_string()
+* Opcode: const_string()
 .code godfw-hoq-20160405/opcode-const-string.go /^type string_value struct/,/^type string_chan chan/
 .code godfw-hoq-20160405/opcode-const-string.go /^func/,/^}$/
 .caption 'Push' a String Constant
 
 * Idiom #2 - select{} on Many Channels is Sophisticated State Transition
- -cdcdc
+ - Local state in go routine is persistent
+ - Easy to visualize relationship between channels
+
+* Idiom #2 - The RegEx Match Function is a Binary Relation on Two Strings
+.code godfw-hoq-20160405/opcode-rel2-string.go /^import /,/^}$/
+.caption import "regexp"
+.code godfw-hoq-20160405/opcode-rel2-string.go /^type bool_value struct/,/^type bool_chan chan/
+
+* Idiom #2 - OpCode: Relational Binary Operator on Two Strings
+.code godfw-hoq-20160405/opcode-rel2-string.go /^func.*string_rel2/,/START FLOW OMIT/
+.caption Upper Half
+ ... Main Loop in Next Slide
+.code godfw-hoq-20160405/opcode-rel2-string.go /END FLOW OMIT/,/^}/
+.caption Lower Half
+
+* Idiom #2 - RegEx Binary Operator - Main Loop
+.code godfw-hoq-20160405/opcode-rel2-string.go /START FLOW OMIT/,/END FLOW OMIT/
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
@@ -175,7 +191,7 @@ Did I bite off more than I can chew?
 
 .caption Whitespace/Comment not specified. <TOKEN> is scanned integers, 'a'=97
 
-* HOQ Backus-Naur, Go Code Stripped
+* YACC Grammar for HOQ Language (Backus-Naur Form)
 .code godfw-hoq-20160405/hoq.bnf
 
 * Single Production with Go Code
