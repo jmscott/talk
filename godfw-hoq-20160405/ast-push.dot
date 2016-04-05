@@ -13,9 +13,6 @@ digraph G {
 		shape="hexagon"
 	]
 
-	"$1" -> EQUAL [
-			label="string chan"
-	];
 	"\"INBOUND\"" -> EQUAL [
 			label="string chan"
 	];

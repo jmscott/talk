@@ -7,11 +7,10 @@ digraph G {
 	node [
 		fontsize=40
 	]
-	edge [
-		color=green
-		weight=1
-		penwidth=3
+	RE_MATCH [
+		label = "~~\nselect{left, right}"
+		shape = "hexagon"
 	]
-	"$1" -> "~~"
-	"^10[.]" -> "~~"
+	"$1" -> RE_MATCH
+	"\"^10[.]\"" -> RE_MATCH
 }

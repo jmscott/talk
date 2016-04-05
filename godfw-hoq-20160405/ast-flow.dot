@@ -22,12 +22,22 @@ digraph G {
 	];
 	"==" -> "and"
 	"or" -> "and"
+	ELLIPSE [
+		label="..."
+		fontsize=40
+		shape="plaintext"
+	]
+	"and" -> ELLIPSE
 
 	"$1" -> "=="
 	"\"INBOUND\"" -> "=="
 
-	RE_MATCH_1 [label="~~"];
-	RE_MATCH_2 [label="~~"];
+	RE_MATCH_1 [
+		label="~~"
+	];
+	RE_MATCH_2 [
+		label="~~"
+	];
 
 	RE_MATCH_1 -> "or"
 	RE_MATCH_2 -> "or"

@@ -141,12 +141,17 @@ Did I bite off more than I can chew?
 
 * Data Flows From Leaves to Root
 .image godfw-hoq-20160405/ast-flow.png
+Each Edge is a Go Channel
 .caption Each Node is an "OpCode" in a Flow Machine
  $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
 
 * AST Query Fragment: Data Flows Towards String Equality Operand
 .image godfw-hoq-20160405/ast-equal.png
-.caption $1 == "INBOUND"
+ $1 == "INBOUND"
+
+* AST Query Fragment: Send String Constant to Equality Operand
+.image godfw-hoq-20160405/ast-push.png
+Similar to Push in Sequential Machine
 
 * Opcode: const_string()
 .code godfw-hoq-20160405/opcode-const-string.go /^type string_value struct/,/^type string_chan chan/
