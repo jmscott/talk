@@ -1,0 +1,26 @@
+digraph G {
+
+	graph [
+		size="8.5,8.5"
+		rankdir="LR"
+	];
+	node [
+		fontsize=40
+	]
+	edge [
+		color=green
+		weight=1
+		penwidth=3
+	]
+
+	EQUAL [
+		label="==\nselect{<-left, <-right}"
+	]
+
+	"$1" -> EQUAL [
+			label="string chan"
+	];
+	"\"INBOUND\"" -> EQUAL [
+			label="string chan"
+	];
+}

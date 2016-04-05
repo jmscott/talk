@@ -1,9 +1,17 @@
 digraph G {
 
 	graph [
-		size="12.5,12.5"
-		rankdir="BT"
+		size="8.5,8.5"
+		rankdir="LR"
 	];
+	node [
+		fontsize=40
+	]
+	edge [
+		color=green
+		weight=1
+		penwidth=3
+	]
 	"$1" -> "~~"
 	"^10[.]" -> "~~"
 }

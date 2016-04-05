@@ -28,14 +28,14 @@ func (flo *flow) string_rel2(
 		for flo = flo.get(); flo != nil; flo = flo.get() {
 			var left, right *string_value
 
-			for left == nil || right == nil {
+			for left == nil || right == nil {		// HL
 				select {
-				case lv := <-in_left:
+				case lv := <-in_left:			// HL
 					if lv == nil {
 						return
 					}
 					left = lv
-				case rv := <-in_right:
+				case rv := <-in_right:			// HL
 					if rv == nil {
 						return
 					}
@@ -46,7 +46,7 @@ func (flo *flow) string_rel2(
 			if bv.is_null == false {
 				bv.bool = rel2(left.string, right.string)
 			}
-			out <- bv
+			out <- bv		//  send channel to next opcode
 		}
 // END FLOW OMIT
 	

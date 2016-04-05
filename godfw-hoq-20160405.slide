@@ -144,6 +144,10 @@ Did I bite off more than I can chew?
 .caption Each Node is an "OpCode" in a Flow Machine
  $1 == "INBOUND" and ( $2 ~~ "^10[.]" or $2 ~~ "^192[.]168[.]" )
 
+* AST Query Fragment: Data Flows Towards String Equality Operand
+.image godfw-hoq-20160405/ast-equal.png
+.caption $1 == "INBOUND"
+
 * Opcode: const_string()
 .code godfw-hoq-20160405/opcode-const-string.go /^type string_value struct/,/^type string_chan chan/
 .code godfw-hoq-20160405/opcode-const-string.go /^func/,/^}$/
