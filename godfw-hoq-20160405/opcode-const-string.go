@@ -16,7 +16,7 @@ func (flo *flow) const_string(s string) (out string_chan) {
 		defer close(out)
 
 		for flo = flo.get(); flo != nil; flo = flo.get() {
-			out <- &string_value{
+			out <- &string_value{						//  send string upstream to next opcode
 				string: s,
 			}
 		}

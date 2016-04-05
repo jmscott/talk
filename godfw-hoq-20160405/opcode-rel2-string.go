@@ -1,10 +1,12 @@
 import "regexp"
 
 func re_match(sample, re string) bool {
+
 	matched, err := regexp.MatchString(re, sample)
 	if err != nil {
 		panic(err)
 	}
+
 	return matched
 }
 

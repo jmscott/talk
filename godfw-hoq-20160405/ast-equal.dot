@@ -9,8 +9,8 @@ digraph G {
 	]
 	edge [
 		color=green
-		weight=1
-		penwidth=3
+		weight=5
+		penwidth=5
 	]
 
 	EQUAL [
