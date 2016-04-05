@@ -18,6 +18,7 @@ digraph G {
 
 	graph [
 		size="8.5,8.5"
+		rankdir="LR"
 	];
 	"==" -> "and"
 	"or" -> "and"
