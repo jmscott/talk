@@ -1,7 +1,34 @@
+<div
+  class="code"
+  style="
+  	background-color:	black;
+	color:			lightgreen;
+	font-family:		monospace;
+	font-size:		120%;
+  "
+>
 $ echo | hoq say-bye.hoq
-hello, world
-good bye, cruel world
-
+<br/>
+<span style="
+	color:	white;
+	font-style: italic;
+">hello, world</span>
+<br/>
+<span style="
+	color:	white;
+	font-style: italic;
+">good bye, cruel world</span>
+<br/>
+<br/>
 $ echo | hoq say-bye.hoq
-good bye, cruel world
-hello, world
+<br/>
+<span style="
+	color:	white;
+	font-style: italic;
+">good bye, cruel world</span>
+<br/>
+<span style="
+	color:	white;
+	font-style: italic;
+">hello, world</span>
+</div>

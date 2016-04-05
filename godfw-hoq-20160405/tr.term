@@ -3,14 +3,8 @@
   style="
   	background-color:	black;
 	color:			lightgreen;
+	text-align:		center;
 	font-family:		monospace;
 	font-size:		120%;
   "
->
-$ echo | hoq say.hoq
-<br/>
-<span style="
-	color:	white;
-	font-style: italic;
-">hello, world</span>
-</div>
+>tr ',' '\t' quarterly.csv | hoq quarterly.hoq</div>
