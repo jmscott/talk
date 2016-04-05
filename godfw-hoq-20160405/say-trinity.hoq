@@ -8,7 +8,7 @@ command say3 {
     path = "echo";
 }
 
-exec say1("hello, world");
+exec say1("hello, world");         #  always executes               // HL
 
 exec say2("to be or not to be")    when say1.exit_status == 0;
 exec say3("good bye, cruel world") when say2.exit_status == 0;
