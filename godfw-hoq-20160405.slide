@@ -191,6 +191,12 @@ Similar to Push in Sequential Machine
 .code godfw-hoq-20160405/exec-false.hoq
 .html godfw-hoq-20160405/exec-false.term
 
+* Idiom #3 - Close(channel) is a Cheap Broadcast
+.code godfw-hoq-20160405/flow-get.go
+
+* Idiom #3 - Flow Structure Synchronizes Operators
+.code godfw-hoq-20160405/flow.go
+
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
 - easy to transform sequential functions into concurrent functions

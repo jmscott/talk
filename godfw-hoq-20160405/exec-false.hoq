@@ -8,7 +8,7 @@ command say2 ("hello from say2:") {
 	path = "echo";
 }
 
-exec xtrue() when false;      #  never called, send null bool upstream			// HL
+exec xtrue() when false;              #  never called, so xtrue sends null bool upstream  // HL
 
 exec say1("xtrue exited 0")
   when
