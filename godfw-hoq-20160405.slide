@@ -168,7 +168,7 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/opcode-rel2-string.go /END FLOW OMIT/,/^}/
 .caption Lower Half of string_rel2()
 
-* Idiom #2 - Relational Binary Operator from Function - Main Loop
+* Idiom #2 - Relational Binary Operator on Two Strings - Main Loop
 .code godfw-hoq-20160405/opcode-rel2-string.go /START FLOW OMIT/,/END FLOW OMIT/
 
 * Go Idioms in HOQ
