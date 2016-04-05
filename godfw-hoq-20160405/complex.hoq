@@ -16,6 +16,6 @@ exec blob_on_network()
         $3 == "give" and $5 == "ok,ok"
   );
 
-exec merge_blob($1, $2)                                    #  merge blob request into database
+exec merge_blob($1, $2)            #  merge blob request into database
   when
         blob_on_network.exit_status == 0;

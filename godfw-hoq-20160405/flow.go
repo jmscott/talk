@@ -16,6 +16,7 @@ type flow struct {
 	//  standard input    // HL
 	fields []string
 
-	//  count of go routines still flowing expressions
+	//  count of go routines still resolving qualifications  // HL
 	confluent_count int
 }
+type flow_chan chan *flow

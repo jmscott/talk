@@ -189,11 +189,25 @@ Similar to Push in Sequential Machine
 .code godfw-hoq-20160405/exec-false.hoq
 .html godfw-hoq-20160405/exec-false.term
 
+* Logical Boolean Operators Follow Strict SQL Semantics
+
+Logical AND
+
+.code godfw-hoq-20160405/and.txt
+
+Logical OR
+
+.code godfw-hoq-20160405/or.txt
+
 * Idiom #3 - Close(channel) is a Cheap Broadcast
 .code godfw-hoq-20160405/flow-get.go
+Idiom #4 - Channels Over Channels
 
 * Idiom #3 - Flow Structure Synchronizes Operators
 .code godfw-hoq-20160405/flow.go
+
+* Idiom #3 - Flow Scheduler in main()
+.code godfw-hoq-20160405/main.go
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
