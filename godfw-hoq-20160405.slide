@@ -185,6 +185,11 @@ Similar to Push in Sequential Machine
 - exec
 - fanout_uint8, fanin_uint8
 
+* Exec of Command Send Null When False
+.code godfw-hoq-20160405/exec-xtrue.hoq
+ echo | hoq exec-xtrue.hoq
+ hello from say1: xtrue exited 0
+
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
 - easy to transform sequential functions into concurrent functions
