@@ -149,21 +149,21 @@ Did I bite off more than I can chew?
 .code godfw-hoq-20160405/opcode-const-string.go /^func/,/^}$/
 .caption 'Push' a String Constant
 
-* Idiom #2 - select{} on Many Channels is Sophisticated State Transition
+* Idiom #2 - select{} on Many Channels Allows Concurrent Opcodes
  - Local state in go routine is persistent
  - Easy to visualize relationship between channels
 
-* Idiom #2 - The RegEx Match Function is a Binary Relation on Two Strings
+* Idiom #2 - The RegEx Match is a Binary Relation on Two Strings
 .code godfw-hoq-20160405/opcode-rel2-string.go /^import /,/^}$/
 .caption import "regexp"
 .code godfw-hoq-20160405/opcode-rel2-string.go /^type bool_value struct/,/^type bool_chan chan/
 
 * Idiom #2 - OpCode: Relational Binary Operator on Two Strings
 .code godfw-hoq-20160405/opcode-rel2-string.go /^func.*string_rel2/,/START FLOW OMIT/
-.caption Upper Half
- ... Main Loop in Next Slide
+.caption Upper Half of string_rel2()
+.html godfw-hoq-20160405/splice-loop.html
 .code godfw-hoq-20160405/opcode-rel2-string.go /END FLOW OMIT/,/^}/
-.caption Lower Half
+.caption Lower Half of string_rel2()
 
 * Idiom #2 - RegEx Binary Operator - Main Loop
 .code godfw-hoq-20160405/opcode-rel2-string.go /START FLOW OMIT/,/END FLOW OMIT/
