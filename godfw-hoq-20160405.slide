@@ -120,16 +120,17 @@ Execution order of subprocess is directed acylic graph (DAG)
 
 * Is Wu Wei Nothing?
 
-* Go Idiom #1 - Turn Any Function into a Channel
+* Idiom #1 - Turn Any Function into a Channel
 .play godfw-hoq-20160405/fib-seq.go
 .caption Fibonacci is a Sequential Function
 
-* Go Idiom #1 - Fibonacci Becomes a Channel
+* Fibonacci Becomes a Channel
 .code godfw-hoq-20160405/fib-chan.go /^func fib_chan/,/^}/
-.caption No Change to Fibonacci Function
+.caption Idiom #1 - Turn Any Function into a Channel
 
-* Go Idiom #1 - Run the Fibonacci Series
+* Idiom #1 - Run the Fibonacci Series
 .play godfw-hoq-20160405/fib-chan.go /^func main/,/^}/
+.caption Idiom #1 - Turn Any Function into a Channel
 
 * Abstract Syntax Tree is a Flow Graph
 .image godfw-hoq-20160405/ast.png
@@ -157,19 +158,21 @@ Similar to Push in Sequential Machine
 * Idiom #2 - select{} on Two Channels Allows Concurrent Operands
 .image godfw-hoq-20160405/opcode-idiom2.png
 
-* Idiom #2 - The regex.Match() is a Binary Relation on Two Strings
+* The regex.Match() is a Binary Relation on Two Strings
 .code godfw-hoq-20160405/opcode-rel2-string.go /^import /,/^}$/
 .caption import "regexp"
 .code godfw-hoq-20160405/opcode-rel2-string.go /^type bool_value struct/,/^type bool_chan chan/
+.caption Idiom #2 - select{} on Two Channels Allows Concurrent Operands
 
-* Idiom #2 - OpCode: Relational Binary Operator on Two Strings
+* - OpCode: Relational Binary Operator on Two Strings
 .code godfw-hoq-20160405/opcode-rel2-string.go /^func.*string_rel2/,/START FLOW OMIT/
 .caption Upper Half of string_rel2()
 .html godfw-hoq-20160405/splice-loop.html
 .code godfw-hoq-20160405/opcode-rel2-string.go /END FLOW OMIT/,/^}/
 .caption Lower Half of string_rel2()
+.caption Idiom #2 - select{} on Two Channels Allows Concurrent Operands
 
-* Idiom #2 - Relational Binary Operator on Two Strings - Main Loop
+*  Relational Binary Operator on Two Strings - Main Loop (Idiom #2)
 .code godfw-hoq-20160405/opcode-rel2-string.go /START FLOW OMIT/,/END FLOW OMIT/
 
 * 16 Opcodes of Flow Machine
@@ -199,17 +202,24 @@ Logical OR
 
 .code godfw-hoq-20160405/or.txt
 
-All other binary operators are null if eithger operand is null
+All other binary operators are null if either operand is null
 
-* Idiom #3 - Close(channel) is a Cheap Broadcast
+* Idiom #3 - Channels Over Channels
 .code godfw-hoq-20160405/flow-get.go
-Idiom #4 - Channels Over Channels
 
-* Idiom #3 - Flow Structure Synchronizes Operators
+* Flow Structure Synchronizes Operators
 .code godfw-hoq-20160405/flow.go
+.caption Idiom #3 - Channels Over Channels
 
-* Idiom #3 - Flow Scheduler in main()
+* Idiom #4 - Close(channel) is a Cheap Broadcast
+.code godfw-hoq-20160405/cheap-broad.go
+.html godfw-hoq-20160405/splice-loop.html
+ }
+
+
+* Flow A and Flow B Run Concurrently
 .code godfw-hoq-20160405/main.go
+.caption Idiom #4 - Close(channel) is a Cheap Broadcast
 
 * Go Idioms in HOQ
 - `close(channel)` is cheap broadcast
