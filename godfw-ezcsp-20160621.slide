@@ -50,9 +50,12 @@ Programming computers is an exercise in constantly making things whose complexit
 
 DAG Goes Here
 
-* Easy to Compose Since IN/Out Same Data Type
+* Easy to Compose Flows with Same IN/OUT Data Types !
 .play godfw-ezcsp-20160621/compose.go /^func main/,/^}/
 .caption In/Out Channels Same Data Type!
+
+* Merge Many Channels into One
+.code godfw-ezcsp-20160621/merge.go
 
 * Resources
 - 
