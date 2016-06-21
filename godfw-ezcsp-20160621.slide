@@ -46,16 +46,15 @@ Programming computers is an exercise in constantly making things whose complexit
 * Compose Flow Operations
 - data in pipeline, not on heap or stack
 - scheduling based on flow not time sliced
-- pipeline is _Directed_Acyclic_Graph_ (DAG)
+- pipelines can be connected into _Directed_Acyclic_Graph_ (DAG)
+- flows (with no side effects) always terminate!
 
-DAG Goes Here
-
-* Easy to Compose Flows with Same IN/OUT Data Types !
-.play godfw-ezcsp-20160621/compose.go /^func main/,/^}/
+* Easy to Compose New Flow Operations
+.play godfw-ezcsp-20160621/compose.go /^func sqr_fib_flow/,/END MAIN OMIT$/
 .caption In/Out Channels Same Data Type!
 
 * Merge Many Channels into One
 .code godfw-ezcsp-20160621/merge.go
 
-* Resources
-- 
+* Flow 8 Requests to 4 Fibbers
+.play godfw-ezcsp-20160621/merge-8.go /^func pump/,/END MAIN OMIT$/

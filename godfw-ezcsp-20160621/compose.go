@@ -10,6 +10,7 @@ func fib(i int) int {
 	return fib(i - 1) + fib(i - 2)
 }
 
+
 func fib_flow(in chan int) (out chan int) {
 
 	out = make(chan int)
@@ -38,18 +39,21 @@ func sqr_flow(in chan int) (out chan int) {
 	return out
 }
 
-func main() {
+//  Composition is fibonacci squared // HL
+func sqr_fib_flow(in chan int) (out chan int) {		// HL
+
+	return sqr_flow(fib_flow(in)) 
+}
+
+func main() {		// HL
 
 	in := make(chan int)
 
-	out := sqr_flow(
-                   fib_flow(
-                       sqr_flow(
-                           fib_flow(in),
-                       ),
-                   ),
-               )
+	//  Compose twice  // HL
+	out := sqr_fib_flow(sqr_fib_flow(in))
 
 	in <- 5
 	fmt.Println(<- out)
+
 }
+// END MAIN OMIT
