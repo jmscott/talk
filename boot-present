@@ -5,7 +5,8 @@
 #	./boot-present >boot-present.out 2>&1 &
 #
 export GOPATH=/usr/local
-HTTP=$(hostname):8080
+#HTTP=$(hostname):8080
+HTTP=10.0.29.3:8080
 
 PATH=/usr/local/go/bin:.:$PATH
 exec present -http=$HTTP -play=true

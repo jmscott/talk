@@ -1,0 +1,25 @@
+Easy Concurrency from Sequential Functions
+
+*John*Scott*
+jmscott@setspace.com
+https://github.com/jmscott
+
+Unix/Database Consultant
+Founder, SetSpace, Inc, 1998-now
+Founder, august.{com,net}, Inc, 1998-2006
+
+Presented at Viverae
+Dallas, Texas, USA
+June 21, 2016
+
+* What is a Sequential Process?
+.play godfw-ezcsp-20160621/fib.go
+.caption Single Fibonacci Call
+
+* Sequential Processing is Slow!
+.play godfw-ezcsp-20160621/fib-8.go
+.caption Eight Fibonacci Calls, Sequentially
+
+* Concurrent Calls to Fibonacci Much Quicker
+.play godfw-ezcsp-20160621/fibber-8.go
+.caption Eight Fibonacci Calls, Concurrently
