@@ -1,7 +1,7 @@
 package main
 import "fmt"
 
-func fib(i uint64) uint64 {
+func fib(i int) int {
 
 	if i <= 2 {
 		return 1
@@ -10,9 +10,9 @@ func fib(i uint64) uint64 {
 	return fib(i - 1) + fib(i - 2)
 }
 
-func fib_flow(in chan uint64) (out chan uint64) {
+func fib_flow(in chan int) (out chan int) {
 
-	out = make(chan uint64)
+	out = make(chan int)
 
 	go func() {
 		for i := range in {
@@ -24,9 +24,9 @@ func fib_flow(in chan uint64) (out chan uint64) {
 	return out
 }
 
-func sqr_flow(in chan uint64) (out chan uint64) {
+func sqr_flow(in chan int) (out chan int) {
 
-	out = make(chan uint64)
+	out = make(chan int)
 
 	go func() {
 		for i := range in {
@@ -40,7 +40,7 @@ func sqr_flow(in chan uint64) (out chan uint64) {
 
 func main() {
 
-	in := make(chan uint64)
+	in := make(chan int)
 
 	out := sqr_flow(
                    fib_flow(

@@ -1,11 +1,11 @@
 package main
 import "fmt"
 
-func sqr_flow(in chan uint64) (out chan uint64) {
+func sqr_flow(in chan int) (out chan int) {		// HL
 
-	out = make(chan uint64)
+	out = make(chan int)
 
-	go func() {
+	go func() {					//  Listen in Background on 'in' channel // HL
 		for i := range in {
 			out <- i * i
 		}
@@ -15,9 +15,9 @@ func sqr_flow(in chan uint64) (out chan uint64) {
 	return out
 }
 
-func main() {
+func main() {						// HL
 
-	in := make(chan uint64)
+	in := make(chan int)
 	out := sqr_flow(in)
 
 	in <- 43

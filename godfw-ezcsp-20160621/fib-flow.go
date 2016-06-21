@@ -1,7 +1,7 @@
 package main
 import "fmt"
 
-func fib(i uint64) uint64 {
+func fib(i int) int {
 
 	if i <= 2 {
 		return 1
@@ -10,11 +10,11 @@ func fib(i uint64) uint64 {
 	return fib(i - 1) + fib(i - 2)
 }
 
-func fib_flow(in chan uint64) (out chan uint64) {
+func fib_flow(in chan int) (out chan int) {			// HL
 
-	out = make(chan uint64)
+	out = make(chan int)
 
-	go func() {
+	go func() {						//  Listen in Background on 'in' channel // HL
 		for i := range in {
 			out <- fib(i)
 		}
@@ -24,9 +24,9 @@ func fib_flow(in chan uint64) (out chan uint64) {
 	return out
 }
 
-func main() {
+func main() {							// HL
 
-	in := make(chan uint64)
+	in := make(chan int)
 	out := fib_flow(in)
 
 	in <- 43
