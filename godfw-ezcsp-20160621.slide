@@ -12,6 +12,14 @@ Presented at Viverae
 Dallas, Texas, USA
 June 21, 2016
 
+* @dreid
+
+Programming computers is an exercise in constantly making things whose complexity just slightly exceeds your own comprehension.
+
+* Go Concurrency Patterns: Pipelines and cancellation
+
+.link https://blog.golang.org/pipelines
+
 * What is a Sequential Process?
 .play godfw-ezcsp-20160621/fib.go
 .caption Single Fibonacci Call
@@ -23,3 +31,14 @@ June 21, 2016
 * Concurrent Calls to Fibonacci Much Quicker
 .play godfw-ezcsp-20160621/fibber-8.go
 .caption Eight Fibonacci Calls, Concurrently
+
+* Flow Oriented Computing
+
+* Build a Fibonacci Service
+
+* Build a Square Service
+
+* Compose Services
+
+* Resources
+- 
