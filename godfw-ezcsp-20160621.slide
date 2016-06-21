@@ -36,8 +36,6 @@ Programming computers is an exercise in constantly making things whose complexit
 - receive values from upstream via inbound channels
 - perform some function on that data, usually producing new values
 - send values downstream via outbound channels
-- data in pipeline, not on heap or stack
-- scheduling based on flow not time sliced
 
 * Build a Fibonacci Flow "Op"
 .play godfw-ezcsp-20160621/fib-flow.go /^func fib_flow/,/END MAIN OMIT$/
@@ -45,7 +43,14 @@ Programming computers is an exercise in constantly making things whose complexit
 * Build a Square Flow "Op"
 .play godfw-ezcsp-20160621/sqr-flow.go /^func sqr_flow/,/END MAIN OMIT$/
 
-* Compose Flow Operations Into New Operations
+* Compose Flow Operations
+- data in pipeline, not on heap or stack
+- scheduling based on flow not time sliced
+- pipeline is _Directed_Acyclic_Graph_ (DAG)
+
+DAG Goes Here
+
+* Easy to Compose Since IN/Out Same Data Type
 .play godfw-ezcsp-20160621/compose.go /^func main/,/^}/
 .caption In/Out Channels Same Data Type!
 

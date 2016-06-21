@@ -41,6 +41,7 @@ func sqr_flow(in chan uint64) (out chan uint64) {
 func main() {
 
 	in := make(chan uint64)
+
 	out := sqr_flow(
                    fib_flow(
                        sqr_flow(
