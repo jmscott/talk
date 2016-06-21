@@ -1,12 +1,12 @@
 #
 #  Synopsis:
-#	Start a present slide show on http port 8080
+#	Start a present slide show on an http port.
 #  Usage:
 #	./boot-present >boot-present.out 2>&1 &
+#	./boot-present 10.0.29.3:8080 >boot-present.out 2>&1 &
 #
 export GOPATH=/usr/local
-#HTTP=$(hostname):8080
-HTTP=10.0.29.3:8080
+HTTP=${1:=$(hostname):8080}
 
 PATH=/usr/local/go/bin:.:$PATH
 exec present -http=$HTTP -play=true
