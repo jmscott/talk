@@ -12,7 +12,8 @@
  [pgsv2015.pdf] (https://github.com/jmscott/talk/blob/master/pgsv2015.pdf), Dec 2, 2015, DFWPUG, Dallas Tx USA
 
 ## Case Study of PostgreSQL in Critical Messages
- [ams-pgopen-20150917.pdf] (https://github.com/jmscott/talk/blob/master/ams-pgopen-20150917.pdf), PGOPEN, Sep 17, 2015, Dallas Tx USA
+ [ams-pgopen-20150917.pdf] (https://github.com/jmscott/talk/blob/master/ams-pgopen-20150917.pdf), [YouTube video](https://www.youtube.com/watch?v=tNl9pY4PSyg) PGOPEN, Sep 17, 2015, Dallas Tx USA
+ [YouTube video](https://www.youtube.com/watch?v=tNl9pY4PSyg)
 
 ## Composing Channels for Easy Concurrency
  [ezcompose2.pdf](https://github.com/jmscott/talk/blob/master/ezcompose2.pdf), Part 2, Oct 21, 2015, GoDFW, Dallas Tx USA
