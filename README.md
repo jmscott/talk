@@ -3,7 +3,7 @@
  https://godoc.org/golang.org/x/tools/present
  
 ## godfw-ezcsp-20160621
- Talk on Simple Concurrency, Jun 21, 2016, GoDFW User Group, Dallas Tx USA
+ Flash Talk on Simple Concurrency, Jun 21, 2016, GoDFW User Group, Dallas Tx USA
 
 ## godfw-hoq-20160405
  Writing an Interpreter in Go, April 5, 2016, Capitol One, Dallas Tx USA
