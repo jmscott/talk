@@ -1,0 +1,145 @@
+Highlights of Silicon Valley 2015 PostgreSQL Conference
+
+December 2, 2015, Dallas, Texas, USA
+
+*John*Scott*
+Consultant, American Messaging, 2006-now
+Founder, SetSpace, Inc, 1998-now
+
+jmscott@setspace.com
+john.scott@americanmessaging.net
+
+* Physical Location and Attendance
+
+- South San Fransciso Convention Center
+- About 270 Attended from 12 Countries on Four Continents (?)
+- Twenty Four Speakers, Including Three Core Members
+
+* Big Organizers/Steering Commitee
+
+- Adobe
+- Amazon
+- Heroku
+- PGExperts
+- Cloudflare
+- Pandora
+
+* Small Organizers/Steering Commitee
+
+- Citus Database
+- PostgreSQL Experts (Josh Berkus)
+- EnterpriseDB (Bruce Momjian)
+- 2cd Quadrant
+- Neustar (HyperLogLog Algorithms)
+- Twitch (Justin.tv)
+
+* Companies Attending (not Speaking)
+- Salesforce
+- RedHat
+- PlanetLabs
+- Teradata (Jeff Davis)
+- LinkedIN
+- RackSpace
+
+* Warmup Talk to KeyNote Talks
+
+- Josh Berkus, PGExperts, Founder PGSV (Big Thanks)
+- Josh Gave Warmup to Keynote on PGSV History 
+- PgSV Started in 2003 (?)
+- Started in East Bay Warehouse
+- Now Grown to Three Meetup Groups
+
+* Three Key Note Speakers
+
+- Umur Cubukcu, Citus Data (Super PG Sharding)
+- Ivan Novick, Pivotal
+- Jay Kreps, Confluent, Apache Kafka
+
+* Citus Data and Green Plum Open Sourcing All PostgreSQL Extensions
+- CitusDB 5.0
+- Open Parallel/Insert Updates
+- Adding Clusters Scales Linearly with Writes
+
+* All Videos and Slides On Line!
+
+.link http://www.pgconfsv.com/videos
+
+No Keynotes - WTF?
+
+* Talks I Attended on Wednesday
+
+- TripAdvisor - Travel
+- Urban Airship - Real Time Analytics (Idempotent)
+- Joyent - Automated Failover - Zero Data Loss
+- Heap - High Volume Data Anlytics
+- EMC Deutschland - GeoLocation
+- Amazon - PostgreSQL in RDS 
+
+* At The Heart Of A Giant: Postgres At TripAdvisor
+- 350 Million Unique IP4 Addresses
+- 2 Million HTTP Requests/min, Burt to 5Million
+- 4 Data Centers, 160 Web Servers
+- Server: 768Gig RAM, Many TB HD -> 256Gig Ram, Many TB SSD
+- 10 people in tech ops, 1.5 in PG Ops, 5 People in Site Ops (all else)
+- Agressively Switch Traffic via DNS
+- Shared Buffer Issues in PG is Due to Faulty Clock Algorithm Falling Behind
+
+ Takeaway: Single PG Cluster Handles ALL Traffic
+
+* Data of Future Past: Postgres as Distributed Online Processing Analytics Engine
+- Urban Airship - "We Count Stuff" at Very High Rates
+- Probablistic Data Structures via HyperLogLog Algorithm in PostgreSQL (neustar)
+- PostgreSQL Replaces a homegrown "datacube" app in HBASE
+- New Dimension "datacube" requires writing code to add single dimension
+- PostgreSQL solved pointing time snapshot
+- HyperLogLog implies less heavy read structures
+- Sharding with PLProxy (modeled after Skype)
+
+ Takeaway: Probablistic Structures (HyperLog) Allow Quick Read Structures
+
+* Automating PostgreSQL Failover for High Availability
+- Joyent, Data Center COmpany
+- "Mantiss" is a Blob Server Built on PostgreSQL 9.2 and ZFS
+- Engineering Team had No Database Experience
+- Guess What, Vacuum in 9.2 Chokes on 70K Tables
+- Use Apache ZooKeeper to Coordinate Syncing
+- Also Built on Joyent Data Center Infrastructure
+- Just as I Was Falling Asleep - Very Cool PG Monitoring Tools in DTrace
+- Code for DTrace on Github
+ Takeway: DTrace Scripts are Amazing for Tracing Postgres
+
+* Powering Heap With PostgreSQL And CitusDB
+- Real Time Click Stream Analytics
+- Biggest Customer is AirBNB
+- 60 TB PostgreSQL Database
+- 2 Billion User Ids across many Customer IDs
+- Front Ended by Kafka "Transaction" Manager Capturing JSON Click Stream
+- Custom CitusDB is PostgreSQL Database (becoming Open SOurce)
+- Citus Rewrites Queries to Shard
+- Customers Write Retroactive Search Applets
+ Takeaway: Kafta Frontend is Cool Idea, CitusDB Distributes Writes
+
+* Heap Kafka/PostgreSQL Overview
+.image pgsv2015/heap-system.png 550 1000
+
+* Amazon RDS for PostgreSQL - What's New and Lessons Learned
+- Grant McAlister - Developer of RDS, Attended Dallas PGOpen
+- DB Max Size from 3TB to 6TB
+- Inceaesed to 3 IOPS/GB
+- Encrypted Drives at Rest (at Storage Layer with Your Own Key)
+- Sharable Snapshots (say between Dev and Production) via pg_upgrade
+- Added detailed autovacuum logging - rds_force_autovacuum_logging
+- pgstattuple in all database - shows vacuum stats
+- new tables to OS metrics - think "top" in tables
+- New data migration service - Oracle to PostgreSQL
+- Burstable IOPs with Carry Forward Credits
+ Takeaway: Amazon Loves PostgreSQL
+
+* Big Ideas
+- Forward Facing Inbound Transaction Manager Feeds PG
+- Idempotent Playback of Events
+- Sharding (Citus Data was Everywhere)
+- Amazon Making Huge Commitment to PostgreSQL
+- Can PostgreSQL Replace Hadoop (CitusDB)?
+
+* Talks I Wish I Had Attended

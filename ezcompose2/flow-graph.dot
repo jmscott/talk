@@ -1,0 +1,38 @@
+digraph G {
+
+	graph [
+		size="8.5,8.5"
+	];
+	Hostname1 [label="Hostname"]
+	Hostname2 [label="Hostname"]
+	HasSuffix1 [label="Has Suffix"]
+	HasSuffix2 [label="Has Suffix"]
+	HasPrefix1 [label="Has Prefix"]
+	Start [label="Start Tuple Flow\nkimhouse.kp, 10.214.34.25"]
+	OR1 [label="Logical Or"]
+	AND1 [label="Logical And"]
+
+	Start -> "IP Address";
+	"IP Address" -> HasPrefix1
+	"10.0.0.0/8" -> HasPrefix1
+	"10.0.0.0/8" [color=lightgrey,style=filled,shape=diamond];
+
+	Start -> Hostname1;
+	Hostname1 -> HasSuffix1
+	".ru" -> HasSuffix1
+	".ru" [label="\".ru\"", color=lightgrey,style=filled,shape=diamond];
+
+	Start -> Hostname2;
+	Hostname2 -> HasSuffix2
+	".kp" -> HasSuffix2
+	".kp" [label="\".kp\"", color=lightgrey,style=filled,shape=diamond];
+
+	HasSuffix1 -> OR1
+	HasSuffix2 -> OR1
+	OR1 -> AND1
+	HasPrefix1 -> AND1
+	AND1->Print
+
+	Start [shape=Mdiamond, color=green];
+	Print [shape=box, color=red, label="Print ! Bad Guy"];
+}

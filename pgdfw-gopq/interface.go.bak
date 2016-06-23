@@ -1,0 +1,38 @@
+package main
+
+type locker interface {
+	lock()
+	unlock()
+}
+type file struct {
+	path	string
+}
+type directory struct {
+	path	string
+}
+
+func (f *file) lock() {
+	// ...
+}
+
+func (f *file) unlock() {
+	// ...
+}
+
+func (d *directory) lock() {
+	// ...
+}
+
+func (f *directory) unlock() {
+	// ...
+}
+
+// START OMIT
+func main()
+{
+	var object *locker 
+
+	locker = &file{}
+	locker = &directory{}
+}
+// END OMIT

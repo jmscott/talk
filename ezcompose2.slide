@@ -1,0 +1,131 @@
+Composing Channels for Easy Concurrency, Part 2
+
+October 21, 2015, Dallas, Texas, USA
+
+*John*Scott*
+Consultant, American Messaging, 2006-now
+Founder, SetSpace, Inc, 1998-now
+
+jmscott@setspace.com
+john.scott@americanmessaging.net
+
+* The single biggest problem in communication is the illusion that it has taken place.
+.caption George Bernard Shaw
+
+.image ezcompose2/appenginegophercolor.jpg
+
+* Share Memory by Communicating
+
+* Go is a Blend of Sequential and Concurrent Coding
+
+* The Big Threes of Systems Programming
+
+- Modularity
+- Composition
+- Concurrency
+
+* Modular
+No Side Effects, Code is Local
+
+* Composition
+Create New Modules from Existing
+
+* Concurrency
+Concurrency is the composition of independently executing processes.
+
+Parallelism is the simultaneous execution of any processes.
+
+* Unix Shell Pipeline is Concurrency
+
+ find . -name '*.txt'  |  bzip2 >files.bz2
+
+.caption Find All text Files and Compress into files.bz2
+
+  ps -el  |  grep postgres  |  grep -v grep  |  mail -s 'Postgres Processes' jmscott@setspace.com
+
+.caption Mail List of All PostgreSQL Processes to jmscott@setspace.com
+
+* Background Processes Running in Parallel
+
+ slow_job1 &
+ slow_job2 &
+ slow_job3 &
+
+.caption Not Concurrent Since Not Composed into Single Process
+
+* Cheap Broadcast by Closing Channel
+*Read*on*Closed*Channel*Always*Returns*Nil*Or*Zero*
+
+.code ezcompose2/cheap.go
+
+* Complex Flow Graph Descibes Query
+
+.image ezcompose2/flow-graph.png
+.caption Query: (hostname like "%ru" or hostname like "%kp") and ip4 like "10.%"
+
+* Flow Graph is Actually a Query Parse Tree
+ (hostname like "%ru" or hostname like "%kp") and ip4 like "10.%"
+
+* Simple Six Instructions for "Query" Language
+- Logical AND
+- Logical OR
+- Has a Prefix String
+- Has a Suffix String
+- Project (Push) Tuple Attribute (Column)
+- Print
+
+* How to Coordinate Many Go Routines
+
+-  Close a Single Broadcast Channel on Which Many GoRoutines Listen
+-  Send Next Request for Work to Single GoRoutine as Channel Over Channel
+
+* Confluence - an act or process of merging.
+
+* Flow Data Structures
+Flow Coordinates Many Query Predicates Analyzing a Single Tuple
+.caption One Flow Structure and Two Global Flows (A and B)
+.code ezcompose2/flow.go /^type flow struct/,/^var flowA/
+
+* Create a New Flow
+.code ezcompose2/flow.go /^func .* new\(/,/^}$/
+
+* Initialize the 0'th Flow and Victious Attack Data
+.code ezcompose2/flow.go /^var attack /,/OMIT$/
+
+* Coordinate Many Query Predicates
+.code ezcompose2/flow.go /^func.*get()/,/^}$/
+.caption Each Predicate GoRoutine Calls flow.get()
+
+* "Instruction" to Match Suffix of String
+.code ezcompose2/flow.go /^func.* has_suffix()/,/^}$/
+
+* "Instruction" to Push Attribute of Input Tuple
+.code ezcompose2/flow.go /^func.* project()/,/^}$/
+
+* "Instruction" to Print Answer of Flow Over Tuple
+.code ezcompose2/flow.go /^func.* print()/,/^}$/
+
+* "Conflue" has Resolved flowA to Start flowB
+.code ezcompose2/flow.go /^func.* conflue()/,/^}$/
+
+* Simple Example Confluence
+.code ezcompose2/flow.go /^func.* simple_conflue()/,/^}$/
+
+* Run Simple Example Query
+.play ezcompose2/flow.go /^func.* simple\(/,/OMIT$/
+
+* "Instruction" to Logical AND
+.code ezcompose2/flow.go /^func.* logical_AND()/,/^}$/
+
+* "Instruction" to Logical OR
+.code ezcompose2/flow.go /^func.* logical_OR()/,/^}$/
+
+* "Instruction" to Match Prefix of String
+.code ezcompose2/flow.go /^func.* has_prefix()/,/^}$/
+
+* Compile Complex "Attack" Query
+.code ezcompose2/flow.go /^func.* compile()/,/^}$/
+
+* Attacking!!!!
+.code ezcompose2/flow.go /^func.* attacking()/,/^}$/
+.play ezcompose2/flow.go /^func.* main()/,/^}$/

@@ -1,0 +1,37 @@
+digraph G {
+
+	graph [
+		size="8.5,8.5"
+	];
+	Hostname1 [label="Hostname"]
+	Hostname2 [label="Hostname"]
+	HasSuffix1 [label="Has Suffix"]
+	HasSuffix2 [label="Has Suffix"]
+	InSubnet1 [label="Is In Subnext"]
+	OR1 [label="Logical Or"]
+	AND1 [label="Logical And"]
+
+	Start -> "IP Address";
+	"IP Address" -> InSubnet1
+	"10.0.0.0/8" -> InSubnet1
+	"10.0.0.0/8" [color=lightgrey,style=filled,shape=diamond];
+
+	Start -> Hostname1;
+	Hostname1 -> HasSuffix1
+	".ru" -> HasSuffix1
+	".ru" [label="\".ru\"", color=lightgrey,style=filled,shape=diamond];
+
+	Start -> Hostname2;
+	Hostname2 -> HasSuffix2
+	".nk" -> HasSuffix2
+	".nk" [label="\".nk\"", color=lightgrey,style=filled,shape=diamond];
+
+	HasSuffix1 -> OR1
+	HasSuffix2 -> OR1
+	OR1 -> AND1
+	InSubnet1 -> AND1
+	AND1->End
+
+	Start [shape=Mdiamond, color=green];
+	End [shape=Msquare, color=red];
+}

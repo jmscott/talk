@@ -1,0 +1,17 @@
+digraph G {
+
+	subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		Fibonacci -> Square;
+		label = "Squib";
+		labeljust = "l";
+	}
+
+	Start -> Fibonacci;
+	Square -> End;
+
+	Start [shape=Mdiamond,color=green];
+	End [shape=Msquare,color=red];
+}

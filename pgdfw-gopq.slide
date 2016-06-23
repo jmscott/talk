@@ -1,0 +1,305 @@
+
+PostgreSQL and Google Go Language
+
+April 14, 2015, Austin, Texas, USA
+
+*John*Scott*
+Consultant, American Messaging, 2006-now
+Founder, SetSpace, Inc, 1998-now
+
+jmscott@setspace.com
+john.scott@americanmessaging.net
+
+* Glenda the Gopher
+.image pgdfw-gopq/appenginegophercolor.jpg
+
+* About the Talk
+
+- History, Motivation and Highlights of Go Language
+- How to Query PostgreSQL in Go
+- Benchmarks Comparing Go Query to C Code
+
+* About Go
+
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+
+Design began in late 2007.
+
+- Robert Griesemer, Rob Pike, Ken Thompson
+- Russ Cox, Ian Lance Taylor
+
+Became open source in November 2009.
+
+Developed entirely in the open; very active community.
+Language stable as of Go 1, early 2012.
+Work continues.
+
+* Go
+
+A deliberately simple but powerful and fun language.
+
+- start with C, remove complex parts
+- add interfaces, concurrency
+- also: garbage collection, closures, reflection, slices ...
+- strings encoded in UTF-8 only
+
+For more background on design:
+
+- [[http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html][Less is exponentially more]]
+- [[http://talks.golang.org/2012/splash.article][Go at Google: Language Design in the Service of Software Engineering]]
+
+* Building Go Executables
+- Statically compiled and linked executables
+- No Runtime Libraries - Not Even libc!
+- Size of Smallest Executable is Small (400KB)
+- Process Startup about 50-100x Quicker Java
+- Range Checking on Arrays/Slice
+- Null Pointer Deferences Caught at Runtime
+- No Magic
+
+* Production Go
+- Docker [[http://blog.golang.org/docker]]
+- Dropbox [[https://github.com/dropbox/godropbox]]
+- YouTube, Twitch
+- GitHub, Tumblr (gocircuit!), Heroku
+- Canonical/Ubuntu, Mozilla, SoundCloud
+- Digital Ocean, Getty Images, DataDog
+- Apple, Walmart, Intel are Recently Advertising Go Jobs
+- Honest Dollar in Austin
+
+.link http://www.golangprojects.com/ For Jobs See golangprojects.com
+
+* Go Syntax Easy to Carry in Your Head
+
+- for {} is only loop construct
+- if/else, switch{}, goto, labeled break
+- common unary/binary operators: */+- == != > >= < <= ++ -- << >> 
+- address/content prefix operators: & * (with garbage collection!)
+- json style struct/interface {} declarations
+- arrays and slices (python)
+- functions with closures (javascript)
+- interface just a set of methods
+- channels multiplex with select{} statement
+
+* Unified Declaration and Assignment
+.code pgdfw-gopq/var0.go
+
+* New Types - Unified Declaration and Assignment
+.code pgdfw-gopq/var-cast.go
+- Cast must be explicit but compiler is smart about type lineage
+
+* Methods - Unified Declaration and Assignment
+.code pgdfw-gopq/var-method.go
+- A function bound to a type is called a "Method"
+
+* Structures - Unified Declaration and Assignment
+.code pgdfw-gopq/var-struct.go
+
+* Function Pointers - Unified Declaration and Assignment
+.code pgdfw-gopq/var-func.go
+
+* Memory Reference - Unified Declaration and Assignment
+.code pgdfw-gopq/var-mem.go
+
+* Run Memory Reference - Unified Declaration and Assignment
+.play pgdfw-gopq/var-mem-run.go
+
+* Arrays and Slices - Unified Declaration and Assignment
+- Arrays are static with immutable sizes
+- Slices (from python) are windows into a static array
+- Slices reference from 0
+- Slices can grow and shink but not beyond the capacity of array
+
+* Channels - Unified Declaration and Assignment
+- Think of full duplex pipes for any data type ... including channels
+.code pgdfw-gopq/chan.go
+
+* Go is a Blend of Sequential and Concurrent Coding
+
+* Typical Sequential Coding
+Fibonacci series: f(n) = f(n-1) + f(n-2)
+
+.play pgdfw-gopq/seq1.go
+
+* Slower Sequential Coding
+Fibonacci series: f(n) = f(n-1) + f(n-2)
+
+.play pgdfw-gopq/seq2.go
+
+* Easy Concurrent Coding
+
+.play pgdfw-gopq/parallel.go
+
+* Concurrency with Channels
+
+Share memory by communicating rather than communicating by sharing memory
+
+- Based on Communicating Sequential Processes by Sir Tony Hoare
+- Channels are Typed, Two Way Pipes
+- Writer Blocks until Reader Completes
+- Read on Closed Channel Returns Nil - A Cheap Broadcast
+- Write on Closed Channel is Runtime Panic
+- Multiple Channels Read/Written with select{} statement
+- Channels can be Buffered
+
+* Any Datatype Sent Over a Channel
+Channels can be sent over channels
+
+.code pgdfw-gopq/chan-lb.go
+
+"Hello, World" is Load Balancer
+
+* Select Reads/Write Many Channels at Once
+.code pgdfw-gopq/select.go
+
+* Go Memory Management
+- Garbage Collection of Unreferenced Data
+- True Pointers and Writing Directly into Memory
+- Programmer Controls Memory Layout
+- Possible to Write a Typed malloc(), Relieving Pressure on Collector
+
+* Database/Sql Core Package and PostgreSQL pq
+
+* GoLang Package database/sql
+Abstracts SQL Databases
+
+- Similar to famous Perl package named DBI
+- Written by Brad Fitzpatrick (Live Journal)
+- Two PostgreSQL Drivers: native or static link against C library libpq
+- Other Drivers: MS Server, MySQL, SQLite, DB2, ODBC, Oracle8, Sybase, Firebird, YQL
+
+* Builtin Connection Pooling
+- All databases drivers can pool
+- Single DB Object transparently pools across connections
+- Transaction binds to single pool connection
+- SetMin/MaxIdleConnections()
+
+* database/sql Data Types
+- Database
+- Driver (referenced via URI)
+- Statement
+- Transaction
+- Row, Rows,
+- Result
+- Bool, Float64, Int64, String
+
+* database/sql Setup Methods
+- Open()
+- Prepare()
+- Close()
+- Begin()
+- Commit()
+- Rollback()
+
+* Query Methods - Package database/sql
+- Exec()
+- Query()
+- QueryRow()
+- Next()
+- Scan()
+
+* Example - Query Multiple Rows
+.code pgdfw-gopq/query-multi.go
+
+* PostgreSQL Driver database/sql/pq
+- 100% go language - no linking of C library libpq
+- Hidden driver underneath generic core library
+- Not distributed with golang core - available on github
+- Very, very fast
+
+ $ go get github.com/lib/pq
+
+* sql-bench.go - import statements
+
+.code -numbers pgdfw-gopq/sql-bench.go /1 START OMIT/,/1 END OMIT/
+
+* sql-bench.go - constants & declarations 
+
+.code -numbers pgdfw-gopq/sql-bench.go /2 START OMIT/,/2 END OMIT/
+
+* sql-bench.go - open database and prepare statement
+
+.code -numbers pgdfw-gopq/sql-bench.go /4 START OMIT/,/4 END OMIT/
+
+* sql-bench.go - query worker
+
+.code -numbers pgdfw-gopq/sql-bench.go /3 START OMIT/,/3 END OMIT/
+
+* sql-bench.go - send cookies to competing workers
+
+.code -numbers pgdfw-gopq/sql-bench.go /5 START OMIT/,/5 END OMIT/
+
+* sql-bench.go - wait for queries to finish, print stats
+
+.code -numbers pgdfw-gopq/sql-bench.go /6 START OMIT/,/6 END OMIT/
+
+* sql-bench.go - run the benchmark in main()
+
+.code -numbers pgdfw-gopq/sql-bench.go /7 START OMIT/,/7 END OMIT/
+
+* Benchmark Comparing Queries in Go/pq to C/libpq
+* Source Code for C and Go Benchmarks
+
+Go Benchmark in `sql-bench.go`
+
+.link http:pgdfw-gopq/sql-bench.go
+
+Shell Script to Run `sql-bench-go.sh`
+
+.link http:pgdfw-gopq/sql-bench-go-sh.txt
+
+C Benchmark in `sql-bench.pgc`
+
+.link http:pgdfw-gopq/sql-bench-pgc.txt
+
+Shell Script to Run `sql-bench.pgc`
+
+.link http:pgdfw-gopq/sql-bench-pgc-sh.txt
+
+.caption _Apolgies_for_txt_links_for_source_code_
+.caption _.txt_file_cause_problems_for_browser_-_try_hard_refresh_in_browser_
+
+* Software & Hardware Environment for Benchmark
+
+PostgreSQL 9.4.1
+
+ 4GB Shared Buffers
+ Compiled From Source
+
+My Desktop iMac OSX 10.9.5
+
+ Intel Core i7 @ 3.4GHz, 4 Cores, 8 Threads
+ 32G RAM, DDR3 @ 1600 MHz Bus, 8Mb L2 Cache
+ 786Gb Apple SSD SM768E, Intel Controller
+
+* Query a Snapshot of Production HTTP Session Cookie Table
+Tuple Width is 41 bytes
+ 
+.code pgdfw-gopq/session.sql
+
+1,525,746 Tuples in Table with 160 bit Primary Key (SHA)
+
+.code pgdfw-gopq/select-session.sql
+
+* Who Won the Shootout?
+
+.caption Go _pq_ Package
+
+ 16.50s for 1525861 queries = 92,476 lookup/sec
+ 
+.caption C _libpq_ Library
+
+  15.37s for 1525861 queries = 99,275 lookup/sec
+
+Perhaps pgbench in Go Language?
+
+* Links
+.link http://tour.golang.org/ Interactive Tour of Go
+.link http://www.golang-book.com/ An Introduction to Programming in Go - Online Book
+.link https://www.youtube.com/watch?v=sln-gJaURzk&list=PLoJVVLKOp927tFsMbO2onhp26NnOAKAtO#t=921 Meet the Go Team - Q/A at Google I/O 2012
+.link http://vimeo.com/49718712 Concurrency is Not Parallelism by Rob Pike @ Vimeo
+.link http://en.wikipedia.org/wiki/Communicating_sequential_processes Communication Sequential Processes - The Theory That Inspired Go @ Wikipedia
+.link http://www.usingcsp.com/cspbook.pdf Communicating Sequential Processes - Readable Intro to CSP Algebra (PDF)
+.link http://www.godoc.org Searchable Documentation on Popular Go Packages
+.link http://godoc.org/github.com/lib/pq PostgreSQL Package PQ Driver @ GoDoc
+# in code sections links to playground versions

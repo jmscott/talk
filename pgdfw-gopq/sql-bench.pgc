@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+EXEC SQL BEGIN DECLARE SECTION;
+
+bool		cookie_exists;
+char		cookie[4096];
+const char	*select_cookie = "					\
+	select								\
+	  exists (							\
+		select							\
+			cookie						\
+		  from							\
+			login_session					\
+		  where							\
+			cookie = ?					\
+	)";
+
+
+EXEC SQL END DECLARE SECTION;
+
+void
+check_sqlca()
+{
+	long status;
+
+	status = sqlca.sqlcode;
+	if (status == 0)
+		return;
+	fprintf(stderr, "ERROR: sqlcode != 0: %ld\n", status);
+	fprintf(stderr, "ERROR: sqlerrm.sqlerrmc: %s\n",sqlca.sqlerrm.sqlerrmc);
+	exit(1);
+}
+
+
+int
+main(int argc, char **argv)
+{
+	int true_count = 0, false_count = 0;
+
+	EXEC SQL CONNECT TO DEFAULT;
+	check_sqlca();
+
+	EXEC SQL PREPARE select_cookie from :select_cookie;
+	check_sqlca();
+
+	while (fgets(cookie, sizeof cookie, stdin) != NULL) {
+		int len = strlen(cookie);		
+		if (len > 1)
+			cookie[len - 1] = 0;
+
+		EXEC SQL EXECUTE select_cookie into :cookie_exists
+			USING :cookie;
+		check_sqlca();
+		if (cookie_exists)
+			true_count++;
+		else
+			false_count++;
+	}
+	printf("True/False Count: %d/%d\n", true_count, false_count);
+	exit(0);
+}

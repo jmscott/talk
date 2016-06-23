@@ -1,0 +1,134 @@
+Composing Channels for Easy Concurrency
+
+September 10, 2015, Dallas, Texas, USA
+
+*John*Scott*
+Consultant, American Messaging, 2006-now
+Founder, SetSpace, Inc, 1998-now
+
+jmscott@setspace.com
+john.scott@americanmessaging.net
+
+* The single biggest problem in communication is the illusion that it has taken place.
+.caption George Bernard Shaw
+
+.image ezcompose/appenginegophercolor.jpg
+
+* Share Memory by Communicating
+
+* Go is a Blend of Sequential and Concurrent Coding
+
+* Sequential Fibonacci Series
+f(n) = f(n-1) + f(n-2)
+
+.play ezcompose/seq1.go
+
+* Multiple, Sequential Fibonacci Series
+f(n) = f(n-1) + f(n-2)
+
+.play ezcompose/seq2.go
+
+* Concurrent Fibonacci Series
+f(n) = f(n-1) + f(n-2)
+
+.play ezcompose/parallel.go /^func main/,/^}/
+
+* The Big Threes of Systems Programming
+
+- Modularity
+- Composition
+- Concurrency
+
+* Modular
+No Side Effects, Code is Local
+
+.caption Fibonacci
+.code ezcompose/seq1.go /^func fib/,/^}/
+
+.caption Square
+.code ezcompose/square.go
+
+* Composition
+Create New Modules from Existing
+
+.caption Squib
+.play  ezcompose/squib.go /^func squib/,/END/-1
+
+* Concurrency
+Concurrency is the composition of independently executing processes.
+
+Parallelism is the simultaneous execution of any processes.
+
+* Unix Shell Pipeline is Concurrency
+
+ find . -name '*.txt'  |  bzip2 >files.bz2
+
+.caption Find All text Files and Compress into files.bz2
+
+  ps -el  |  grep postgres  |  grep -v grep  |  mail -s 'Postgres Processes' jmscott@setspace.com
+
+.caption Mail List of All PostgreSQL Processes to jmscott@setspace.com
+
+* Background Processes Running in Parallel
+
+ slow_job1 &
+ slow_job2 &
+ slow_job3 &
+
+.caption Not Concurrent Since Not Composed into Single Process
+
+* Fibonacci + Squaring as a Pipeline
+
+.image ezcompose/squib-pipe.png
+
+.caption New Service Christianed "Squib"
+
+* Fibonacci as a Pipeline
+
+.code ezcompose/squib-pipe.go /^func fib_pipe/,/^}$/
+.caption First Node in Previous Graph
+
+* Squaring as a Pipeline
+
+.code ezcompose/squib-pipe.go /^func square_pipe/,/^}$/
+.caption Second Node in Previous Graph
+
+* Composing Squib into a Pipeline
+
+.play ezcompose/squib-pipe.go /^func main/,/^}$/
+
+* Working Stealing
+- Writes and Reads on Channels are Atomic
+- Simulaneous Readers Compete on Channel for Next Available Datum
+
+* Squib as a Queue of Workers
+
+.image ezcompose/squib-workq.png
+.caption Each Squib Runs in Parallel
+
+* Squib as a Queue of Workers
+.code ezcompose/squib-workq.go /^func squib_queue/,/^}$/
+
+* Run Squib as Work Queue
+.play ezcompose/squib-workq.go /^func main/,/^}$/
+
+* Cheap Broadcast by Closing Channel
+*Read*on*Closed*Channel*Returns*Nil*Or*Zero*
+
+.code ezcompose/cheap.go
+
+* Complex Flow Graph Coordinate Work
+ 
+
+.image ezcompose/flow-graph.png
+.caption Query: (hostname ~ 'ru$' or hostname ~ 'kp$') and ip4 <<= '^10.0.0.0/8'
+
+* Links
+.link http://tour.golang.org/ Interactive Tour of Go
+.link http://www.golang-book.com/ An Introduction to Programming in Go - Online Book
+.link https://www.youtube.com/watch?v=sln-gJaURzk&list=PLoJVVLKOp927tFsMbO2onhp26NnOAKAtO#t=921 Meet the Go Team - Q/A at Google I/O 2012
+.link http://vimeo.com/49718712 Concurrency is Not Parallelism by Rob Pike @ Vimeo
+.link http://en.wikipedia.org/wiki/Communicating_sequential_processes Communication Sequential Processes - The Theory That Inspired Go @ Wikipedia
+.link http://www.usingcsp.com/cspbook.pdf Communicating Sequential Processes - Readable Intro to CSP Algebra (PDF)
+.link http://www.godoc.org Searchable Documentation on Popular Go Packages
+# in code sections links to playground versions

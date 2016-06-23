@@ -1,0 +1,51 @@
+digraph G {
+
+	subgraph cluster_1 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		"Fibonacci #1" -> "Square #1";
+		label = "Squib #1";
+		labeljust = "l";
+	}
+
+	subgraph cluster_2 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		"Fibonacci #2" -> "Square #2";
+		label = "Squib #2";
+		labeljust = "l";
+	}
+
+	subgraph cluster_3 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		"Fibonacci #3" -> "Square #3";
+		label = "Squib #3";
+		labeljust = "l";
+	}
+
+	subgraph cluster_4 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		"Fibonacci #4" -> "Square #4";
+		label = "Squib #4";
+		labeljust = "l";
+	}
+
+	Start -> "Fibonacci #1";
+	Start -> "Fibonacci #2";
+	Start -> "Fibonacci #3";
+	Start -> "Fibonacci #4";
+
+	"Square #1" -> End;
+	"Square #2" -> End;
+	"Square #3" -> End;
+	"Square #4" -> End;
+
+	Start [shape=Mdiamond, color=green];
+	End [shape=Msquare, color=red];
+}
