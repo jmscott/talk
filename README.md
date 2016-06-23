@@ -11,11 +11,14 @@
 ## pgsv2015
  Highlights of Silicon Valley PostgreSQL Conference, Dec 2, 2015, DFWPUG
 
+## ams-pgopen-20150917
+ Case Study of PostgreSQL in Critical Message, PGOPEN, Sep 17, 2015
+
 ## ezcompose2
- Composing Channels for Easy Concurrency, Part 2
+ Composing Channels for Easy Concurrency, Part 2, Oct 21, 2015, GoDFW
 
 ## ezcompose
- Composing Channels for Easy Concurrency, Part 1
+ Composing Channels for Easy Concurrency, Part 1, Sep 10, 2015, GoDFW
  
 ## pgdfw-gopq
  PostgreSQL and Go language, April 14, 2015, Austin PUG
