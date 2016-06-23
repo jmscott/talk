@@ -11,7 +11,7 @@
 ## Highlights of Silicon Valley PostgreSQL Conference
  [pgsv2015.pdf] (https://github.com/jmscott/talk/blob/master/pgsv2015.pdf), Dec 2, 2015, DFWPUG, Dallas Tx USA
 
-## Case Study of PostgreSQL in Critical Message
+## Case Study of PostgreSQL in Critical Messages
  [ams-pgopen-20150917.pdf] (https://github.com/jmscott/talk/blob/master/ams-pgopen-20150917.pdf), PGOPEN, Sep 17, 2015, Dallas Tx USA
 
 ## Composing Channels for Easy Concurrency
