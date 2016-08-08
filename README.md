@@ -18,7 +18,7 @@
  [ezcompose2.pdf](https://github.com/jmscott/talk/blob/master/ezcompose2.pdf), Part 2, Oct 21, 2015, GoDFW, Dallas Tx USA
 
 ## Composing Channels for Easy Concurrency, Part 1
- [ezcompose.pdf](https://github.com/jmscott/talk/blob/master/ezcompose.pdf), Part 2, Oct 21, 2015, GoDFW, Dallas Tx USA
+ [ezcompose.pdf](https://github.com/jmscott/talk/blob/master/ezcompose.pdf), Part 1, Sep 10, 2015, GoDFW, Dallas Tx USA
  
 ## PostgreSQL and Go Language
  [pgdfw-gopq.sql](https://github.com/jmscott/talk/blob/master/pgdfw-gopq.pdf), April 14, 2015, Austin PUG, Austin Tx USA
