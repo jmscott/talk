@@ -14,7 +14,7 @@
 ## Case Study of PostgreSQL in Critical Messageing Infrastructure
  [ams-pgopen-20150917.pdf] (https://github.com/jmscott/talk/blob/master/ams-pgopen-20150917.pdf), [YouTube video](https://www.youtube.com/watch?v=tNl9pY4PSyg) PGOPEN, Sep 17, 2015, Dallas Tx USA
 
-## Composing Channels for Easy Concurrency
+## Composing Channels for Easy Concurrency, Part II
  [ezcompose2.pdf](https://github.com/jmscott/talk/blob/master/ezcompose2.pdf), Part 2, Oct 21, 2015, GoDFW, Dallas Tx USA
 
 ## Composing Channels for Easy Concurrency, Part 1
