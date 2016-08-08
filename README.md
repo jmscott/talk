@@ -2,7 +2,7 @@
  Slides formated for Google's
  [present tool] (https://godoc.org/golang.org/x/tools/present)
  
-## Flash Talk on Simple Concurrency
+## Flash Talk on Simple Concurrency with Go Channels
  [godfw-ezcsp-20160621.pdf](https://github.com/jmscott/talk/blob/master/godfw-ezcsp-20160621.pdf), Jun 21, 2016, GoDFW User Group, Dallas Tx USA
 
 ## Writing an Interpreter in Go
