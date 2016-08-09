@@ -11,7 +11,7 @@
 ## Highlights of Silicon Valley PostgreSQL Conference
  [pgsv2015.pdf] (https://github.com/jmscott/talk/blob/master/pgsv2015.pdf), Dec 2, 2015, DFWPUG, Dallas Tx USA
 
-## Case Study of PostgreSQL in Critical Messageing Infrastructure
+## Case Study of PostgreSQL in Critical Messaging Infrastructure
  [ams-pgopen-20150917.pdf] (https://github.com/jmscott/talk/blob/master/ams-pgopen-20150917.pdf), [YouTube video](https://www.youtube.com/watch?v=tNl9pY4PSyg) PGOPEN, Sep 17, 2015, Dallas Tx USA
 
 ## Composing Channels for Easy Concurrency, Part 2
