@@ -22,7 +22,8 @@ SELECT
 		'999,999,999')) ||
 		' Pages' AS "Average #Pages per PDF",
 	trim(pg_size_pretty(pg_total_relation_size(
-		'pdfbox2.page_tsv_utf8'))) AS "TSV Table Size",
+		'pdfbox2.page_tsv_utf8'))) AS
+			"Text (Lexeme) Search Vector Table Size",
 	trim(pg_size_pretty(pg_total_relation_size(
 		'pdfbox2.page_text_utf8'))) AS "Text Table Size"
   from
