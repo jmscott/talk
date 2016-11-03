@@ -1,4 +1,4 @@
-Experiments with Text Search and RUM Index
+Experiments with Searching Text using Phrases and RUM Index
 
 Galvanize
 November 12, 2016
@@ -8,10 +8,20 @@ Austin, Texas, USA
 CTO of RJ2 Technologies
 
 jmscott@rj2tech.com
+https://github.com/jmscott/talk
 
-* GitHub
-  https://github.com/jmscott/talk
-
-* PDF Statistics
+* Statistics of PDF Documents
 .code pgday-austin-20121112/stat.term
 .html pgday-austin-20121112/stat.html
+
+* Example of "Google" Style Search
+ NEURAL CRYPTOGRAPHY
+
+* The Complexity of Text Search
+- Text Search is Convenient
+- Text is VERY Structured and Complex
+- What is a Tuple of Record?
+
+* Simplify with UTF-8 Encoding of Unicode
+
+* Full Text Search Operators
