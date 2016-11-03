@@ -4,6 +4,7 @@
 #	Start a present slide show on an http port.
 #  Usage:
 #	./boot-present >boot-present.out 2>&1 &
+#	./boot-present 127.0.0.1:8080 >boot-present.out 2>&1 &
 #	./boot-present 10.0.29.3:8080 >boot-present.out 2>&1 &
 #
 export GOPATH=/usr/local
