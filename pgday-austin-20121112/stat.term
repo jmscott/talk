@@ -1,0 +1,2 @@
+cd pgday-austin-20121112
+psql -f stat.sql --html  --output stat.html
