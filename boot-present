@@ -3,8 +3,13 @@
 #  Synopsis:
 #	Start a present slide show on an http port.
 #  Usage:
+#	#  public internet
 #	./boot-present >boot-present.out 2>&1 &
+#
+#	#  local dev machine
 #	./boot-present 127.0.0.1:8080 >boot-present.out 2>&1 &
+#
+#	#  private internet for peer review
 #	./boot-present 10.0.29.3:8080 >boot-present.out 2>&1 &
 #
 export GOPATH=/usr/local
