@@ -20,8 +20,14 @@ https://github.com/jmscott/talk
 * The Complexity of Text Search
 - Text Search is Convenient
 - Text is VERY Structured and Complex
-- What is a Tuple of Record?
+- History of Relations is Language (Charles Peirce/Codd)
+- What is a Tuple (Record) Really?
 
-* Simplify with UTF-8 Encoding of Unicode
+* Please Love UTF-8 Encoding of Text
+- ASCII compatiable for 7 bits
+- trivial state machine to parse characters
+- UTF-8 designed by Ken Thompson (unix/plan 9) and Rob Pike (go lang/plan 9)
+- google's new "golang" encodes strings only in UTF-8 (?)
+- spoken languages are dying fast
 
 * Full Text Search Operators
