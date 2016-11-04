@@ -3,7 +3,7 @@
 #  Synopsis:
 #	Start a present slide show on an http port.
 #  Usage:
-#	#  public internet
+#	#  possible public internet or what hostname publishes
 #	./boot-present >boot-present.out 2>&1 &
 #
 #	#  local dev machine
