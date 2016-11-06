@@ -2,7 +2,7 @@
 #  Synopsis:
 #	Write <div> help page for script pdfbox2.
 #  Source Path:
-#	pdfbox2.cgi
+#	lib/pdfbox2.cgi
 #  Source SHA1 Digest:
 #	No SHA1 Calculated
 #  Note:

@@ -2,7 +2,7 @@
 #  Synopsis:
 #	Write <div> help page for script env.
 #  Source Path:
-#	env.cgi
+#	lib/env.cgi
 #  Source SHA1 Digest:
 #	No SHA1 Calculated
 #  Note:

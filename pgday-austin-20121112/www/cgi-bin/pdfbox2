@@ -1,9 +1,9 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 #  Synopsis:
 #	Implements argument processing for /cgi-bin/pdfbox2.
 #  Source Path:
-#	pdfbox2.cgi
+#	lib/pdfbox2.cgi
 #  Source SHA1 Digest:
 #	No SHA1 Calculated
 #  Note:

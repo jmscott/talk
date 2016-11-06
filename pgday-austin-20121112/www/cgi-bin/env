@@ -1,9 +1,9 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 #  Synopsis:
 #	Implements argument processing for /cgi-bin/env.
 #  Source Path:
-#	env.cgi
+#	lib/env.cgi
 #  Source SHA1 Digest:
 #	No SHA1 Calculated
 #  Note:
