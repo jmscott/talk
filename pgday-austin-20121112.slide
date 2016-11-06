@@ -1,4 +1,4 @@
-Experiments with Searching Text using Phrases and RUM Index
+Experimenting with Phrase Text Search and New RUM Index
 
 Galvanize
 November 12, 2016
@@ -22,7 +22,7 @@ https://github.com/jmscott/talk
 - Text is VERY Structured and Complex
 - History of Relations and Language (Charles Peirce Or Codd)
 
-* Please Love UTF-8 Encoding of Text
+* UTF-8 Encoding of Text
 - ASCII compatiable for 7 bits
 - trivial state machine to parse characters
 - UTF-8 designed by Ken Thompson (unix/plan 9) and Rob Pike (go lang/plan 9)
@@ -30,3 +30,5 @@ https://github.com/jmscott/talk
 - spoken languages are dying fast
 
 * Full Text Search Operators
+
+* 
