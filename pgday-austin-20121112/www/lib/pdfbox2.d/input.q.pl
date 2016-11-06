@@ -7,7 +7,7 @@ our %QUERY_ARG;
 my ($q, $value, $name);
 
 if ($q = $QUERY_ARG{q}) {
-	$value = sprintf('value="%s"', $q);
+	$value = sprintf('value="%s"', encode_html_entities($q));
 }
 
 if ($QUERY_ARG{id}) {
