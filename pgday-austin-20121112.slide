@@ -31,4 +31,10 @@ https://github.com/jmscott/talk
 
 * Full Text Search Operators
 
-* 
+* Prepcoessing Documents
+- Parsing documents into tokens. 
+- Converting tokens into lexemes.
+- Storing preprocessed documents optimized for searching.
+
+* Dictionary
+- Misspelt words map to 
