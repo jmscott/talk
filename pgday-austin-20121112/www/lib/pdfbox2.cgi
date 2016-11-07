@@ -16,7 +16,10 @@
 
  <out content-type="text/html">
 
-  <putter name="text.count">
+  <putter
+    name="text.count"
+    content-type="text/plain"
+  >
    <title>Count of Matching PDF Files</title>
    <synopsis>
     Write the count of matching pdf files.
@@ -29,7 +32,10 @@
   </query-args>
   </putter>
 
-  <putter name="input.q">
+  <putter
+    name="input.q"
+    content-type="text/html"
+  >
    <title>Text Search Query Input Field</title>
    <synopsis>
     Write an html &lt;input&gt; element seeded with

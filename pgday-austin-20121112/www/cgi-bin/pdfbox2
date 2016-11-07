@@ -49,6 +49,7 @@ $CGI{GET}->{out}->{'query-args'}->{arg}->{out} = {
 #  BEGIN: /cgi/GET/out/putter[@name='text.count']
 #
 $CGI{GET}->{out}->{putter}->{'text.count'}->{name} = 'text.count';
+$CGI{GET}->{out}->{putter}->{'text.count'}->{'content-type'} = 'text/plain';
 
 #
 #  BEGIN: /cgi/GET/out/putter[@name=text.count]/query-args
@@ -68,6 +69,7 @@ $CGI{GET}->{out}->{putter}->{'text.count'}->{'query-args'}->{arg}->{q} = {
 #  BEGIN: /cgi/GET/out/putter[@name='input.q']
 #
 $CGI{GET}->{out}->{putter}->{'input.q'}->{name} = 'input.q';
+$CGI{GET}->{out}->{putter}->{'input.q'}->{'content-type'} = 'text/html';
 
 #
 #  BEGIN: /cgi/GET/out/putter[@name=input.q]/query-args

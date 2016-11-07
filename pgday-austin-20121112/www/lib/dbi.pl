@@ -125,23 +125,25 @@ sub dbi_select
 		$db,
 		$sql,
 		$tag,
+		$argv,
 		$dump,
 		$trace,
-		$q
 	) = (
 		$arg{db},
 		$arg{sql},
 		$arg{tag},
+		$arg{argv},
 		$arg{dump},
 		$arg{trace}
 	);
+	my $q;
 
 	$db = dbi_connect(%arg) unless $db;
 	DBI->trace($trace) if $trace;
 	dbi_dump(%arg) if $dump;
 	$q = $db->prepare($sql) or die
 			'dbi_select: prepare($tag) failed: ' . $db->errstr;
-	$q->execute() or die "dbi_select: ($tag) failed: ". $q->errstr;
+	$q->execute(@$argv) or die "dbi_select: ($tag) failed: ". $q->errstr;
 	#
 	#  Insure caller passed a true select statement.
 	#
