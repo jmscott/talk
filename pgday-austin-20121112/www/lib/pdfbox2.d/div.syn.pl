@@ -3,6 +3,7 @@
 #	Write html text of the "<count> Matching PDF Document(s)"
 #
 
+use Time::HiRes q(time);
 require 'dbi.pl';
 require 'pdfbox2.d/common.pl';
 
@@ -79,6 +80,7 @@ SELECT
 ;
 END
 
+my $start_time = time;
 $qs = dbi_select(
 		db =>	$db,
 		argv =>	\@fts_argv,
@@ -86,10 +88,11 @@ $qs = dbi_select(
 );
 
 my $count = $qs->fetchrow_arrayref()->[0];
+my $elapsed_time = sprintf('%.2f sec', time() - $start_time);
 my $plural = 'es';
 $plural = '' if $count == 0;
 
 print <<END
 Found $count Document$pdf_plural, Searched
-$page_count Page$page_plural
+$page_count Page$page_plural ($elapsed_time)
 END
