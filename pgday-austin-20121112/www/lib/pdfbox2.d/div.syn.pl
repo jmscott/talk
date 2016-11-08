@@ -88,7 +88,12 @@ $qs = dbi_select(
 );
 
 my $count = $qs->fetchrow_arrayref()->[0];
-my $elapsed_time = sprintf('%.2f sec', time() - $start_time);
+my $stop_time = time;
+
+my ($elapsed_time, $prec) = ('0.0', 1);
+$elapsed_time = sprintf("%.3f sec", $stop_time - $start_time)
+			while $elapsed_time =~ m/^0+\.0+$/ && $prec++ < 9;
+
 my $plural = 'es';
 $plural = '' if $count == 0;
 
