@@ -21,7 +21,7 @@ my $qs = dbi_select(
 	sql => <<END
 SELECT
 	name,
-	to_char(value::int, '999,999,999') as "value"
+	trim(to_char(value::int, '999,999,999')) as "value"
   FROM
   	pgaustin.stat
   WHERE
@@ -90,6 +90,6 @@ my $plural = 'es';
 $plural = '' if $count == 0;
 
 print <<END
-$count Match$plural from about a total of about
-$page_count/$pdf_count Page$page_plural/Documents$pdf_plural
+Found $count Document$pdf_plural, Searched
+$page_count Page$page_plural
 END
