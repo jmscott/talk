@@ -49,6 +49,23 @@
    </query-args>
   </putter>
 
+  <putter
+    name="div.syn"
+    content-type="text/html"
+  >
+   <title>Search Synopsis &lt;div&gt; for a PDF Document Search</title>
+   <synopsis>
+    Write an html &lt;div&gt; element that summarizes a search for pdf
+    documents.
+   </synopsis>
+   <query-args>
+    <arg
+    	name="q"
+	perl5_re=".{1,256}"
+    />
+   </query-args>
+  </putter>
+
  </out>
 </GET>
 </cgi>

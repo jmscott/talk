@@ -33,6 +33,6 @@
     value="Find PDF Documents"
   />
  </form>
- <!--#include virtual="/cgi-bin/pdfbox2?out=text.count&id=q&${QUERY_STRING}" -->
+ <!--#include virtual="/cgi-bin/pdfbox2?out=div.syn&id=q&${QUERY_STRING}" -->
  </body>
 </html>

@@ -63,6 +63,26 @@ print <<'END';
   </dl>
 </div>
      </dd>
+     <dt>div.syn - Search Synopsis &#60;div&#62; for a PDF Document Search</dt>
+     <dd>
+<div class="query-args">
+ <h4>Query Args</h4>
+ <dl>
+  <dt>q</dt>
+  <dd>
+   <ul>
+    <li><code>perl5_re:</code> .{1,256}</li>
+   </ul>
+  </dd>
+  <dt>pos</dt>
+  <dd>
+   <ul>
+    <li><code>perl5_re:</code> 1|2</li>
+   </ul>
+  </dd>
+  </dl>
+</div>
+     </dd>
   </dl>
  </div>
 </div>
