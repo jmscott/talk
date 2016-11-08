@@ -7,54 +7,54 @@
 
 --  pdf document count
 
-with pdf_stat as (
-  select
+WITH pdf_stat AS (
+  SELECT
 	count(*)::text as "pdf_count"
-    from
+    FROM
     	pdfbox2.pddocument
-    where
+    WHERE
     	exit_status = 0
 )
-insert into pgaustin.stat(name, value)
-  select
+INSERT INTO pgaustin.stat(name, value)
+  SELECT
   	'pdfbox2.pddocument.pdf_count',
 	ps.pdf_count
-    from
+    FROM
     	pdf_stat ps
-    on conflict(name)
-      do update set
+    ON CONFLICT(name)
+      DO UPDATE SET
       	name = 'pdfbox2.pddocument.pdf_count',
 	value = (
-	  select
+	  SELECT
 	  	pdf_count
-	    from
+	    FROM
 	    	pdf_stat
 	)
 ;
 
 --  pdf page count
 
-with pdf_stat as (
-  select
+WITH pdf_stat AS (
+  SELECT
 	sum(number_of_pages)::text as "page_count"
-    from
+    FROM
     	pdfbox2.pddocument
-    where
+    WHERE
     	exit_status = 0
 )
-insert into pgaustin.stat(name, value)
-  select
+INSERT INTO pgaustin.stat(name, value)
+  SELECT
   	'pdfbox2.pddocument.page_count',
 	ps.page_count
-    from
+    FROM
     	pdf_stat ps
-    on conflict(name)
-      do update set
+    ON CONFLICT(name)
+      DO UPDATE SET
       	name = 'pdfbox2.pddocument.page_count',
 	value = (
-	  select
+	  SELECT
 	  	page_count
-	    from
+	    FROM
 	    	pdf_stat
 	)
 ;
