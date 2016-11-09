@@ -1,6 +1,6 @@
 #
 #  Synopsis:
-#	Write html text of the "<count> Matching PDF Document(s)"
+#	Write html synopsis <div> of the "<count> Matching PDF Document(s)"
 #
 
 use Time::HiRes q(time);
@@ -11,6 +11,10 @@ our %QUERY_ARG;
 
 #  first get the total pdf and page statistics
 my ($pdf_count, $page_count, $pdf_plural, $page_plural) = (0, 0, 's', 's');
+
+print <<END;
+<div$QUERY_ARG{id_att}$QUERY_ARG{class_att}>
+END
 
 my $db = dbi_connect();
 
@@ -45,7 +49,10 @@ unless ($q) {
 
 	#  no query terms, so just summarize
 	print <<END;
-Indexed $page_count Page$page_plural from $pdf_count PDF Document$pdf_plural
+ <span>
+   Indexed $page_count Page$page_plural from $pdf_count PDF Document$pdf_plural
+ </span>
+</div>
 END
 	return;
 }
@@ -98,6 +105,9 @@ my $plural = 'es';
 $plural = '' if $count == 0;
 
 print <<END
-Found $count Document$pdf_plural, Searched
-$page_count Page$page_plural ($elapsed_time)
+ <span>
+   Found $count Document$pdf_plural, Searched
+   $page_count Page$page_plural ($elapsed_time)
+ </span>
+</div>
 END
