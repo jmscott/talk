@@ -3,7 +3,6 @@
  *	Update stats for pdf documents
  */
 \set ON_ERROR_STOP on
-\set timing on
 
 --  pdf document count
 
@@ -59,6 +58,30 @@ INSERT INTO pgaustin.stat(name, value)
 	)
 ;
 
+--  text seach vector count
+
+WITH tsv_stat AS (
+  SELECT
+	count(*)::text as "tsv_count"
+    FROM
+    	pdfbox2.page_tsv_utf8
+)
+INSERT INTO pgaustin.stat(name, value)
+  SELECT
+  	'pdfbox2.page_tsv_utf8.tsv_count',
+	ts.tsv_count
+    FROM
+    	tsv_stat ts
+    ON CONFLICT(name)
+      DO UPDATE SET
+      	name = 'pdfbox2.page_tsv_utf8.tsv_count',
+	value = (
+	  SELECT
+	  	tsv_count
+	    FROM
+	    	tsv_stat
+	)
+;
 
 select
 	*
