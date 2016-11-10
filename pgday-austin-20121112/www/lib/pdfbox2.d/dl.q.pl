@@ -12,6 +12,8 @@ my $result_limit = 10;
 my $rank_norm = 0;
 my $limit = 10;
 my $offset = 0;
+my $page = $QUERY_ARG{page};
+$offset = ($page - 1) * $limit;
 
 my ($db, $qs) = (dbi_connect());
 

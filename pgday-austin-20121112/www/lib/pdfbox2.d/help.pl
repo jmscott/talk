@@ -77,6 +77,27 @@ print <<'END';
   </dl>
 </div>
      </dd>
+     <dt>div.nav - Search Navigation &#60;div&#62; for a PDF Document Search</dt>
+     <dd>
+<div class="query-args">
+ <h4>Query Args</h4>
+ <dl>
+  <dt>q</dt>
+  <dd>
+   <ul>
+    <li><code>perl5_re:</code> .{1,256}</li>
+   </ul>
+  </dd>
+  <dt>page</dt>
+  <dd>
+   <ul>
+    <li><code>default:</code> 1</li>
+    <li><code>perl5_re:</code> [1-9][0-9]{0,19}</li>
+   </ul>
+  </dd>
+  </dl>
+</div>
+     </dd>
      <dt>dl.q - Write an html &#60;dl&#62; of PDF Search Query</dt>
      <dd>
 <div class="query-args">
@@ -86,6 +107,13 @@ print <<'END';
   <dd>
    <ul>
     <li><code>perl5_re:</code> .{1,256}</li>
+   </ul>
+  </dd>
+  <dt>page</dt>
+  <dd>
+   <ul>
+    <li><code>default:</code> 1</li>
+    <li><code>perl5_re:</code> [1-9][0-9]{0,19}</li>
    </ul>
   </dd>
   </dl>

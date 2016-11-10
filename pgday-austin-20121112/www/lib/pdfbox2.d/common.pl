@@ -1,3 +1,5 @@
+binmode STDOUT, ":utf8";
+
 #
 #  Bust a google style search query into keyword or phrase chunks 
 #
@@ -56,6 +58,31 @@ sub google_query2sql_qual
 		);
 	}
 	return $sql_fts_qual, \@fts_argv;
+}
+
+sub query_match_count
+{
+	my $q = bust_google_query($_[1]);
+	return -1 unless $q;
+
+	my ($sql_fts_qual, $fts_argv) = google_query2sql_qual($q);
+
+	my $qs = dbi_select(
+		db =>	$_[0],
+		argv =>	$fts_argv,
+		sql =>	<<END
+SELECT
+        count(DISTINCT pdf_blob)
+  FROM
+        pdfbox2.page_tsv_utf8
+  WHERE
+        tsv @@ ($sql_fts_qual)
+        AND
+        ts_conf = 'english'::text
+END
+	);
+
+	return $qs->fetchrow_arrayref()->[0];
 }
 
 return 1;

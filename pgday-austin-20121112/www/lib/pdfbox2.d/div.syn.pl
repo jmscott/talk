@@ -44,8 +44,9 @@ while (my $r = $qs->fetchrow_hashref()) {
 	}
 }
 
-my $q = bust_google_query($QUERY_ARG{q});
-unless ($q) {
+my $count = query_match_count($db, $QUERY_ARG{q});
+
+if ($count == -1) {
 
 	#  no query terms, so just summarize
 	print <<END;
@@ -57,41 +58,13 @@ END
 	return 1;
 }
 
-my ($sql_fts_qual, $fts_argv) = google_query2sql_qual($q);
-
-my $sql =<<END;
-SELECT
-        count(DISTINCT pdf_blob)
-  FROM
-        pdfbox2.page_tsv_utf8
-  WHERE
-        tsv @@ ($sql_fts_qual)
-        AND
-        ts_conf = 'english'::text
-;
-END
-
-my $start_time = time;
-$qs = dbi_select(
-		db =>	$db,
-		argv =>	$fts_argv,
-		sql =>	$sql,
-);
-
-my $count = $qs->fetchrow_arrayref()->[0];
-my $stop_time = time;
-
-my ($elapsed_time, $prec) = ('0.0', 1);
-$elapsed_time = sprintf("%.3f sec", $stop_time - $start_time)
-			while $elapsed_time =~ m/^0+\.0+$/ && $prec++ < 9;
-
 my $plural = 'es';
-$plural = '' if $count == 0;
+$plural = '' if $count == 1;
 
 print <<END;
  <span>
-   Found $count Document$pdf_plural, Searched
-   $page_count Page$page_plural ($elapsed_time)
+   Found $count Document$pdf_plural,
+   Searched $page_count Page$page_plural
  </span>
 </div>
 END
