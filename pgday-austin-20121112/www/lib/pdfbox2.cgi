@@ -67,14 +67,42 @@
   </putter>
 
   <putter
-    name="dl.q"
+    name="div.nav"
     content-type="text/html"
   >
-   <title>Write an html &lt;dl&gt; of PDF Search Query</title>
+   <title>Search Navigation &lt;div&gt; for a PDF Document Search</title>
+   <synopsis>
+    Write an html &lt;div&gt; element that navigations forward/backward
+    through a search documents.
+   </synopsis>
    <query-args>
     <arg
     	name="q"
 	perl5_re=".{1,256}"
+    />
+    <arg
+    	name="page"
+	perl5_re="[1-9][0-9]{0,19}"
+	default="1"
+    />
+   </query-args>
+  </putter>
+
+  <putter
+    name="dl.q"
+    content-type="text/html"
+  >
+   <title>Write an html &lt;dl&gt; of PDF Search Query</title>
+
+   <query-args>
+    <arg
+    	name="q"
+	perl5_re=".{1,256}"
+    />
+    <arg
+    	name="page"
+	perl5_re="[1-9][0-9]{0,19}"
+	default="1"
     />
    </query-args>
   </putter>

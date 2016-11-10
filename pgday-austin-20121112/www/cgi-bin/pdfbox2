@@ -38,7 +38,7 @@ $CGI{GET}->{out}->{'query-args'}->{arg}->{class} = {
 #  'out' query argument must match one of the out putter names.
 #
 $CGI{GET}->{out}->{'query-args'}->{arg}->{out} = {
-	perl5_re	=> 	'(?:text[.]count)|(?:input[.]q)|(?:div[.]syn)|(?:dl[.]q)|pdf|help',
+	perl5_re	=> 	'(?:text[.]count)|(?:input[.]q)|(?:div[.]syn)|(?:div[.]nav)|(?:dl[.]q)|pdf|help',
 	default		=>	'help',
 };
 #
@@ -102,6 +102,30 @@ $CGI{GET}->{out}->{putter}->{'div.syn'}->{'query-args'}->{arg}->{q} = {
 #
 
 #
+#  BEGIN: /cgi/GET/out/putter[@name='div.nav']
+#
+$CGI{GET}->{out}->{putter}->{'div.nav'}->{name} = 'div.nav';
+$CGI{GET}->{out}->{putter}->{'div.nav'}->{'content-type'} = 'text/html';
+
+#
+#  BEGIN: /cgi/GET/out/putter[@name=div.nav]/query-args
+#
+$CGI{GET}->{out}->{putter}->{'div.nav'}->{'query-args'}->{arg}->{q} = {
+	perl5_re	=>	'.{1,256}',
+};
+$CGI{GET}->{out}->{putter}->{'div.nav'}->{'query-args'}->{arg}->{page} = {
+	perl5_re	=>	'[1-9][0-9]{0,19}',
+	default	=>	'1',
+};
+#
+#  END: /cgi/GET/out/putter[@name=div.nav]/query-args
+#
+
+#
+#  END: /cgi/GET/out/putter[@name='div.nav']
+#
+
+#
 #  BEGIN: /cgi/GET/out/putter[@name='dl.q']
 #
 $CGI{GET}->{out}->{putter}->{'dl.q'}->{name} = 'dl.q';
@@ -112,6 +136,10 @@ $CGI{GET}->{out}->{putter}->{'dl.q'}->{'content-type'} = 'text/html';
 #
 $CGI{GET}->{out}->{putter}->{'dl.q'}->{'query-args'}->{arg}->{q} = {
 	perl5_re	=>	'.{1,256}',
+};
+$CGI{GET}->{out}->{putter}->{'dl.q'}->{'query-args'}->{arg}->{page} = {
+	perl5_re	=>	'[1-9][0-9]{0,19}',
+	default	=>	'1',
 };
 #
 #  END: /cgi/GET/out/putter[@name=dl.q]/query-args

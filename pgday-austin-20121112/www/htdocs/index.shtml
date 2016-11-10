@@ -8,8 +8,7 @@
   {
   	font-weight:	bold;
 	font-size:	larger;
-	margin-right:	1em;
-	font-size:	larger;
+	margin-right:	0.5em;
   }
   h1
   {
@@ -60,5 +59,6 @@
  </form>
  <!--#include virtual="/cgi-bin/pdfbox2?out=div.syn&${QUERY_STRING}" -->
  <!--#include virtual="/cgi-bin/pdfbox2?out=dl.q&${QUERY_STRING}" -->
+ <!--#include virtual="/cgi-bin/pdfbox2?out=div.nav&${QUERY_STRING}" -->
  </body>
 </html>
