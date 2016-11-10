@@ -18,9 +18,8 @@ https://github.com/jmscott/talk
  NEURAL CRYPTOGRAPHY
 
 * The Complexity of Text Search
-- Text Search is Convenient
-- Text is VERY Structured and Complex
-- History of Relations and Language (Charles Peirce Or Codd)
+- Text Search is Convenient, Complex and Structured
+- History of Relations is Tied to Linguistics (Charles Peirce or Codd)
 
 * UTF-8 Encoding of Text
 - ASCII compatiable for 7 bits
@@ -30,6 +29,13 @@ https://github.com/jmscott/talk
 - spoken languages are dying fast
 
 * Really a Full Text Toolkit
+
+- index more than pdf or html
+- index spreadsheet
+- correlate raw text with relational data
+- elastic search may still be better for forward facing
+
+* Full Text Data Types 
 
 * Full Text Search Operators
 
