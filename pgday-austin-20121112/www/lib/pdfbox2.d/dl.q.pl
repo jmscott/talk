@@ -39,7 +39,10 @@ SELECT
 END
 	);
 
+	my $count = 0;
 	while (my $r = $qs->fetchrow_hashref()) {
+		$count++;
+
 		my $txt = encode_html_entities($r->{txt}); 
 		my $discover_time = encode_html_entities($r->{discover_time}); 
 		my $np = $r->{number_of_pages};
@@ -48,12 +51,22 @@ END
 
 		print <<END
  <dt>$np Page$np_plural, discovered $discover_time</dt>
- <dd>
-  <object
-    class="pdf"
-    type="application/pdf"
-    data="/cgi-bin/pdfbox2?out=pdf&amp;blob=$r->{blob}"
-  >$np Page$np_plural</object>
+ <dd id="pdf$count">
+  <script>PDFObject.embed(
+   	"/cgi-bin/pdfbox2?out=pdf&amp;blob=$r->{blob}",
+	"#pdf$count",
+	{
+		pdfOpenParams: {
+			page: 1,
+			navpanes: 1,
+			view: "FitH",
+			toolbar: 0,
+			statusbar: 0,
+			pagemode: "bookmarks",
+			scrollbar: 0
+		},
+	}
+   );</script>
  </dd>
 END
 	}
