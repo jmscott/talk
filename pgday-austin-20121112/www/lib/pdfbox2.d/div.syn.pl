@@ -54,26 +54,10 @@ unless ($q) {
  </span>
 </div>
 END
-	return;
+	return 1;
 }
 
-my $sql_fts_qual;
-
-my $fts_argc = 0;
-my @fts_argv;
-for (split("\t", $q)) {
-	$sql_fts_qual .= ' && ' if $fts_argc++ > 0;
-
-	die "syntax error in busted google chunk: $_"
-				unless /^(plain|phrase): (.*)/;
-	my ($func, $words) = ($1, $2);
-	push @fts_argv, $words;
-	$sql_fts_qual .= sprintf(
-				'%sto_tsquery($%d)',
-				$func,
-				$fts_argc,
-	);
-}
+my ($sql_fts_qual, $fts_argv) = google_query2sql_qual($q);
 
 my $sql =<<END;
 SELECT
@@ -81,7 +65,7 @@ SELECT
   FROM
         pdfbox2.page_tsv_utf8
   WHERE
-        tsv \@\@ ($sql_fts_qual)
+        tsv @@ ($sql_fts_qual)
         AND
         ts_conf = 'english'::text
 ;
@@ -90,7 +74,7 @@ END
 my $start_time = time;
 $qs = dbi_select(
 		db =>	$db,
-		argv =>	\@fts_argv,
+		argv =>	$fts_argv,
 		sql =>	$sql,
 );
 
@@ -104,10 +88,12 @@ $elapsed_time = sprintf("%.3f sec", $stop_time - $start_time)
 my $plural = 'es';
 $plural = '' if $count == 0;
 
-print <<END
+print <<END;
  <span>
    Found $count Document$pdf_plural, Searched
    $page_count Page$page_plural ($elapsed_time)
  </span>
 </div>
 END
+
+return 1;

@@ -37,4 +37,25 @@ sub bust_google_query
 	return $parsed;
 }
 
+sub google_query2sql_qual
+{
+	my ($fts_argc, $sql_fts_qual, @fts_argv) = (0);
+
+	for (split("\t", $_[0])) {
+		$sql_fts_qual .= ' && ' if $fts_argc++ > 0;
+
+		die "syntax error in busted google chunk: $_"
+					unless /^(plain|phrase): (.*)/;
+
+		my ($func, $words) = ($1, $2);
+		push @fts_argv, $words;
+		$sql_fts_qual .= sprintf(
+					'%sto_tsquery($%d)',
+					$func,
+					$fts_argc,
+		);
+	}
+	return $sql_fts_qual, \@fts_argv;
+}
+
 return 1;

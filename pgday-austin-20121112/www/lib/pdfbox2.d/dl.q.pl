@@ -3,77 +3,144 @@
 #	Write html <dl> of the results "<count> Matching PDF Document(s)"
 #
 
+use Data::Dumper;
+
 require 'dbi.pl';
 require 'pdfbox2.d/common.pl';
 
 our %QUERY_ARG;
 
 my $result_limit = 10;
+my $rank_norm = 14;
+my $limit = 10;
+my $offset = 0;
 
 my ($db, $qs) = (dbi_connect());
+
+my $q = bust_google_query($QUERY_ARG{q});
+return 1 unless $q;
+
+my ($sql_fts_qual, $fts_argv) = google_query2sql_qual($q);
+
+print Dumper($sql_fts_qual, $fts_argv);
+
+my $sql =<<END;
+WITH pdf_page_match AS (
+  SELECT
+	tsv.pdf_blob,
+	sum(ts_rank_cd(tsv.tsv, q.q, $rank_norm))::float8 AS page_rank_sum,
+	count(tsv.pdf_blob)::float8 AS match_page_count
+  FROM
+	pdfbox2.page_tsv_utf8 tsv,
+	(SELECT $sql_fts_qual as q) AS q
+  WHERE
+  	tsv.tsv @@ q.q
+	AND
+	tsv.ts_conf = 'english'::text
+  GROUP BY
+  	1
+  ORDER BY
+  	page_rank_sum DESC,
+	match_page_count DESC
+  LIMIT
+  	$limit
+  OFFSET
+  	$offset
+)
+  SELECT
+  	pd.blob AS pdf_blob,
+	match_page_count,
+	pd.number_of_pages AS pdf_page_count,
+  	max(page_rank_sum * (match_page_count / pd.number_of_pages)) AS rank,
+
+	/*
+	 *  Extract a headline of matching terms from the highest ranking page
+	 *  within a particular ranked pdf blob.
+	 */
+
+	(WITH max_ranked_tsv AS (
+	    SELECT
+	    	sum(ts_rank_cd(tsv.tsv, q.q, $rank_norm))::float8,
+		tsv.page_number
+	    FROM
+		pdfbox2.page_tsv_utf8 tsv,
+		(SELECT $sql_fts_qual AS q) AS q
+	    WHERE
+  		tsv.tsv @@ q.q
+		AND
+		tsv.ts_conf = 'english'
+		AND
+		tsv.pdf_blob = pd.blob
+	    GROUP BY
+	    	tsv.page_number
+	    ORDER BY
+	    	--  order by rank, then page number
+	    	1 desc, 2 asc
+	    LIMIT
+	    	1
+	  ) SELECT
+	  	ts_headline(
+			'english'::regconfig,
+			(SELECT
+				maxtxt.txt
+			    FROM
+			    	pdfbox2.page_text_utf8 maxtxt
+			    WHERE
+			    	maxtxt.pdf_blob = pd.blob
+				AND
+				maxtxt.page_number = maxts.page_number
+			),
+			q.q
+		) || ' @ Page #' || maxts.page_number
+	    from
+	    	(SELECT $sql_fts_qual AS q) AS q,
+		max_ranked_tsv maxts
+	) AS "match_headline"
+  FROM
+  	pdfbox2.pddocument pd
+	  JOIN pdf_page_match pp ON (pp.pdf_blob = pd.blob)
+  GROUP BY
+  	pd.blob,
+	match_page_count
+  ORDER BY
+  	rank DESC,
+	match_page_count DESC
+;
+END
 
 print <<END;
 <dl$QUERY_ARG{id_att}$QUERY_ARG{class_att}> 
 END
 
-my $q = bust_google_query($QUERY_ARG{q});
-unless ($q) {
+$qs = dbi_select(
+	db =>	$db,
+	what =>	'select-pdf-google-query',
+	sql =>	$sql,
+	argv =>	$fts_argv,
+);
 
-	$qs = dbi_select(
-		db =>	$db,
-		what =>	'select-pdf-no-qual',
-		sql =>	<<END
-SELECT
-	pd.blob,
-	pd.number_of_pages,
-	to_char(s.discover_time, 'YYYY/MM/DD HH24:mm:ss') as discover_time
-  FROM
-  	pdfbox2.pddocument pd
-	  join setspace.service s on (s.blob = pd.blob)
-  WHERE
-  	pd.exit_status = 0
-  ORDER BY
-  	s.discover_time desc
-  LIMIT
-  	$result_limit
-END
+while (my $r = $qs->fetchrow_hashref()) {
+	my (
+		$pdf_blob,
+		$match_page_count,
+		$pdf_page_count,
+		$rank,
+		$match_headline
+	) = (
+		$r->{pdf_blob},
+		$r->{match_page_count},
+		$r->{pdf_page_count},
+		$r->{rank},
+		$r->{match_headline},
 	);
 
-	my $count = 0;
-	while (my $r = $qs->fetchrow_hashref()) {
-		$count++;
-
-		my $txt = encode_html_entities($r->{txt}); 
-		my $discover_time = encode_html_entities($r->{discover_time}); 
-		my $np = $r->{number_of_pages};
-		my $np_plural = 's';
-		$np_plural = '' if $np == 1;
-
-		print <<END
- <dt>$np Page$np_plural, discovered $discover_time</dt>
- <dd id="pdf$count">
-  <script>PDFObject.embed(
-   	"/cgi-bin/pdfbox2?out=pdf&amp;blob=$r->{blob}",
-	"#pdf$count",
-	{
-		pdfOpenParams: {
-			page: 1,
-			navpanes: 1,
-			view: "FitH",
-			toolbar: 0,
-			statusbar: 0,
-			pagemode: "bookmarks",
-			scrollbar: 0
-		},
-	}
-   );</script>
- </dd>
+	print <<END;
+ <dd>$pdf_blob</dd>
 END
-	}
-	print "\n</dl>\n";
-	return;
 }
 
-print <<END
+print <<END;
 </dl>
 END
+
+return 1;
