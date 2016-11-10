@@ -2,6 +2,7 @@
  *  Synopsis:
  *	Update stats for pdf documents
  */
+\timing
 \set ON_ERROR_STOP on
 
 --  pdf document count

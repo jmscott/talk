@@ -14,7 +14,7 @@
 
  <GET>
 
- <out content-type="text/html">
+ <out>
 
   <putter
     name="text.count"
@@ -62,6 +62,30 @@
     <arg
     	name="q"
 	perl5_re=".{1,256}"
+    />
+   </query-args>
+  </putter>
+
+  <putter
+    name="dl.q"
+    content-type="text/html"
+  >
+   <title>Write an html &lt;dl&gt; of PDF Search Query</title>
+   <query-args>
+    <arg
+    	name="q"
+	perl5_re=".{1,256}"
+    />
+   </query-args>
+  </putter>
+
+  <putter name="pdf">
+   <title>Write a pdf blob</title>
+   <query-args>
+    <arg
+    	name="blob"
+	required="yes"
+	perl5_re="[a-z][a-z0-9]{0,7}:[[:graph:]]{32,128}"
     />
    </query-args>
   </putter>

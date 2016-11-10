@@ -1,6 +1,7 @@
 <html>
  <head>
   <title>Demonstrate Text Search - PGDay Austin 2016</title>
+  <script src="/pdfobject.js"></script>
   <style>
   /* <![CDATA[ */
   label
@@ -34,5 +35,6 @@
   />
  </form>
  <!--#include virtual="/cgi-bin/pdfbox2?out=div.syn&id=q&${QUERY_STRING}" -->
+ <!--#include virtual="/cgi-bin/pdfbox2?out=dl.q&id=q&${QUERY_STRING}" -->
  </body>
 </html>

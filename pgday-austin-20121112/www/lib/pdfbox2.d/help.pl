@@ -74,10 +74,33 @@ print <<'END';
     <li><code>perl5_re:</code> .{1,256}</li>
    </ul>
   </dd>
-  <dt>pos</dt>
+  </dl>
+</div>
+     </dd>
+     <dt>dl.q - Write an html &#60;dl&#62; of PDF Search Query</dt>
+     <dd>
+<div class="query-args">
+ <h4>Query Args</h4>
+ <dl>
+  <dt>q</dt>
   <dd>
    <ul>
-    <li><code>perl5_re:</code> 1|2</li>
+    <li><code>perl5_re:</code> .{1,256}</li>
+   </ul>
+  </dd>
+  </dl>
+</div>
+     </dd>
+     <dt>pdf - Write a pdf blob</dt>
+     <dd>
+<div class="query-args">
+ <h4>Query Args</h4>
+ <dl>
+  <dt>blob</dt>
+  <dd>
+   <ul>
+    <li><code>perl5_re:</code> [a-z][a-z0-9]{0,7}:[[:graph:]]{32,128}</li>
+    <li><code>required:</code> yes</li>
    </ul>
   </dd>
   </dl>
