@@ -3,15 +3,13 @@
 #	Write html <dl> of the results "<count> Matching PDF Document(s)"
 #
 
-use Data::Dumper;
-
 require 'dbi.pl';
 require 'pdfbox2.d/common.pl';
 
 our %QUERY_ARG;
 
 my $result_limit = 10;
-my $rank_norm = 14;
+my $rank_norm = 0;
 my $limit = 10;
 my $offset = 0;
 
@@ -21,8 +19,6 @@ my $q = bust_google_query($QUERY_ARG{q});
 return 1 unless $q;
 
 my ($sql_fts_qual, $fts_argv) = google_query2sql_qual($q);
-
-print Dumper($sql_fts_qual, $fts_argv);
 
 my $sql =<<END;
 WITH pdf_page_match AS (
@@ -90,8 +86,9 @@ WITH pdf_page_match AS (
 				AND
 				maxtxt.page_number = maxts.page_number
 			),
-			q.q
-		) || ' @ Page #' || maxts.page_number
+			q.q,
+			'MaxWords=10, MinWords=5,MaxFragments=3'
+		)
 	    from
 	    	(SELECT $sql_fts_qual AS q) AS q,
 		max_ranked_tsv maxts
@@ -134,8 +131,27 @@ while (my $r = $qs->fetchrow_hashref()) {
 		$r->{match_headline},
 	);
 
+	#  replace <b> that highlights the match words with random
+	#  then html encode magic chars, then replace random with a <span>.
+	#  this algorithm is broken when <b> is in the matching portion of the
+	#  pdf.
+
+	my $random1 = '1432fb8d566430f';
+	my $random2 = '17e3744734c1e6f';
+
+	$match_headline =~ s/<b>/$random1/g;
+	$match_headline =~ s/<\/b>/$random2/g;
+	$match_headline = encode_html_entities($match_headline);
+	$match_headline =~ s/$random1/<span class="match">/g;
+	$match_headline =~ s/$random2/<\/span>/g;
+
+	my $plural = 's';
+	$plural = '' if $pdf_page_count == 1;
+
+	#  write the <dt>/<dd>
 	print <<END;
- <dd>$pdf_blob</dd>
+ <dt>$match_page_count of $pdf_page_count Page$plural Match</dt>
+ <dd>$match_headline</dd>
 END
 }
 

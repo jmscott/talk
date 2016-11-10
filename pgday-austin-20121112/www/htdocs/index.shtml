@@ -9,10 +9,20 @@
   	font-weight:	bold;
 	font-size:	larger;
 	margin-right:	1em;
+	font-size:	larger;
+  }
+  h1
+  {
+  	width:			100%;
+	text-align:		center;
+	margin-bottom:		1em;
   }
   #q
   {
-  	width:		40em;
+  	width:			40em;
+	font-size:		larger;
+	background-color:	darkgreen;
+	color:			white;
   }
   .pdfobject-container
   {
@@ -21,6 +31,16 @@
   .pdfobject
   {
   	border: 1px solid #666;
+  }
+  span.match
+  {
+  	font-weight:		bold;
+	color:			darkgreen;
+	background-color:	white;
+  }
+  dt
+  {
+  	font-weight:		bold;
   }
 
   /* ]]> */
@@ -33,16 +53,11 @@
    name="search"
    method="GET"
  >
-  <label for="q" type="text">Query:</label>
+  <label for="q" type="text">Keywords or Phrases:</label>
   <!--#include virtual="/cgi-bin/pdfbox2?out=input.q&id=q&${QUERY_STRING}" -->
 
-  <input
-    type="submit"
-    class="submit"
-    value="Find PDF Documents"
-  />
  </form>
- <!--#include virtual="/cgi-bin/pdfbox2?out=div.syn&id=q&${QUERY_STRING}" -->
- <!--#include virtual="/cgi-bin/pdfbox2?out=dl.q&id=q&${QUERY_STRING}" -->
+ <!--#include virtual="/cgi-bin/pdfbox2?out=div.syn&${QUERY_STRING}" -->
+ <!--#include virtual="/cgi-bin/pdfbox2?out=dl.q&${QUERY_STRING}" -->
  </body>
 </html>
