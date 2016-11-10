@@ -1,6 +1,6 @@
 #
 #  Synopsis:
-#	Write html synopsis <div> of the "<count> Matching PDF Document(s)"
+#	Write html synopsis <div> of the "Found <count> Documents"
 #
 
 use Time::HiRes q(time);
