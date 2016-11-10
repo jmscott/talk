@@ -150,7 +150,7 @@ while (my $r = $qs->fetchrow_hashref()) {
 
 	#  write the <dt>/<dd>
 	print <<END;
- <dt>$match_page_count of $pdf_page_count Page$plural Match</dt>
+ <dt>$match_page_count of $pdf_page_count Page$plural</dt>
  <dd>$match_headline</dd>
 END
 }
