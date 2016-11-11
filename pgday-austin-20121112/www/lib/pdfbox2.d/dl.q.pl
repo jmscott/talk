@@ -89,7 +89,7 @@ WITH pdf_page_match AS (
 				maxtxt.page_number = maxts.page_number
 			),
 			q.q,
-			'MaxWords=10, MinWords=5,MaxFragments=3'
+			'MaxWords=10, MinWords=5,MaxFragments=2'
 		)
 	    from
 	    	(SELECT $sql_fts_qual AS q) AS q,
@@ -152,7 +152,11 @@ while (my $r = $qs->fetchrow_hashref()) {
 
 	#  write the <dt>/<dd>
 	print <<END;
- <dt>$match_page_count of $pdf_page_count Page$plural</dt>
+ <dt>
+  <a href="/cgi-bin/pdfbox2?out=pdf&amp;blob=$pdf_blob">
+   $match_page_count of $pdf_page_count Page$plural
+  </a>
+ </dt>
  <dd>$match_headline</dd>
 END
 }

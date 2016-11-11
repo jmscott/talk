@@ -118,6 +118,24 @@
    </query-args>
   </putter>
 
+  <putter
+    name="div.pdfob"
+    content-type="text/html"
+  >
+   <query-args>
+    <arg
+    	name="blob"
+	required="yes"
+	perl5_re="[a-z][a-z0-9]{0,7}:[[:graph:]]{32,128}"
+    />
+    <arg
+    	name="page"
+	perl5_re="[1-9][0-9]{0,19}"
+	default="1"
+    />
+   </query-args>
+  </putter>
+
  </out>
 </GET>
 </cgi>

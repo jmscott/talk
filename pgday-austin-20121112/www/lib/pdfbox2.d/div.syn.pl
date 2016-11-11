@@ -3,7 +3,6 @@
 #	Write html synopsis <div> of the "Found <count> Documents"
 #
 
-use Time::HiRes q(time);
 require 'dbi.pl';
 require 'pdfbox2.d/common.pl';
 

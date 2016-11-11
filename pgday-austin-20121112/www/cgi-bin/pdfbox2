@@ -38,7 +38,7 @@ $CGI{GET}->{out}->{'query-args'}->{arg}->{class} = {
 #  'out' query argument must match one of the out putter names.
 #
 $CGI{GET}->{out}->{'query-args'}->{arg}->{out} = {
-	perl5_re	=> 	'(?:text[.]count)|(?:input[.]q)|(?:div[.]syn)|(?:div[.]nav)|(?:dl[.]q)|pdf|help',
+	perl5_re	=> 	'(?:text[.]count)|(?:input[.]q)|(?:div[.]syn)|(?:div[.]nav)|(?:dl[.]q)|pdf|(?:div[.]pdfob)|help',
 	default		=>	'help',
 };
 #
@@ -167,6 +167,31 @@ $CGI{GET}->{out}->{putter}->{'pdf'}->{'query-args'}->{arg}->{blob} = {
 
 #
 #  END: /cgi/GET/out/putter[@name='pdf']
+#
+
+#
+#  BEGIN: /cgi/GET/out/putter[@name='div.pdfob']
+#
+$CGI{GET}->{out}->{putter}->{'div.pdfob'}->{name} = 'div.pdfob';
+$CGI{GET}->{out}->{putter}->{'div.pdfob'}->{'content-type'} = 'text/html';
+
+#
+#  BEGIN: /cgi/GET/out/putter[@name=div.pdfob]/query-args
+#
+$CGI{GET}->{out}->{putter}->{'div.pdfob'}->{'query-args'}->{arg}->{blob} = {
+	perl5_re	=>	'[a-z][a-z0-9]{0,7}:[[:graph:]]{32,128}',
+	required	=>	'yes',
+};
+$CGI{GET}->{out}->{putter}->{'div.pdfob'}->{'query-args'}->{arg}->{page} = {
+	perl5_re	=>	'[1-9][0-9]{0,19}',
+	default	=>	'1',
+};
+#
+#  END: /cgi/GET/out/putter[@name=div.pdfob]/query-args
+#
+
+#
+#  END: /cgi/GET/out/putter[@name='div.pdfob']
 #
 
 $CGI{GET}->{out}->{putter}->{help}->{name} = 'help';

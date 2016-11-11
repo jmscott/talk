@@ -34,7 +34,7 @@ unless ($r = $q->fetchrow_arrayref()) {
 Status: 404 blob or byte count does not exist
 
 END
-	return;
+	return 1;
 }
 my $byte_count = $r->[0];
 
@@ -47,14 +47,14 @@ if ($status == 1) {
 Status: 404 blob does not exist in biod service
 
 END
-	return;
+	return 1;
 }
 unless ($status == 0) {
 	print <<END;
 Status: 500 blobio eat failed: exit status=$status
 
 END
-	return;
+	return 1;
 }
 
 $command =~ s/eat/get/;
@@ -65,3 +65,5 @@ Content-Type: application/pdf
 
 END
 system($command);
+
+return 1;

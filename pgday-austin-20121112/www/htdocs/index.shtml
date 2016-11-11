@@ -35,7 +35,8 @@
   {
   	font-weight:		bold;
 	color:			darkgreen;
-	background-color:	white;
+	font-style:		italic;
+	font-size:		105%;
   }
   dt
   {
