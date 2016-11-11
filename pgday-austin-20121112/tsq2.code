@@ -1,0 +1,4 @@
+SELECT 'fat & (rat | cat)'::tsquery;
+          tsquery          
+---------------------------
+ 'fat' & ( 'rat' | 'cat' )

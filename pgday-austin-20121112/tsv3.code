@@ -1,0 +1,4 @@
+SELECT to_tsvector('english', 'The Suffix Trees');
+     to_tsvector
+---------------------
+ 'suffix':2 'tree':3

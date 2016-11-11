@@ -1,0 +1,4 @@
+CREATE INDEX rumidx ON pdfbox2.page_tsv_utf8
+  USING
+          rum (tsv rum_tsvector_ops)
+;

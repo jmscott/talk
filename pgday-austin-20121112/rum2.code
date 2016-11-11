@@ -1,0 +1,7 @@
+SELECT * FROM queries WHERE
+ to_tsvector('black holes never exists before we think about them') @@ q;
+q |tag
+------------------+-------
+ 'black'          | color
+ 'black' & 'hole' | color
+(2 rows)

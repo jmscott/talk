@@ -92,17 +92,34 @@ Match any word in a tsvector that begins with "super"
 
 * How to Query Text with the Boolean @@ Operator
 
+TRUE
+
 .code pgday-austin-20121112/q1.code
+
+FALSE
 
 .code pgday-austin-20121112/q2.code
 
-* Text Search Indexes
+* Extracting Matching Snippets for a "Headline"
 
-GIN - Inverted Index - Production Many Years
+.code pgday-austin-20121112/head1.code
+
+Only Highlights Keywords (for Now)
+
+Not Smart About Logical Structure of the Query (yet)
+
+Very, Very Expensive, So Be Sure Push to Target List!
+
+* Text Search Indexes - Speed Up the Query
+
+GIN - Typical Inverted Index - Production Many Years
 .code pgday-austin-20121112/idx1.code
 
 RUM - Still in Beta
 .code pgday-austin-20121112/idx1.code
+
+* 
+.image pgday-austin-20121112/rum.png _ 830
 
 * RUM Index, Still in Beta
 
@@ -125,4 +142,4 @@ BOOM
 - Can Search Multiple Dictionary in Particular Order
 - "simple" is exact word, usually final disction in the search
 - Loaded as Extension into Shared Memory (9.6)
-- Common Mispelling can be a Dictionay
+- Common Mispellings can be in a Dictionary

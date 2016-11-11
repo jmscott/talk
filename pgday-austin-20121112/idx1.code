@@ -1,0 +1,1 @@
+CREATE INDEX pdf_page_idx ON pdf_page USING GIN (to_tsvector('english', doc));
