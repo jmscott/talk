@@ -26,7 +26,7 @@ my $sql =<<END;
 WITH pdf_page_match AS (
   SELECT
 	tsv.pdf_blob,
-	sum(tsv.tsv <=> q.q)::float8 AS page_rank_sum,
+	sum(ts_rank_cd(tsv.tsv, q.q, $rank_norm))::float8 AS page_rank_sum,
 	count(tsv.pdf_blob)::float8 AS match_page_count
   FROM
 	pdfbox2.page_tsv_utf8 tsv,
@@ -58,7 +58,7 @@ WITH pdf_page_match AS (
 
 	(WITH max_ranked_tsv AS (
 	    SELECT
-	    	sum(tsv.tsv <=> q.q)::float8,
+	    	sum(ts_rank_cd(tsv.tsv, q.q, $rank_norm))::float8,
 		tsv.page_number
 	    FROM
 		pdfbox2.page_tsv_utf8 tsv,
