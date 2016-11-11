@@ -38,7 +38,10 @@ sub put_nav_a
 	}
 	
 	print <<END;
-<a href="$ruri">$text</a>
+<a
+  class="nav"
+  href="$ruri"
+ >$text</a>
 END
 }
 
@@ -50,13 +53,12 @@ $total_count++ unless $match_count % $limit == 0;
 
 print <<END;
 <div$QUERY_ARG{id_att}$QUERY_ARG{class_att}>
-  Page $page of $total_count
 END
 
 if ($total_count > 1) {
-	print ' : ';
-	put_nav_a($page - 1, '<') if $page > 1;
-	put_nav_a($page + 1, '>') if $page < $total_count;
+	put_nav_a($page - 1, '&#x25C0') if $page > 1;
+	print "Page $page of $total_count";
+	put_nav_a($page + 1, '&#x25B6') if $page < $total_count;
 }
 
 print "</div>";
