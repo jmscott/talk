@@ -16,14 +16,16 @@ print <<END;
 	{
 		pdfOpenParams: {
 			type: "application/pdf",
+			zoom: 100,
 			page: $page,
 			navpanes: 1,
-			view: "FitH",
+			view: "FitV",
 			toolbar: 0,
 			statusbar: 0,
 			pagemode: "bookmarks",
 			scrollbar: 0
 		},
+		page: $page
 	}
    );
  </script>

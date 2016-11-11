@@ -160,7 +160,7 @@ while (my $r = $qs->fetchrow_hashref()) {
  <dt>
   <a href="/pdfview.shtml?blob=$pdf_blob&amp;page=$page_number">
    $match_page_count of $pdf_page_count Page$plural
-  </a> ($page_number)
+  </a>
  </dt>
  <dd>$match_headline</dd>
 END

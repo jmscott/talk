@@ -10,39 +10,100 @@ CTO of RJ2 Technologies
 jmscott@rj2tech.com
 https://github.com/jmscott/talk
 
-* Statistics of PDF Documents
-.code pgday-austin-20121112/stat.term
+* "Facts", Immutablility and Blobs
+
+- a fact is always in the past tense
+- a sha digest is the key to the pdf
+- the pdf blob does not need to be stored in postgres
+
+* What is Full text Search
+
+- Documents are plain old text, in database encoding
+- Supports Many Text Encoding
+- UTF-8 Encoding of Text Simplifies
+- Only Two Datatypes Implement Text Search
+
+* Who Wrote Full Text Search?
+- Postgres Pro, a  Russian Company
+- Oleg Bartunov
+- Teodor Sigaev
+
+* Think of Full Text Search as a Toolkit to Build Text Search Engines
+
+- relational model excellent for correlating text with analytic data
+- chemical equations
+- gene sequences
+- text fields in spreadsheet
+- elastic search still better for text only search
+
+* Source of the PDF Documents for the Demo
+
+- arvix.org (Cornell, won the MacArthur Genius Award)
+- Theory of Computing Blog Aggregator (http://feedworld.net/toc/)
+- Electronic Colloquim on Computational Complexity eccc.hpi-web.de
+- Many academic web sites surfed for past 10 years.
+
+* Statistics of PDF Documents for Today
+
 .html pgday-austin-20121112/stat.html
 
 * Example of "Google" Style Search
  NEURAL CRYPTOGRAPHY
 
-* The Complexity of Text Search
-- Text Search is Convenient, Complex and Structured
-- History of Relations is Tied to Linguistics (Charles Peirce or Codd)
-
-* UTF-8 Encoding of Text
-- ASCII compatiable for 7 bits
-- trivial state machine to parse characters
-- UTF-8 designed by Ken Thompson (unix/plan 9) and Rob Pike (go lang/plan 9)
-- google's new "golang" encodes strings only in UTF-8 (?)
-- spoken languages are dying fast
-
-* Really a Full Text Toolkit
-
-- index more than pdf or html
-- index spreadsheet
-- correlate raw text with relational data
-- elastic search may still be better for forward facing
-
 * Full Text Data Types 
+- tsvector
+- tsquery
 
 * Full Text Search Operators
+- full boolean
+- phrases (with exact distance between words)
 
-* Prepcoessing Documents
+* Keyword Search Query
+- plainto_tsquery()
+- neural cryptography
+
+* Phrase Search
+- phraseto_tsquery()
+- "neural cryptography"
+
+- Exact Phrase "hello, world"
+- Phrase with Words an Exact Distance
+	"good <1> cruel world"
+- RUM Index
+
+* Ranking the Search Results (Normalization)
+- coverage density of matching keywords/phrases
+- page nearset to the top
+
+* Preprocessing Documents
 - Parsing documents into tokens. 
 - Converting tokens into lexemes.
 - Storing preprocessed documents optimized for searching.
 
 * Dictionary
+
 - Misspelt words map to 
+- 'simple' dictionary is exact search
+
+* Database Schema for PDF Blobs
+
+- table 'pddocument' stores document metadata
+- table 'page_text_utf8' stores text of pages
+- table 'page_tsv_utf8' stores text vectors for a single page
+
+* Extracting/Pushind PDF Pages to the Database
+
+- extracting pdf text is "hard" - think OCR hard
+- pdfbox.apache.org (best but slowest)
+- extracted pdf "blob" is a file with sha digest as the path
+- only single pages are searched
+- immutable pdf "blob" is a file with sha digest as the path
+- sha digest is the primary key in the database
+- simple shell scripts to extract pdf text
+- pdftotext
+- Commerical (non-Adobe) are "OK"
+
+* Generating Snippets of Matching Text
+- ts_headline()
+
+* Parsing the Google Style Search
