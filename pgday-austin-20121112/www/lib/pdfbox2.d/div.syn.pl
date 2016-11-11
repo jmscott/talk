@@ -3,6 +3,8 @@
 #	Write html synopsis <div> of the "Found <count> Documents"
 #
 
+use Time::HiRes q(time);
+
 require 'dbi.pl';
 require 'pdfbox2.d/common.pl';
 
@@ -43,7 +45,13 @@ while (my $r = $qs->fetchrow_hashref()) {
 	}
 }
 
+my $start_time = time;
 my $count = query_match_count($db, $QUERY_ARG{q});
+my $stop_time = time;
+
+my ($elapsed_time, $prec) = ('0.0', 1);
+$elapsed_time = sprintf("%.3f", $stop_time - $start_time)
+			while $elapsed_time =~ m/^0+\.0+$/ && $prec++ < 9;
 
 if ($count == -1) {
 
@@ -62,8 +70,7 @@ $plural = '' if $count == 1;
 
 print <<END;
  <span>
-   Found $count Matching Document$pdf_plural,
-   Searched $page_count Page$page_plural
+   Found $count Matching Document$pdf_plural in $elapsed_time sec
  </span>
 </div>
 END
