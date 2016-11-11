@@ -15,7 +15,8 @@ print <<END;
 	"#pdf1",
 	{
 		pdfOpenParams: {
-			page: 3,
+			type: "application/pdf",
+			page: $page,
 			navpanes: 1,
 			view: "FitH",
 			toolbar: 0,
