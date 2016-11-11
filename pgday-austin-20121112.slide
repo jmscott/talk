@@ -67,9 +67,42 @@ Positions of Lexemes Needed for Proximity Ranking
 
 .code pgday-austin-20121112/tsv2.code
 
-Maps Words to Lexemes and Removes Stop Words
+Maps (Stem) Words to Lexemes and Removes Stop Words
 
 .code pgday-austin-20121112/tsv3.code
+
+* TSQuery Data Type
+
+Boolean AND, OR, NOT with Grouping of Lexemes
+.code pgday-austin-20121112/tsq2.code
+
+Rearranges nested operators into a logically equivalent formulation
+.code pgday-austin-20121112/tsq3.code
+<-> is "Followed By" Operator.
+<6> Means Exactly 6 Words Apart
+
+* TSQuery Data Type
+
+Lexemes in a tsquery can be labeled with * to specify prefix matching
+
+.code pgday-austin-20121112/tsq4.code
+
+Match any word in a tsvector that begins with "super"
+
+* How to Query Text with the Boolean @@ Operator
+
+.code pgday-austin-20121112/q1.code
+
+.code pgday-austin-20121112/q2.code
+
+* Text Search Indexes
+
+GIN - Inverted Index
+.code pgday-austin-20121112/idx1.code
+
+GIST
+
+RUM
 
 * Full Text Search Operators
 - full boolean
