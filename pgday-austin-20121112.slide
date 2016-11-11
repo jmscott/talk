@@ -50,9 +50,26 @@ https://github.com/jmscott/talk
 * Example of "Google" Style Search
  NEURAL CRYPTOGRAPHY
 
-* Full Text Data Types 
-- tsvector
-- tsquery
+* Full Text Search Data Types - Only 2!
+tsvector
+
+ sorted list of lexemes (words) in the text, with optional positions for proximity ranking
+
+tsquery
+
+ boolean combinations of lexemes and the "followed by" <-> operator for phrases
+
+* TSVector Data Type
+
+.code pgday-austin-20121112/tsv1.code
+
+Positions of Lexemes Needed for Proximity Ranking
+
+.code pgday-austin-20121112/tsv2.code
+
+Maps Words to Lexemes and Removes Stop Words
+
+.code pgday-austin-20121112/tsv3.code
 
 * Full Text Search Operators
 - full boolean
