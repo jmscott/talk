@@ -62,7 +62,7 @@ $plural = '' if $count == 1;
 
 print <<END;
  <span>
-   Found $count Document$pdf_plural,
+   Found $count Matching Document$pdf_plural,
    Searched $page_count Page$page_plural
  </span>
 </div>
