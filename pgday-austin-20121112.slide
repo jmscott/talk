@@ -50,7 +50,7 @@ https://github.com/jmscott/talk
 * Example of "Google" Style Search
  NEURAL CRYPTOGRAPHY
 
-* Full Text Search Data Types - Only 2!
+* Full Text Search Data Types
 tsvector
 
  sorted list of lexemes (words) in the text, with optional positions for proximity ranking
@@ -97,33 +97,19 @@ Match any word in a tsvector that begins with "super"
 
 * Text Search Indexes
 
-GIN - Inverted Index
+GIN - Inverted Index - Production Many Years
 .code pgday-austin-20121112/idx1.code
 
-GIST
+RUM - Still in Beta
+.code pgday-austin-20121112/idx1.code
 
-RUM
+* RUM Index, Still in Beta
 
-* Full Text Search Operators
-- full boolean
-- phrases (with exact distance between words)
-
-* Keyword Search Query
-- plainto_tsquery()
-- neural cryptography
-
-* Phrase Search
-- phraseto_tsquery()
-- "neural cryptography"
-
-- Exact Phrase "hello, world"
-- Phrase with Words an Exact Distance
-	"good <1> cruel world"
-- RUM Index
-
-* Ranking the Search Results (Normalization)
-- coverage density of matching keywords/phrases
-- page nearset to the top
+- Lexeme Positions Stored in the Index
+- Rank Matches with Query Distance Operator that Understands Logical Queries
+- Allows Timestamps Materialized in the Index
+- Much Smarter Optimzer to Exploit Phrase Structure
+- Handles Keyword as Fast as GIN
 
 * Preprocessing Documents
 - Parsing documents into tokens. 
