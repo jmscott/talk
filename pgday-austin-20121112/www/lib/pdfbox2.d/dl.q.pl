@@ -77,7 +77,7 @@ WITH pdf_page_match AS (
 	    LIMIT
 	    	1
 	  ) SELECT
-	  	ts_headline(
+	  	maxts.page_number || ': ' || ts_headline(
 			'english'::regconfig,
 			(SELECT
 				maxtxt.txt
@@ -141,6 +141,11 @@ while (my $r = $qs->fetchrow_hashref()) {
 	my $random1 = '1432fb8d566430f';
 	my $random2 = '17e3744734c1e6f';
 
+	die 'no kludgy \'page number:\' at start of headline'
+		unless $match_headline =~ m/^([0-9]+): /;
+	my $page_number = $1;
+	$match_headline =~ s/^([0-9]+): //;
+
 	$match_headline =~ s/<b>/$random1/g;
 	$match_headline =~ s/<\/b>/$random2/g;
 	$match_headline = encode_html_entities($match_headline);
@@ -153,7 +158,7 @@ while (my $r = $qs->fetchrow_hashref()) {
 	#  write the <dt>/<dd>
 	print <<END;
  <dt>
-  <a href="/cgi-bin/pdfbox2?out=pdf&amp;blob=$pdf_blob">
+  <a href="/pdfview.shtml?blob=$pdf_blob&amp;page=$page_number">
    $match_page_count of $pdf_page_count Page$plural
   </a>
  </dt>
