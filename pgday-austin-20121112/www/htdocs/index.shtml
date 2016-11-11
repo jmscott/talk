@@ -46,7 +46,6 @@
   a.nav
   {
 	font-size:		larger;
-	margin:			1em;
   	font-weight:		bold;
 	text-decoration:	none;
   }
