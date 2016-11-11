@@ -43,6 +43,13 @@
 	margin-top:		0.5em;
   	font-weight:		bold;
   }
+  a.nav
+  {
+	font-size:		bigger;
+	margin:			1em;
+  	font-weight:		bold;
+	text-decoration:	none;
+  }
 
   /* ]]> */
   </style>
