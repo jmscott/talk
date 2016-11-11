@@ -27,6 +27,7 @@ https://github.com/jmscott/talk
 - Postgres Pro, a  Russian Company
 - Oleg Bartunov
 - Teodor Sigaev
+- Artur Zakirov
 
 * Think of Full Text Search as a Toolkit to Build Text Search Engines
 
@@ -109,37 +110,19 @@ RUM - Still in Beta
 - Rank Matches with Query Distance Operator that Understands Logical Queries
 - Allows Timestamps Materialized in the Index
 - Much Smarter Optimzer to Exploit Phrase Structure
-- Handles Keyword as Fast as GIN
+- Query Fragments can be Indexed!
 
-* Preprocessing Documents
-- Parsing documents into tokens. 
-- Converting tokens into lexemes.
-- Storing preprocessed documents optimized for searching.
+* RUM Index for Document Classification!
 
-* Dictionary
+.code pgday-austin-20121112/rum1.code
 
-- Misspelt words map to 
-- 'simple' dictionary is exact search
+BOOM
+.code pgday-austin-20121112/rum2.code
 
-* Database Schema for PDF Blobs
+* Dictionary and Text Configuration
 
-- table 'pddocument' stores document metadata
-- table 'page_text_utf8' stores text of pages
-- table 'page_tsv_utf8' stores text vectors for a single page
-
-* Extracting/Pushind PDF Pages to the Database
-
-- extracting pdf text is "hard" - think OCR hard
-- pdfbox.apache.org (best but slowest)
-- extracted pdf "blob" is a file with sha digest as the path
-- only single pages are searched
-- immutable pdf "blob" is a file with sha digest as the path
-- sha digest is the primary key in the database
-- simple shell scripts to extract pdf text
-- pdftotext
-- Commerical (non-Adobe) are "OK"
-
-* Generating Snippets of Matching Text
-- ts_headline()
-
-* Parsing the Google Style Search
+- Map "Words" onto Lexemes - Stemming
+- Can Search Multiple Dictionary in Particular Order
+- "simple" is exact word, usually final disction in the search
+- Loaded as Extension into Shared Memory (9.6)
+- Common Mispelling can be a Dictionay
