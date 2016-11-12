@@ -16,7 +16,7 @@ https://github.com/jmscott/talk
 - a sha digest is the key to the pdf
 - the pdf blob does not need to be stored in postgres
 
-* What is Full text Search
+* What is Full Text Search?
 
 - Documents are plain old text, in database encoding
 - Supports Many Text Encoding
