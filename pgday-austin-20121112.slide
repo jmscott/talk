@@ -75,9 +75,11 @@ Maps (Stem) Words to Lexemes and Removes Stop Words
 * TSQuery Data Type
 
 Boolean AND, OR, NOT with Grouping of Lexemes
+
 .code pgday-austin-20121112/tsq2.code
 
 Rearranges nested operators into a logically equivalent formulation
+
 .code pgday-austin-20121112/tsq3.code
 <-> is "Followed By" Operator.
 <6> Means Exactly 6 Words Apart
@@ -113,9 +115,11 @@ Very, Very Expensive, So Be Sure Push to Target List!
 * Text Search Indexes - Speed Up the Query
 
 GIN - Typical Inverted Index - Production Many Years
+
 .code pgday-austin-20121112/idx1.code
 
 RUM - Still in Beta
+
 .code pgday-austin-20121112/idx1.code
 
 * 
