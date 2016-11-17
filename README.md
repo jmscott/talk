@@ -3,7 +3,7 @@
  [present tool] (https://godoc.org/golang.org/x/tools/present)
 
 ## Indexing Millions of Pages of Text in PostgreSQL with New RUM Index
- [pgday-austin-20161112.pdf](https://github.com/jmscott/talk/blob/master/pgday-austin-20161112.pdf), Nov 12 2016, PGDay 2016, Austin Texas USA
+ [pgday-austin-20161112.pdf](https://github.com/jmscott/talk/blob/master/pgday-austin-20161112.pdf), Nov 12 2016, PGDay Conference, Austin Texas USA
 
 ## Flash Talk on Simple Concurrency with Go Channels
  [godfw-ezcsp-20160621.pdf](https://github.com/jmscott/talk/blob/master/godfw-ezcsp-20160621.pdf), Jun 21 2016, GoDFW User Group, Dallas Texas USA
