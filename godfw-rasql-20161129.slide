@@ -1,0 +1,53 @@
+RASQL - REST API for SQL
+
+Viverae
+November 29, 2016
+Dallas, Texas, USA
+
+*John*Scott*
+CTO of RJ2 Technologies
+
+jmscott@setspace.com
+jmscott@rj2tech.com
+https://github.com/jmscott/talk
+
+* REST API for SQL (rasql)
+
+Map SQL Queries in Files to REST queries
+	
+	curl --user id:passwd http://localhost:8080/<schema>/<query-file>?arg1= ...
+
+.code godfw-rasql-20161129/state.code
+
+* Find Available REST Queries
+
+.code godfw-rasql-20161129/pg_class.code
+
+* Specification
+
+- Build REST Queries from SQL Queries in Files
+- Simple Configuration File
+- Validate URL Query Arguments
+- Encryption via Secure Sockets.
+- Basic Authentification
+- Self Documenting from SQL File
+- Export Results in JSON, CSV and TSV
+- Log Slow Queries
+- Pool SQL Connections for SSL
+
+* Only 1500 Lines of Go Code!
+
+* Parse Preamble in SQL File
+
+.code godfw-rasql-20161129/preamble.code
+
+* Extract Row as JSON, CSV or Tab Separated
+
+* Enhancements
+
+- Authenticate with an SQL Query
+- Generate HTML of Extracted Comments
+- Parse SQL to Extract Target List and Arguents.
+- Use GoLang text template to conditionally rewrite SQL queries
+- Monitor Changes in SQL Files
+- View SQL Source Code

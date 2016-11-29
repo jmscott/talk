@@ -1,0 +1,11 @@
+$ curl --user jmscott:lose20pd \
+		http://localhost:8080/pg_catalog/pg_stat_activity-state-count?state=active
+[
+    "duration,columns,rows",
+    0.001444535,
+    ["activity_count"],
+
+    [
+      [1]
+    ]
+]

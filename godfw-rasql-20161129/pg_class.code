@@ -1,0 +1,14 @@
+$ curl --user jmscott:lose20pd https://localhost:8080/pg_catalog
+[
+    "duration,colums,rows",
+    0.0,
+    ["path","synopsis","description"],
+
+    [
+["pg_roles","Fetch all roles in the pg_roles view",""],
+["pg_stat_activity-slow-count","Select all tuples from pg_stat_activity",""],
+["pg_class","Fetch all classes in a pg_catalog.pg_class",""],
+["pg_class-by-nspname","Fetch all classes in a particular name space",""],
+["pg_stat_activity","Select all tuples from pg_stat_activity",""]
+    ]
+]
