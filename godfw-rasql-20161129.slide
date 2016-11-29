@@ -72,18 +72,21 @@ Need to authenticate with SQL query!
 * Adding https/SSL to Server is Trivial
 
 .code godfw-rasql-20161129/ssl.code
+.caption https://github.com/jmscott/work/blob/master/rasql/rasqld.go
 
 * SSL Key Generation and Self Signing is Easy
 
 Generate private key (.key)
+
 .code godfw-rasql-20161129/tls-key.code
 
 Generation of self-signed(x509) public key (PEM-encodings .pem|.crt) based on the private (.key)
+
 .code godfw-rasql-20161129/tls-sign.code
 
 May need insecure mode in curl during testing
 
-	curl --insecure
+	curl --insecure http://localhost:8080...
 
 * Enhancements
 
