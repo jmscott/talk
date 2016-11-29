@@ -1,0 +1,13 @@
+"http-query-arg-set": {
+	"name" : {
+		"matches": "^.{1,63}$",
+		"sql-alias": "nspname"
+	},
+	"dur" : {
+		"matches": "^.{1,63}$",
+		"sql-alias": "duration"
+	},
+	"state" : {
+		"matches": "^[a-z]{1,32}$"
+	}
+},

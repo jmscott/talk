@@ -40,8 +40,32 @@ Map SQL Queries in Files to REST queries
 * Parse Preamble in SQL File
 
 .code godfw-rasql-20161129/preamble.code
+.caption https://github.com/jmscott/work/blob/master/rasql/pg_stat_activity-slow-count.sql
+
+* Configuration File in JSON (abbreviated)
+.code godfw-rasql-20161129/config-small.code
+.caption https://github.com/jmscott/work/blob/master/rasql/pg_catalog.rasql.example
+
+* All SQL Queries in pg_catalog.rasql.example
+.code godfw-rasql-20161129/config-sql.code
+
+* All HTTP Query Arguments in pg_catalog.rasql.example
+.code godfw-rasql-20161129/config-http.code
+.caption https://github.com/jmscott/work/blob/master/rasql/pg_catalog.rasql.example
+Regular Expressions Validate Query Arguments.
+SQL Layer Also Validates.
+
+* Easy to Bind JSON Keys to Go Variables
+.code godfw-rasql-20161129/json.code
 
 * Extract Row as JSON, CSV or Tab Separated
+.code godfw-rasql-20161129/state-csv.code
+
+Content-Type: text/csv
+
+* Basic Authentification is Apache Password Format
+.code godfw-rasql-20161129/password.code
+.caption https://github.com/jmscott/work/blob/master/rasql/password-rasql.example
 
 * Enhancements
 
@@ -51,3 +75,4 @@ Map SQL Queries in Files to REST queries
 - Use GoLang text template to conditionally rewrite SQL queries
 - Monitor Changes in SQL Files
 - View SQL Source Code
+- Authenticate with Trusted Keys

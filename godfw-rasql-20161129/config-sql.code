@@ -1,0 +1,23 @@
+"sql-query-set": {
+	"pg_class": {
+		"source-path":	"pg_class.sql"
+	},
+	"pg_class-by-nspname":	{
+		"source-path":	"pg_class-by-nspname.sql"
+	},
+	"pg_stat_activity":	{
+		"source-path":	"pg_stat_activity.sql"
+	},
+	"pg_roles":	{
+		"source-path":	"pg_roles.sql"
+	},
+	"pg_stat_activity-slow-count":	{
+		"source-path":	"pg_stat_activity-slow-count.sql"
+	},
+	"pg_stat_activity-count":	{
+		"source-path":	"pg_stat_activity-count.sql"
+	},
+	"pg_stat_activity-state-count":	{
+		"source-path":	"pg_stat_activity-state-count.sql"
+	}
+},

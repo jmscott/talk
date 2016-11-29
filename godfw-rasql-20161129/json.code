@@ -1,0 +1,24 @@
+type Config struct {
+	source_path string
+
+	Synopsis        string `json:"synopsis"`
+	HTTPListen      string `json:"http-listen"`
+	RESTPathPrefix  string `json:"rest-path-prefix"`
+	SQLQuerySet     `json:"sql-query-set"`
+	HTTPQueryArgSet `json:"http-query-arg-set"`
+
+	BasicAuthPath   string `json:"basic-auth-path"`
+
+	basic_auth map[string]string
+
+	//  Note:  also want to log slow http requests!
+	//         consider moving into WARN section.
+
+	WarnSlowSQLQueryDuration float64 `json:"warn-slow-sql-query-duration"`
+
+	//  https paramters
+
+	TLSHTTPListen   string `json:"tls-http-listen"`
+	TLSCertPath              string  `json:"tls-cert-path"`
+	TLSKeyPath               string  `json:"tls-key-path"`
+}
