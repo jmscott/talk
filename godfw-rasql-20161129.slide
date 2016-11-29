@@ -15,7 +15,7 @@ https://github.com/jmscott/talk
 
 Transform SQL Queries in Files to REST Queries via HTTP Protocol
 	
-curl --user id:passwd http://localhost:8080/<schema>/<query-file>?a1=abc&a2-xyz
+curl --user id:passwd http://localhost:8080/<schema>/<query-file>?a1=abc&a2=xyz
 
 .code godfw-rasql-20161129/state.code
 
