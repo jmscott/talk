@@ -90,10 +90,10 @@ May need insecure mode in curl during testing
 
 * Enhancements
 
+- Use GoLang Text Templates to Conditionally Rewrite SQL queries
 - Authenticate with an SQL Query
-- Generate HTML of Extracted Comments
-- Parse SQL to Extract Target List and Arguents.
-- Use GoLang text template to conditionally rewrite SQL queries
+- Generate HTML Documentation of SQL
+- Parse SQL to Extract Target List and Arguments.
 - Monitor Changes in SQL Files
 - View SQL Source Code from REST Query
 - Authenticate with Trusted Keys
