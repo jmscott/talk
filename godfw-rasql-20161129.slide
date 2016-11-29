@@ -13,9 +13,9 @@ https://github.com/jmscott/talk
 
 * REST API for SQL (rasql)
 
-Map SQL Queries in Files to REST queries
+Transform SQL Queries in Files to REST Queries via HTTP Protocol
 	
-	curl --user id:passwd http://localhost:8080/<schema>/<query-file>?arg1= ...
+curl --user id:passwd http://localhost:8080/<schema>/<query-file>?a1=abc&a2-xyz
 
 .code godfw-rasql-20161129/state.code
 
@@ -64,8 +64,26 @@ SQL Layer Also Validates.
 Content-Type: text/csv
 
 * Basic Authentification is Apache Password Format
+
 .code godfw-rasql-20161129/password.code
 .caption https://github.com/jmscott/work/blob/master/rasql/password-rasql.example
+Need to authenticate with SQL query!
+
+* Adding https/SSL to Server is Trivial
+
+.code godfw-rasql-20161129/ssl.code
+
+* SSL Key Generation and Self Signing is Easy
+
+Generate private key (.key)
+.code godfw-rasql-20161129/tls-key.code
+
+Generation of self-signed(x509) public key (PEM-encodings .pem|.crt) based on the private (.key)
+.code godfw-rasql-20161129/tls-sign.code
+
+May need insecure mode in curl during testing
+
+	curl --insecure
 
 * Enhancements
 
@@ -74,5 +92,9 @@ Content-Type: text/csv
 - Parse SQL to Extract Target List and Arguents.
 - Use GoLang text template to conditionally rewrite SQL queries
 - Monitor Changes in SQL Files
-- View SQL Source Code
+- View SQL Source Code from REST Query
 - Authenticate with Trusted Keys
+- Syslog
+- SSL SQL Connections
+- HTTP Redirect of http:// to https://
+- Scan Directory for SQL Query Files
