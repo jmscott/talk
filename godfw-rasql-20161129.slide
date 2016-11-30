@@ -91,7 +91,7 @@ May need insecure mode in curl during testing
 * Enhancements
 
 - Use GoLang Text Templates to Conditionally Rewrite SQL queries
-- Authenticate with an SQL Query
+- Authenticate with an SQL Query or PostgreSQL Auth
 - Generate HTML Documentation of SQL
 - Parse SQL to Extract Target List and Arguments.
 - Monitor Changes in SQL Files
@@ -101,3 +101,4 @@ May need insecure mode in curl during testing
 - SSL SQL Connections
 - HTTP Redirect of http:// to https://
 - Scan Directory for SQL Query Files
+- Trusted Network
