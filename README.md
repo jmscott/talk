@@ -2,6 +2,9 @@
  Slides formated for Google's
  [present tool] (https://godoc.org/golang.org/x/tools/present)
 
+## RASQL - REST API for SQL
+ [godfw-rasql-20161129.pdf](https://github.com/jmscott/talk/blob/master/godfw-rasql-20161129.pdf), Nov 29 2016, Viverae, Dallas Texas USA
+
 ## Indexing Millions of Pages of Text in PostgreSQL with New RUM Index
  [pgday-austin-20161112.pdf](https://github.com/jmscott/talk/blob/master/pgday-austin-20161112.pdf), Nov 12 2016, PGDay Conference, Austin Texas USA
 
