@@ -1,9 +1,0 @@
-SELECT * FROM queries;
-                 q                 |  tag
------------------------------------+-------
- 'supernova' & 'star'              | sn
- 'black'                           | color
- 'big' & 'bang' & 'black' & 'hole' | bang
- 'spiral' & 'galaxi'               | shape
- 'black' & 'hole'                  | color
-(5 rows)

@@ -1,4 +1,0 @@
-SELECT ts_headline('now is the time for all good men', 'good'::tsquery);
-               ts_headline
------------------------------------------
- now is the time for all <b>good</b> men

@@ -1,4 +1,0 @@
-SELECT to_tsvector('fat cat') @@ to_tsquery('(fat | rat) <-> cat');
-?column?
-----------
- t
