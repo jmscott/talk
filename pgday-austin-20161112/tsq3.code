@@ -1,0 +1,4 @@
+SELECT '(fat | rat) <-> cat & !mouse'::tsquery;
+                     tsquery
+--------------------------------------------------
+ ( 'fat' <-> 'cat' | 'rat' <-> 'cat' ) & !'mouse'

@@ -1,0 +1,4 @@
+SELECT 'fat & rat'::tsquery;
+    tsquery    
+---------------
+ 'fat' & 'rat'
