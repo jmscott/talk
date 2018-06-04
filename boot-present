@@ -3,6 +3,8 @@
 #  Synopsis:
 #	Start a present slide show on an http port.
 #  Usage:
+#	export GOPATH=$HOME/dev/golang
+#
 #	#  possible public internet or what hostname publishes
 #	./boot-present >boot-present.out 2>&1 &
 #
@@ -12,7 +14,7 @@
 #	#  private internet for peer review
 #	./boot-present 10.0.29.3:8080 >boot-present.out 2>&1 &
 #
-export GOPATH=/usr/local
+export GOPATH=${GOPATH:=/usr/local}
 HTTP=$1
 HTTP=${HTTP:=$(hostname):8080}
 
