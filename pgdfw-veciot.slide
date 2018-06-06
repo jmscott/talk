@@ -60,18 +60,18 @@ Dallas, Texas, USA
 * Bread and Butter of Vibrational/Modal Analysis
 .image pgdfw-veciot/case-study.jpg _ 960
 
-* Tonight We Focus on High Resolution Samples of 10 Vector/Second
+* Tonight High Resolution Samples of 10 Vectors/Second/Sensor
 - Oscillations to 5 Times/Second (Nyquist Theorem)
-- 1.4GB/month per sensor, uncompressed
+- 1.5GB/month per sensor, uncompressed
 - At Least Two Sensors per Structure
-- Speced to 100,000 sensors -> 140.5 TB/month, uncompressed
+- Speced to 100,000 sensors -> 145 TB/month, uncompressed
 - Our Customer is a Market Maker
 
 * Why Use PostgreSQL Instead of MongoDB/Spark?
-- SQL Excellent for Historical Patterns in Data
-- PostgreSQL Easy to Extend to Object Store for Samples
-- PostgreSQL Allow New Data Types
-- Foreign Data Wrappers Allow Cheap Object Storage
+- SQL Best Complex Historical Patterns in Data
+- PostgreSQL Easy to Extend to Object Store for Samples (FDW)
+- PostgreSQL Allow New Data Types - Vector in Object Store
+- Materialized Views for Performance
 - CitusDB and Sharding
 
 * Object Store for Bulk Samples from Sensors and Archiving
