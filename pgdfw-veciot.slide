@@ -72,8 +72,8 @@ Dallas, Texas, USA
 - PostgreSQL Easy to Extend to File Store for Samples (FDW)
 - PostgreSQL Allow New Data Types - Vector Can be Hidden in File Store
 - Materialized Views for Performance
-- Log Segments
-- CitusDB and Sharding
+- Log Segments Stored as Files
+- CitusDB for Growth
 
 * YMR Samples Arrive from Bridge as a CSV File (via rsync)
 
