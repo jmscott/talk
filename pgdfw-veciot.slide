@@ -57,8 +57,8 @@ Dallas, Texas, USA
 - Insurance Benefits
 
 * Modal Analysis and Movement Done with Fast Fourier Transform
-
 .image pgdfw-veciot/fft-psd-spectrum.jpg
+Important - All Analysis Done on 1024 Sample Vectors !!
 
 * Bread and Butter of Vibrational/Modal Analysis
 .image pgdfw-veciot/case-study.jpg _ 960
@@ -73,16 +73,23 @@ Dallas, Texas, USA
 * YMR Samples Arrive from Bridge as a CSV File (via rsync)
 .code pgdfw-veciot/csv-ymr.code
 .html pgdfw-veciot/csv-ymr.term
-.caption 1024 * 3 samples (rows) == 5.1min in single log segment
+.caption 1024 * 3 samples (rows) == 5.1min in single log segment, about 64kbytes
 
 * Why Use PostgreSQL Instead of MongoDB/Spark?
 - SQL Best for Complex Historical Patterns in Data
 - PostgreSQL Easy to Extend to File Store for Samples (FDW)
 - PostgreSQL Allow New Data Types - Vector Can be Hidden in File Store
-- Materialized Views for Performance
-- Log Segments Stored as Files
-- A/B Comparison of Motion and Mode Algorithms
-- CitusDB for Growth
+- Materialized Views of MATLAB Calculations
+- A/B Comparison (Profiles) of Motion and Mode Algorithms
+
+  We Always Have CitusDB!
+
+* Vector Sample Log Table - bridge_log_vnymr_10hz
+- Stores 5.1min @ 10hz == 3072 Tuples
+- Key is Surrogate Sensor Id and Start Time for Each of 3, 1024 Segments
+- Single PG Vector/Array for Sample Times
+- Single PG Vector/Array for 12 Dimensional Floating Point Samples
+- Compress Very Well
 
 * SQL for Sample Times in Table bridge_log_vnymr_10hz
 .code pgdfw-veciot/sql-sample-time.code
@@ -97,3 +104,15 @@ Dallas, Texas, USA
 
 * Unpacked View is Easy to Query
 .code pgdfw-veciot/view-ymr-sql.code
+
+* Materialize Views Store MATLAB Results
+.html pgdfw-veciot/matlab-sql.code
+
+* Vectors Can Reference Raw CSV Files Using Foreign Data Wrappers
+
+- Use Custom Data Type - Can Not Override array[] (JavaScript has same problem)
+- Vectors < 3 Months in PostgreSQL
+- Vectors > 3 and < Year in CSV File
+- Null Otherwise
+
+* Storing Dense Vector Data Can be Done in PostgreSQL

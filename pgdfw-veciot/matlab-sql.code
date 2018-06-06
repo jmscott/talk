@@ -1,0 +1,35 @@
+<pre
+  style="
+	font-family:	monospace;
+	line-height:	18px;
+  	font-size:	13px;
+	font-weight:	bold;
+	background:	#eee;
+  "
+>
+/*
+ *  X/Y/Twist/Sway/SwayAz Displacement by the VectorNav KF for VNYMR 10hz
+ */
+DROP TABLE IF EXISTS displace_vnkf_10hz CASCADE;
+CREATE TABLE displace_vnkf_10hz
+(
+	sensor_id	sensor_id,
+	profile		formal_name
+				REFERENCES vnymr_kalman_profile(name) ON DELETE CASCADE,
+	start_time	timestamptz,
+
+	x			real[] CHECK (array_length(x, 1) = 1024),
+	y			real[] CHECK (array_length(y, 1) = 1024),
+	twist			real[] CHECK (array_length(twist, 1) = 1024),
+	sway			real[] CHECK (array_length(sway, 1) = 1024),
+	swayaz			real[] CHECK (array_length(swayaz, 1) = 1024),
+
+	PRIMARY KEY	(sensor_id, profile, start_time),
+
+	FOREIGN KEY	(sensor_id, start_time)
+			  REFERENCES vnymr_10hz_order (
+			  	sensor_id,
+				start_time
+			  ) ON DELETE CASCADE
+);
+</pre>
