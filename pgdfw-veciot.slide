@@ -57,6 +57,9 @@ Dallas, Texas, USA
 - Detect Permanent Deformations
 - Insurance Benefits
 
+* Bread and Butter of Vibrational/Modal Analysis
+.image pgdfw-veciot/case-study.jpg _ 960
+
 * Tonight We Focus on High Resolution Samples of 10 Vector/Second
 - Oscillations to 5 Times/Second (Nyquist Theorem)
 - 1.4GB/month per sensor, uncompressed
@@ -73,6 +76,3 @@ Dallas, Texas, USA
 
 * Object Store for Bulk Samples from Sensors and Archiving
 
-* Bread and Butter of Vibrational/Modal Analysis
-.image pgdfw-veciot/fft-psd-spectrum.jpg
-.image pgdfw-veciot/case-study.jpg
