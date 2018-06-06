@@ -52,10 +52,13 @@ Dallas, Texas, USA
 - Alert Owner of Dramatic Movement of Bridge
 - Twist, Sway and Motion Stress on Structure
 - Slow Moving Oscillations - Coat Hanger Bending
-- Correlate Extreme Weather with Capacity of Structure
 - Prioritize Maintence After Extreme Weather
 - Detect Permanent Deformations
 - Insurance Benefits
+
+* Modal Analysis and Movement Done with Fast Fourier Transform
+
+.image pgdfw-veciot/fft-psd-spectrum.jpg
 
 * Bread and Butter of Vibrational/Modal Analysis
 .image pgdfw-veciot/case-study.jpg _ 960
@@ -67,24 +70,24 @@ Dallas, Texas, USA
 - At Least Two Sensors per Structure
 - Speced to 100,000 sensors -> 145 TB/month, uncompressed
 
+* YMR Samples Arrive from Bridge as a CSV File (via rsync)
+.code pgdfw-veciot/csv-ymr.code
+.html pgdfw-veciot/csv-ymr.term
+.caption 1024 * 3 samples (rows) == 5.1min in single log segment
+
 * Why Use PostgreSQL Instead of MongoDB/Spark?
 - SQL Best for Complex Historical Patterns in Data
 - PostgreSQL Easy to Extend to File Store for Samples (FDW)
 - PostgreSQL Allow New Data Types - Vector Can be Hidden in File Store
 - Materialized Views for Performance
 - Log Segments Stored as Files
+- A/B Comparison of Motion and Mode Algorithms
 - CitusDB for Growth
 
-* YMR Samples Arrive from Bridge as a CSV File (via rsync)
-
-.code pgdfw-veciot/csv-ymr.code
-.html pgdfw-veciot/csv-ymr.term
-.caption 1024 * 3 samples (rows) == 5.1min in single log segment
-
 * SQL for Sample Times in Table bridge_log_vnymr_10hz
-
 .code pgdfw-veciot/sql-sample-time.code
+.caption Table bridge_log_vnymr_10hz
 
 * SQL for 1024 * 3 * 12 YMR Samples in Table bridge_log_vnymr_10hz
-
 .code pgdfw-veciot/sql-ymr.code
+.caption Table bridge_log_vnymr_10hz
