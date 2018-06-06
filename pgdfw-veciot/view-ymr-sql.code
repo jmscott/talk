@@ -1,0 +1,20 @@
+/*
+ *  When is sensor #12 on the bridge accelerating more than one meter/sec
+ *  during the last 7 days?
+ */
+
+SELECT
+	MIN(sample_time) AS alarm_start_time,
+	MAX(sample_time) AS alarm_end_time
+  FROM
+  	vnymr_10hz_acc
+  WHERE
+	sensor_id = 12
+	AND
+	sample_time >= now() + '-7 days'
+	AND
+
+	--  Sum of Squares - meters/sec^2
+
+	SQRT(acc_x*acc_x  +  acc_y*acc_y  +  acc_z*acc_z) > 1
+;

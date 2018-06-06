@@ -91,3 +91,9 @@ Dallas, Texas, USA
 * SQL for 1024 * 3 * 12 YMR Samples in Table bridge_log_vnymr_10hz
 .code pgdfw-veciot/sql-ymr.code
 .caption Table bridge_log_vnymr_10hz
+
+* Vectors Compress Well but Tricky in SQL So Unpack with a View
+.html pgdfw-veciot/view-ymr.code
+
+* Unpacked View is Easy to Query
+.code pgdfw-veciot/view-ymr-sql.code

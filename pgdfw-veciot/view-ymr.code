@@ -1,0 +1,44 @@
+<pre
+  style="
+	font-family:	monospace;
+	line-height:	18px;
+  	font-size:	14px;
+	font-weight:	bold;
+	background:	#eee;
+  "
+>
+
+CREATE VIEW vnymr_10hz_acc AS
+  SELECT
+  	st.sensor_id,
+	st.start_time,   ymr_st.sample_time,
+	ymr_x.acc_x,     ymr_y.acc_y,       ymr_z.acc_z
+    FROM
+    	tower_log_vnymr_10hz_sample_time st
+	  JOIN tower_log_vnymr_10hz_sensor sen ON (
+	  	sen.sensor_id = st.sensor_id
+		AND
+		sen.start_time = st.log_start_time
+	  )
+	  JOIN tower_log_vnymr_10hz ymr ON (
+	  	ymr.tower = sen.tower
+		AND
+		ymr.drop_id = sen.drop_id
+		AND
+		ymr.start_time = sen.start_time
+	  )
+
+	  --  sample time projection
+	  JOIN LATERAL unnest(
+	  	ymr.sample_time[st.sample_offset:st.sample_offset + 1023]
+	    ) WITH ORDINALITY AS ymr_st(sample_time, row) ON (
+	    	TRUE
+	    )
+
+	  --  x acceleration projection
+	  JOIN LATERAL unnest(
+	  	ymr.ymr[st.sample_offset:st.sample_offset + 1023][4:4]
+	    ) WITH ORDINALITY AS ymr_x(acc_x, row) ON (
+	    	ymr_x.row = ymr_st.row
+	    )
+</pre>
