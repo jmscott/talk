@@ -14,7 +14,7 @@ Dallas, Texas, USA
 .image pgdfw-veciot/tacoma-video.jpg
 .link https://youtu.be/lXyG68_caV4?t=61 Video of Tacoma Bridge Collapse
 
-* Flexible Structures Vibrate at Peculiar Frequecies
+* Flexible Structures Vibrate at Peculiar Frequencies
 .image pgdfw-veciot/schematic-mode.gif
 .caption Small Energy Stress Certain Points, Like a Coat Hanger
 
@@ -23,9 +23,9 @@ Dallas, Texas, USA
 
 * Cheap Inertial Measurement Units (IMU) Changed the World
 .image pgdfw-veciot/imu-schematic2.jpeg _ 820
-.caption In Smartphones, FitBit, Drones, Aircraft
+.caption Micro-Electro Mechanics Sensor (MEMS) In Smartphones, FitBit, Drones, Aircraft
 
-* Data Flow in MEMS/IM
+* Inside an IMU - Flow of Micro Electronic Mechanical Sensors (MEMS)
 .image pgdfw-veciot/imu-schematic.png _ 1024
 
 * Linear Accelometer (MEMS) Viewed in Electron Microscope!
@@ -60,19 +60,18 @@ Dallas, Texas, USA
 * Bread and Butter of Vibrational/Modal Analysis
 .image pgdfw-veciot/case-study.jpg _ 960
 
-* Tonight High Resolution Samples of 10 Vectors/Second/Sensor
-- Oscillations to 5 Times/Second (Nyquist Theorem)
+* Case Study - High Resolution Samples of 10 Vectors/Second/Sensor
+- Our Customer is a Market Maker
+- Oscillations up to 5 Times/Second (Nyquist Theorem)
 - 1.5GB/month per sensor, uncompressed
 - At Least Two Sensors per Structure
 - Speced to 100,000 sensors -> 145 TB/month, uncompressed
-- Our Customer is a Market Maker
 
 * Why Use PostgreSQL Instead of MongoDB/Spark?
-- SQL Best Complex Historical Patterns in Data
+- SQL Best for Complex Historical Patterns in Data
 - PostgreSQL Easy to Extend to Object Store for Samples (FDW)
-- PostgreSQL Allow New Data Types - Vector in Object Store
+- PostgreSQL Allow New Data Types - Vector Hidden in Object Store
 - Materialized Views for Performance
 - CitusDB and Sharding
 
 * Object Store for Bulk Samples from Sensors and Archiving
-
