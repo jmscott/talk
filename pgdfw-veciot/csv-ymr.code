@@ -1,0 +1,8 @@
+ARCHIVE=archive/2017/10/08
+BRIDGE=bride/gcu01.st.lab.rj2tech.com
+SENSOR=vn100-001
+DAY=20171008_054649
+
+FILE=$ARCHIVE/$BRIDGE/$SENSOR-$DAY.row.bz2
+
+bzcat $FILE | tail -5

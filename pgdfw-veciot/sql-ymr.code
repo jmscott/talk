@@ -1,0 +1,21 @@
+	/*
+	 *  samples[][] stores 3072 vectors in 12 dimensions:
+	 *
+	 *	[1] =	yaw
+	 *	[2] =	pitch
+	 *	[3] =	roll
+	 *	[4] =	acc_x
+	 *	[5] =	acc_y
+	 *	[6] =	acc_z
+	 *	[7] =	gyro_x
+	 *	[8] =	gyro_y
+	 *	[9] =	gyro_z
+	 *	[10] =	mag_x
+	 *	[11] =	mag_y
+	 *	[12] =	mag_z
+	 */
+	ymr	real[3072][12] CHECK (
+				array_length(ymr, 1) = 3072
+				AND
+				array_length(ymr, 2) = 12
+			),		--  null means samples may be offline

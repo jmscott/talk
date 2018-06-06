@@ -1,0 +1,19 @@
+CREATE TABLE bridge_log_vnymr_10hz
+
+...
+
+	start_time	timestamptz			--  sample_time[1]
+				NOT NULL,
+
+	sample_time	timestamptz[3072] CHECK (
+				sample_time[1] = start_time
+				AND
+				array_length(sample_time, 1) = 3072
+				AND
+
+				--  Note:  need to verify all times increasing!
+
+				sample_time[1] < sample_time[3072]
+
+			  ),	--  null means samples offline
+...

@@ -69,9 +69,22 @@ Dallas, Texas, USA
 
 * Why Use PostgreSQL Instead of MongoDB/Spark?
 - SQL Best for Complex Historical Patterns in Data
-- PostgreSQL Easy to Extend to Object Store for Samples (FDW)
-- PostgreSQL Allow New Data Types - Vector Hidden in Object Store
+- PostgreSQL Easy to Extend to File Store for Samples (FDW)
+- PostgreSQL Allow New Data Types - Vector Can be Hidden in File Store
 - Materialized Views for Performance
+- Log Segments
 - CitusDB and Sharding
 
-* Object Store for Bulk Samples from Sensors and Archiving
+* YMR Samples Arrive from Bridge as a CSV File (via rsync)
+
+.code pgdfw-veciot/csv-ymr.code
+.html pgdfw-veciot/csv-ymr.term
+.caption 1024 * 3 samples (rows) == 5.1min in single log segment
+
+* SQL for Sample Times in Table bridge_log_vnymr_10hz
+
+.code pgdfw-veciot/sql-sample-time.code
+
+* SQL for 1024 * 3 * 12 YMR Samples in Table bridge_log_vnymr_10hz
+
+.code pgdfw-veciot/sql-ymr.code
