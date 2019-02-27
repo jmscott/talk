@@ -3,7 +3,8 @@
  [present tool] (https://godoc.org/golang.org/x/tools/present)
 
 ## High Resolution Vector Processing and IOT in PostgreSQL
- [pgdfw-veciot.pdf](https://github.com/jmscott/talk/blob/master/pgdfw-veciot.pdf), Jun 6, 2018, Improving Solutions, Dallas Texas USA
+ [pgdfw-veciot-20180606.pdf](https://github.com/jmscott/talk/blob/master/pgdfw-veciot-20180606.pdf), Jun 6, 2018, Improving Solutions, Dallas Texas USA
+
 ## RASQL - REST API for SQL
  [godfw-rasql-20161129.pdf](https://github.com/jmscott/talk/blob/master/godfw-rasql-20161129.pdf), Nov 29 2016, Viverae, Dallas Texas USA
 
