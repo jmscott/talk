@@ -1,0 +1,23 @@
+Materialized Views for Fun and Profit
+
+John Scott
+Consultant, American Messaging, 2006-now
+Founder, RJ2 Technologies, Inc, 1998-now
+
+jmscott@setspace.com
+jmscott@rj2tech.com
+@setspace
+
+* The single biggest problem in communication is the illusion that it has taken place.
+.caption George Bernard Shaw
+
+* watch video "the value of values" by rich hinkey!
+* relational database do best with facts.  this is why queues not so efficient.
+* what is a "fact"?
+* what is an index ... a materialized view?
+* can we fold a matview into an index
+* review pg15/16 materialize views, incremenetal/full/external
+* what is wring with matview  - reduncancy & explicit/transparent (index)
+* consider generated columns
+* scan https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql
+* scan https://www.postgresql.org/docs/current/queries-with.html#id-1.5.6.12.7
