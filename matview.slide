@@ -1,4 +1,4 @@
-Facts on Materialized Views in SQL
+Facts on Materialized Views
 
 John Scott
 Founder, RJ2 Technologies, Inc, 1998-now
@@ -12,44 +12,78 @@ jmscott@rj2tech.com
 * The single biggest problem in communication is the illusion that it has taken place.
 .caption George Bernard Shaw
 
-* Evangelize on Materialized Views, in and out of sql
-- I never working on a large db without using some notion of matview
-- Inside PostgresSQL
+* Evangelize on Materialized Views, in and out
+- Most Large DB Projects use MatViews
+- Inside PostgresSQL (CREATE MATERIALIZED VIEW)
 - Running Outside PostgreSQL
 
 * What is a Fact?
 
-- video "the value of values" by rich hinkey!
 - facts are in the past
 - facts never change
+- all you perceive is in the past
+- video "the Value of Values" by rich hinkey (Datomic)!
+
+  so why not take advantage of facts?
 
 * Relational Database Do Best with Facts.
-- database as "source of truth"?
-- do the "facts" in a database actually occur outside of the db?
-- is the db just a camera recording the facts
-- discuss my experience with merging differing dbs (M&A)
-- 2 + 3 is always 5
-
 - this is why queues not so efficient.
-- nulls help unknown but not incorrect data
+- is the database "the source of truth" practically or literally?
+- do the "facts" stored in a DB actually occur outside of the DB?
+- is the DB just a camera recording the facts
+- merging differing DBs (M&A)
 
 * What is a Materialzed View?
-- SQL Table derived from an SQL query
-- generated columns
-- any immutable function (function is technically a relation)?
-- is a common table expression a lightweigt matview
+- SQL Table derived from an SQL query (formal)
+- Generated Columns (stored)
+- An SQL Table sourced from a process outside of database
+- is a common table expression a lightweigt matview?
+- matview generates new facts, in a sense
 
 * What is Wrong with Matview
 - redundancy
-- out of sync with source data
-- updates can be expensive
+- out of sync with source tables/data
+- updates can be expensive (incremental!)
 - not transparent like an index
 - programmer must explcitly use a matview, unlike index
 - programs must be aware that the are no the source of truth
+- when to delete matview - data leakage
+
+* What is Right about Matview
+- Very good for expensive or slow queries 
 
 * What is an Index ... a Materialized View?
-- can we fold a matview into an index (oracle claims)
-  example of folding (line an index)
+- a materialized view on physical location of tuples ... in a sense
+- can we fold a matview into an index (oracle claims)?
+- or just improve optimzer to recognize complex partial index.
+- does improving partial index address aggregation queries
+
+* Can Optimizer Transparently Use MatView? 
+
+  CREATE MATERIALIZED VIEW daily_sales(cust, day, sales_count)
+    AS
+      SELECT
+          cust,
+          to_char(now(), 'YYYY-MM-DD')::timestamptz;,
+          count(*)
+        FROM
+          sales
+        GROUP
+          BY 1, 2 ;
+  CREATE UNIQUE INDEX ON daily_sales(day);
+  REFRESH MATERIALIZED VIEW daily_sales;
+  
+  SELECT
+      day,
+      count(*)
+    FROM 
+      sales
+    WHERE
+      cust = 'Exxon Mobil'
+      AND
+      day = '2023/01/06'
+    GROUP BY
+      1 ;
 
 * Review PG15/16 materialize views
 - full
