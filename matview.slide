@@ -87,11 +87,13 @@ jmscott@rj2tech.com
 
 * Review PG15/16 materialize views
 - full (PG15)
-- incremenetal (PG16)
+- incremental in SQL (PG16) - breakdown in PGWik in Relational Algrbra
+- PG16 has proposed path for immediate update of IVM
 - incremental (extension pg_ivm @ pganalyze)
 - external (updates much easier)
 
 * SetSpace and Materialized views
+- MatViews strictly immutable facts derived from external processes
 
 * Links
 - [[https://wiki.postgresql.org/wiki/Incremental_View_Maintenance][PG Wiki Incremental View Maintenance]]
