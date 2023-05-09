@@ -45,6 +45,7 @@ jmscott@rj2tech.com
 - updates can be expensive
 - not transparent like an index
 - programmer must explcitly use a matview, unlike index
+- programs must be aware that the are no the source of truth
 
 * What is an Index ... a Materialized View?
 - can we fold a matview into an index (oracle claims)
