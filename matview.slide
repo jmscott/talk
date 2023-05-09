@@ -28,6 +28,7 @@ jmscott@rj2tech.com
 - do the "facts" in a database actually occur outside of the db?
 - is the db just a camera recording the facts
 - discuss my experience with merging differing dbs (M&A)
+- 2 + 3 is always 5
 
 - this is why queues not so efficient.
 - nulls help unknown but not incorrect data
