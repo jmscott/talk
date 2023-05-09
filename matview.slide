@@ -100,3 +100,5 @@ jmscott@rj2tech.com
 - [[https://www.infoq.com/presentations/Value-Values/][Value of Values by Rich Hinkey@Datatomic]]
 - [[https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql][Nine Ways to Shoot Your Foot with PostgreSQL]]
 - [[https://www.postgresql.org/docs/current/queries-with.html][Discuss Materized Concepts in CTE]]
+- [[https://scholar.google.com/citations?view_op=view_citation&hl=en&user=64zxhRUAAAAJ&citft=1&citft=2&citft=3&email_for_op=jmscott%40setspace.com&citation_for_view=64zxhRUAAAAJ:qjMakFHDy7sC][Efficient exploitation of similar subexpressions for query processing @ AliBaba]]
+- [[https://patentimages.storage.googleapis.com/4a/58/cb/ea54fd820575fc/US20060047696A1.pdf][Patent on "Partial Index" on MatView @AliBaba]]
