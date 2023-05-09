@@ -1,23 +1,62 @@
-Materialized Views for Fun and Profit
+Just the Facts About Materialized Views in SQL
 
 John Scott
-Consultant, American Messaging, 2006-now
 Founder, RJ2 Technologies, Inc, 1998-now
+Consultant, Telco Industries, 2006-now
+Creator www.setspace.com
 
 jmscott@setspace.com
 jmscott@rj2tech.com
-@setspace
+@setspace@twitter
 
 * The single biggest problem in communication is the illusion that it has taken place.
 .caption George Bernard Shaw
 
-* watch video "the value of values" by rich hinkey!
-* relational database do best with facts.  this is why queues not so efficient.
-* what is a "fact"?
-* what is an index ... a materialized view?
-* can we fold a matview into an index
-* review pg15/16 materialize views, incremenetal/full/external
-* what is wring with matview  - reduncancy & explicit/transparent (index)
-* consider generated columns
-* scan https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql
-* scan https://www.postgresql.org/docs/current/queries-with.html#id-1.5.6.12.7
+* Evangelize on Materialized Views, in and out of sql
+- I never working on a large db without using some notion of matview
+- Inside PostgresSQL
+- Running Outside PostgreSQL
+
+* What is a Fact?
+
+- video "the value of values" by rich hinkey!
+- facts are in the past
+- facts never change
+
+* Relational Database Do Best with Facts.
+- database as "source of truth"?
+- do the "facts" in a database actually occur outside of the db?
+- is the db just a camera recording the facts
+- discuss my experience with merging differing dbs (M&A)
+
+- this is why queues not so efficient.
+- nulls help unknown but not incorrect data
+
+* What is a Materialzed View?
+- SQL Table derived from an SQL query
+- generated columns
+- any immutable function (function is technically a relation)?
+- is a common table expression a lightweigt matview
+
+* What is Wrong with Matview
+- redundancy
+- out of sync with source data
+- updates can be expensive
+- not transparent like an index
+- programmer must explcitly use a matview, unlike index
+
+* What is an Index ... a Materialized View?
+- can we fold a matview into an index (oracle claims)
+  example of folding (line an index)
+
+* Review PG15/16 materialize views
+- full
+- incremental
+- external (updates much easier)
+
+* SetSpace and Materialized views
+
+* Links
+- [[https://www.postgresql.org/docs/current/queries-with.html][PG CTE Docs]]
+- [[https://www.infoq.com/presentations/Value-Values/][Value of Values by Rich Hinkey@Datatomic]]
+- [[https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql][Nine Ways to Shoot Your Foot with PostgreSQL]]
