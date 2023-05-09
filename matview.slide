@@ -86,10 +86,13 @@ jmscott@rj2tech.com
       1 ;
 
 * Review PG15/16 materialize views
-- full (PG15)
+- full view update (PG15)
+
 - incremental in SQL (PG16) - breakdown in PGWik in Relational Algrbra
 - PG16 has proposed path for immediate update of IVM
 - incremental (extension pg_ivm @ pganalyze)
+- interest in MatViews slowing on PG mail lists (~2020)
+
 - external (updates much easier)
 
 * SetSpace and Materialized views
