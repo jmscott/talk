@@ -35,19 +35,19 @@ jmscott@rj2tech.com
 
 * What is a Materialzed View?
 - SQL Table derived from an SQL query (formal)
+- MatView can be Indexed
 - Generated Columns (stored)
 - An SQL Table sourced from a process outside of database
-- is a common table expression a lightweigt matview?
-- matview generates new facts, in a sense
+- is a common table expression a lightweight matview?
+- MatView generates new facts, in a sense
 
 * What is Wrong with Matview
 - redundancy
 - out of sync with source tables/data
 - updates can be expensive (incremental!)
-- not transparent like an index
 - programmer must explcitly use a matview, unlike index
-- programs must be aware that the are no the source of truth
 - when to delete matview - data leakage
+- no side effects!
 
 * What is Right about Matview
 - Very good for expensive or slow queries 
@@ -86,13 +86,17 @@ jmscott@rj2tech.com
       1 ;
 
 * Review PG15/16 materialize views
-- full
-- incremental
+- full (PG15)
+- incremenetal (PG16)
+- incremental (extension pg_ivm @ pganalyze)
 - external (updates much easier)
 
 * SetSpace and Materialized views
 
 * Links
+- [[https://wiki.postgresql.org/wiki/Incremental_View_Maintenance][PG Wiki Incremental View Maintenance]]
+- [[https://pganalyze.com/blog/5mins-postgres-15-beta1-incremental-materialized-views-pg-ivm][Extension pg_ivm @ pganalyze]]
 - [[https://www.postgresql.org/docs/current/queries-with.html][PG CTE Docs]]
 - [[https://www.infoq.com/presentations/Value-Values/][Value of Values by Rich Hinkey@Datatomic]]
 - [[https://philbooth.me/blog/nine-ways-to-shoot-yourself-in-the-foot-with-postgresql][Nine Ways to Shoot Your Foot with PostgreSQL]]
+- [[https://www.postgresql.org/docs/current/queries-with.html][Discuss Materized Concepts in CTE]]
