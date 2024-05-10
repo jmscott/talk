@@ -1,0 +1,128 @@
+<html>
+ <head>
+  <meta
+    name="keywords"
+    content="PostgreSQL Build Compile Source Code"
+  />
+  <meta
+    name="description"
+    content="Build PostgreSQL from Scratch"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <link
+    rel="stylesheet"
+    href="pgscratch.css"
+  />
+ </head>
+
+ <body>
+  <h1>PostgreSQL from Scratch on Linux/MacOS</h1>
+
+  <p>
+    The purpose of this document is to aid the reader in building
+    a postgres server from the source code available on postgresal.org.
+    The build environments can be either modern Linux or MacOSX.
+  </p>
+
+  <h2>Before You Start</h2>
+  <p>
+    Is building PostgreSQL from scratch better than installing with a distro
+    manager, like apt or dnf?  The short answer is NO, particularly in
+    production environments.  So why build from scratch?
+    Because building from scratch teaches how to secure and extend postgresql.
+  </p>
+
+  <p>
+    To build postgres you must be familiar with a shell command
+    line inside a program often call Terminal.  The cut-n-paster
+    example in this document assume a bash shell.  Consequently, if
+    you are not at least familiar with the a shell command line,
+    then PostgreSQL from Scratch might be difficult.
+  </p>
+
+  <h2>Open Terminal</h2>
+  <p>
+    If you do not know how to open Terminal
+    -  in either Linux or MacOsX - then this document is not for you.
+    However, if you DO know how to open a Terminal then we will proceeed to
+    build PostgreSQL in the directory $HOME/opt/postgres/pgsql-16.3.
+  </p>
+
+  <h2>Setup Directories</h2>
+
+  <h2>Pull PG Source code from postgresql.org</h2>
+  <p>
+    We will build PostgreSQL under your personal linux/macosx account.
+  </p>
+
+  <h2>Setup Postgres User</h2>
+  <ol>
+   <li>Create <code>postgres</code> user account</li>
+   <li>
+     Create Directory <code>/usr/local/postgres</code>,
+     owned by user <code>postgres</code>
+   </li>
+
+   <li>
+     Become <code>postgres</code> user <code>su -l postgres</code>.
+   </li>
+
+   <li>
+     Make directory <code>~postgres/etc</code> and shell profile.
+     <pre class="terminal"g>
+       <code class="prompt">$</code>
+       <code>cat >>~/etc/profile-16.3</code>&lt;&lt;EOF
+        <code style="font-style: italic"> 
+export PGHOME=/usr/local/postgres/pgsql-16.4
+
+export PGHOST=/tmp
+export PGPORT=5432
+export PGUSER=postgres
+export PGPASSWORD=
+export PGDATA=$PGHOME/data
+
+PATH=$PGHOME/bin:$PATH
+</code>
+    </pre>
+   </li>
+  </ol>
+
+  <h2>Pull Source code from <code>postgresql.org</code> and Unpack</h2>
+  <ol>
+   <li>
+     Make directory <code>~postgres/{dist,src,etc></code>
+   </li>
+
+   <li>
+     Pull source code for postgres-16.3 from postgresql.org.
+     <pre class="terminal"g>
+       <code class="prompt">$</code> <code>cd dist/</code>
+       <code class="prompt">$</code> <code>wget https://ftp.postgresql.org/pub/source/v16.3/postgresql-16.3.tar.bz2</code>
+     </pre>
+   </li>
+
+   <li>
+     Unpack source code.
+     <pre class="terminal"g>
+     <code class="prompt">$</code> <code>cd ~/src</code>
+     <code class="prompt">$</code> <code>tar xvf ~/dist/postgresql-16.3.tar.bz2</code>
+     </pre>
+   </li>
+
+  </ol>
+
+  <h2>Build/Install PostgreSQL from Source</h2>
+  <ol>
+   <li>Make simple build shell script
+    <pre class="terminal"g>
+      <code class="prompt">$</code> <code>cd ~/src/postgresql-16.3</code>
+    </pre>
+   </li>
+  </ol>
+
+ </body>
+</html>
